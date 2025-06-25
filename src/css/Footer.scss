@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+
+.classic-footer {
+  background: linear-gradient(to bottom, #0a0603, #1a120b);
+  color: #f5cc73;
+  font-family: 'Cinzel', serif;
+  padding: 40px 30px;
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+
+    .footer-brand {
+      flex: 1;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+
+        .emoji {
+          font-size: 1.5rem;
+        }
+
+        .highlight {
+          color: gold;
+        }
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #ddd;
+      }
+
+      .heart-note {
+        margin-top: 10px;
+        color: #ff6666;
+        font-size: 0.9rem;
+
+        .heart {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+
+      h4 {
+        color: orange;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          font-size: 0.9rem;
+          color: #f5cc73;
+          margin-bottom: 6px;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #ffcc66;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0 20px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+
+    div {
+      text-align: center;
+      color: orange;
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: block;
+      }
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-top: 10px;
+
+    .footer-policy {
+      margin-top: 5px;
+
+      a {
+        color: #aaa;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #f5cc73;
+        }
+      }
+    }
+  }
+}
