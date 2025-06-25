@@ -1,0 +1,135 @@
+.categories-section {
+  padding: 60px 0;
+  background: #000000;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    color: #f59e0b;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .category-card {
+    position: relative;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(245, 158, 11, 0.3);
+    }
+
+    .card-image-container {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        opacity: 0.7;
+      }
+
+      .film-count {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px 10px;
+        border-radius: 4px;
+
+        span {
+          color: #f59e0b;
+          font-family: monospace;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &:hover .card-image {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 20px;
+      background: #111;
+
+      .category-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        .category-icon {
+          width: 20px;
+          height: 20px;
+          color: #f59e0b;
+        }
+
+        h3 {
+          font-size: 20px;
+          color: #fff;
+          margin: 0;
+        }
+      }
+
+      p {
+        color: #aaa;
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+
+      .explore-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #f59e0b;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #fff;
+        }
+
+        .chevron {
+          width: 16px;
+          height: 16px;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &:hover .chevron {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
