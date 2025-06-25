@@ -5,19 +5,24 @@ import Signup from './pages/Signup';
 import ForgotPassword from './pages/Forgotpassword';
 import Categories from './pages/Categories';
 import MoviePage from './pages/MoviesPage'; 
+import Home from './components/Home';
+import VintageSubscriptionPage from './pages/Subscription';
+import PaymentPage from './pages/Payment';
+import CricketVideoPage from './pages/Video';
+import ClassicFooter from './pages/Footer';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/categories" replace />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/movies" element={<MoviePage />} />
-      </Routes>
-    </Router>
+    <>
+    <Routes>
+      <Route path='/' element={<Signup />}/>
+      <Route path='/home' element={<Home />} />
+      <Route path='/subscription' element={<VintageSubscriptionPage />} />
+      <Route path='/payment' element={<PaymentPage/>} />
+      <Route path='/video' element={<CricketVideoPage/>} />
+      <Route path='/footer' element={<ClassicFooter/>} />
+    </Routes>
+    </>
   );
 };
 
