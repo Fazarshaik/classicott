@@ -1,40 +1,57 @@
 .categories-section {
-  padding: 60px 0;
-  background: #000000;
+  padding: 4rem 0;
+  background: #000;
+  min-height: 100vh;
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1rem;
   }
 
   .section-title {
     color: #f59e0b;
-    font-size: 36px;
+    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 40px;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 2rem;
+    font-family: 'Times New Roman', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #f59e0b, transparent);
+    }
   }
 
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 2rem;
+    margin-top: 3rem;
   }
 
   .category-card {
     position: relative;
     background: #111;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(245, 158, 11, 0.2);
 
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(245, 158, 11, 0.3);
+      border-color: rgba(245, 158, 11, 0.5);
     }
 
     .card-image-container {
@@ -57,17 +74,15 @@
 
       .film-count {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 1rem;
+        right: 1rem;
         background-color: rgba(0, 0, 0, 0.7);
-        padding: 5px 10px;
+        padding: 0.3rem 0.8rem;
         border-radius: 4px;
-
-        span {
-          color: #f59e0b;
-          font-family: monospace;
-          font-size: 14px;
-        }
+        font-family: monospace;
+        font-size: 0.9rem;
+        color: #f59e0b;
+        font-weight: bold;
       }
     }
 
@@ -76,33 +91,36 @@
     }
 
     .card-content {
-      padding: 20px;
-      background: #111;
+      padding: 1.5rem;
+      background: linear-gradient(to bottom, rgba(20, 20, 20, 0.8), #111);
 
       .category-header {
         display: flex;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 1rem;
+        margin-bottom: 1rem;
 
         .category-icon {
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
           color: #f59e0b;
+          flex-shrink: 0;
         }
 
         h3 {
-          font-size: 20px;
           color: #fff;
+          font-size: 1.3rem;
           margin: 0;
+          font-family: 'Times New Roman', serif;
         }
       }
 
       p {
         color: #aaa;
-        font-size: 14px;
-        margin-bottom: 20px;
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        min-height: 50px;
       }
 
       .explore-link {
@@ -110,26 +128,97 @@
         align-items: center;
         justify-content: space-between;
         color: #f59e0b;
-        font-size: 14px;
+        font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         cursor: pointer;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(245, 158, 11, 0.2);
 
         &:hover {
           color: #fff;
+
+          .chevron {
+            transform: translateX(5px);
+          }
         }
 
         .chevron {
-          width: 16px;
-          height: 16px;
+          width: 18px;
+          height: 18px;
           transition: transform 0.3s ease;
         }
       }
-
-      &:hover .chevron {
-        transform: translateX(5px);
-      }
     }
+
+    // Film strip decoration on left side
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      background: linear-gradient(to bottom, rgba(245, 158, 11, 0.6), rgba(245, 158, 11, 0.6));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 1rem 0;
+    }
+
+    // Film perforations
+    &::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+
+  // Art deco corners
+  .category-card::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: rgba(245, 158, 11, 0.6);
+  }
+
+  .category-card:hover::after {
+    border-color: rgba(245, 158, 11, 0.9);
+  }
+
+  .category-card::after {
+    top: 0;
+    left: 0;
+    border-left: 2px solid;
+    border-top: 2px solid;
+  }
+
+  .category-card::before {
+    top: 0;
+    right: 0;
+    border-right: 2px solid;
+    border-top: 2px solid;
+  }
+
+  .category-card .card-content::after {
+    bottom: 0;
+    left: 0;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+  }
+
+  .category-card .card-content::before {
+    bottom: 0;
+    right: 0;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
   }
 }
