@@ -1,0 +1,21 @@
+/* Add this in your index.css or a module CSS file */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fbbf24; /* Tailwind amber-400 */
+  transition: color 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #facc15; /* Tailwind amber-300 */
+}
+
+.swiper-pagination-bullet {
+  background: #fbbf24;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #facc15;
+  opacity: 1;
+}
