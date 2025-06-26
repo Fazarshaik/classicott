@@ -7,49 +7,51 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import '../css/swiper.scss'
-import TimeMachine from "./TimeMachine";
-import FeaturedMovies from "./FeaturedMovies";
+import FeaturedMovies from './FeaturedMovies'
+
+import Footer from "../pages/Footer";
+import Frame from "./Frame";
 
 const data = [
   {
     id: 1,
     title: "Casablanca",
-    image: "/assets/images/Casablanca.jpg",
+    image: "/assets/images/Casablanca.jpeg",
     rating: 8.5,
     description:
-      "A timeless love story set against the backdrop of WWII, featuring Humphrey Bogart and Ingrid Bergman.",
+      "A WWII-era romantic drama where an American nightclub owner in Casablanca must choose between love and sacrifice.",
   },
   {
     id: 2,
-    title: "Singin' in the Rain",
-    image: "/assets/images/SinginInTheRain.jpg",
-    rating: 8.3,
+    title: "The Godfather",
+    image: "/assets/images/The GodFather.jpeg",
+    rating: 9.2,
     description:
-      "A joyful musical about the transition from silent films to talkies, with iconic dance scenes and humor.",
+      "An iconic mafia saga portraying the transformation of Michael Corleone from reluctant outsider to ruthless family boss.",
   },
   {
     id: 3,
-    title: "12 Angry Men",
-    image: "/assets/images/12AngryMen.jpg",
-    rating: 9.0,
+    title: "The Wolf of Wall Street",
+    image: "/assets/images/The Wolf of Wall Street (2013).jpeg",
+    rating: 8.2,
     description:
-      "A tense courtroom drama exploring justice and reasonable doubt inside a jury room.",
+      "A wild true story of greed and excess, following stockbroker Jordan Belfort’s rise and fall in the world of finance.",
   },
   {
     id: 4,
-    title: "Rear Window",
-    image: "/assets/images/RearWindow.jpg",
-    rating: 8.5,
+    title: "Titanic",
+    image: "/assets/images/Titanic.jpeg",
+    rating: 7.9,
     description:
-      "Hitchcock’s suspense classic about a man spying on his neighbors who suspects murder.",
+      "A sweeping romance aboard the ill-fated RMS Titanic, where two lovers from different worlds meet during the disaster.",
   },
   {
     id: 5,
-    title: "Booksmart",
-    image: "/assets/images/Booksmart - 2019.jpg",
-    rating: 7.1,
+    title: "Top Gun: Maverick",
+    image: "/assets/images/Top Gun_ Maverick.jpeg",
+    rating: 8.3,
     description:
-      "Two teens try to cram four years of fun into one night before graduation. A modern cult classic.",
+      "Decades later, Maverick returns to train the next generation of Top Gun pilots, confronting his past and flying into the future.",
   },
 ];
 
@@ -105,8 +107,9 @@ const Dashboard = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <TimeMachine />
-      <FeaturedMovies />
+      <Frame />
+      <FeaturedMovies /> 
+      <Footer />
     </>
   );
 };

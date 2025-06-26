@@ -40,10 +40,16 @@ const Home = () => {
               Decades
             </Link>
             <Link
-              to="/stars"
+              to="/categories"
               className="text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
             >
-              Stars
+              Categories
+            </Link>
+             <Link
+              to="/subscription"
+              className="text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
+            >
+              Subscription
             </Link>
             <Link
               to="/collections"

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Footer.scss';
 
-const ClassicFooter = () => {
+const Footer = () => {
   return (
     <footer className="classic-footer">
       <div className="footer-top">
@@ -59,4 +59,4 @@ const ClassicFooter = () => {
   );
 };
 
-export default ClassicFooter;
+export default Footer;
