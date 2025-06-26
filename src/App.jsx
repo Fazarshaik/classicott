@@ -10,7 +10,10 @@ import VintageSubscriptionPage from './pages/Subscription';
 import PaymentPage from './pages/Payment';
 import CricketVideoPage from './pages/Video';
 import ClassicFooter from './pages/Footer';
+import DownloadPage from './pages/Download';
+import VintageHistoryPage from './pages/History';
 import MovieFrame from './components/MovieFrame';
+
 
 const App = () => {
   return (
@@ -23,6 +26,8 @@ const App = () => {
       <Route path='/payment' element={<PaymentPage/>} />
       <Route path='/video' element={<CricketVideoPage/>} />
       <Route path='/footer' element={<ClassicFooter/>} />
+      <Route path='/download' element={<DownloadPage/>} />
+      <Route path='/history' element={<VintageHistoryPage/>} />
       <Route path='/movieframe' element={<MovieFrame/>} />
     </Routes>
     </>
