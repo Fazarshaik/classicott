@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond&display=swap');
+
+.vintage-download-library {
+  background: #1a120b url('https://www.transparenttextures.com/patterns/aged-paper.png');
+  color: #f5cc73;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px #000;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.movie-ticket {
+  display: flex;
+  align-items: center;
+  background: rgba(245, 204, 115, 0.05);
+  border: 3px double #f5cc73;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: 0.3s ease;
+}
+
+.movie-ticket:hover {
+  background: rgba(245, 204, 115, 0.1);
+  transform: scale(1.01);
+}
+
+.poster {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border: 2px solid #f5cc73;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.info h2 {
+  font-size: 1.4rem;
+  margin: 0 0 5px 0;
+  color: #fff8dc;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #e5d1a2;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 2px solid #f5cc73;
+  color: #f5cc73;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #f5cc73;
+  color: #1a120b;
+}
