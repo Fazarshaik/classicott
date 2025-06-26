@@ -1,12 +1,31 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Play, Star, Film, Users } from "lucide-react";
 import Home from "./Home";
 import "../css/MovieFrame.scss";
 import movieData from "../data/movieData";
+import movies from "../data/movies";
 
 const MovieFrame = () => {
   const [activeTab, setActiveTab] = useState("trailer");
-  const selectedMovie = movieData[0]; // Titanic
+  const { movieId } = useParams();
+
+  // Find the selected movie by ID from movies.js, or default to the first movie
+  const selectedMovieFromMovies = movieId
+    ? movies.find((movie) => movie.id === parseInt(movieId)) || movies[0]
+    : movies[0];
+
+  // Find corresponding movie data from movieData.js for trailer and cast
+  const selectedMovieData =
+    movieData.find((movie) => movie.id === selectedMovieFromMovies.id) ||
+    movieData[0];
+
+  // Combine the data - use movies.js for basic info and movieData.js for trailer/cast
+  const selectedMovie = {
+    ...selectedMovieFromMovies,
+    trailer: selectedMovieData.trailer,
+    cast: selectedMovieData.cast,
+  };
 
   return (
     <>
@@ -15,7 +34,7 @@ const MovieFrame = () => {
       <div className="movie-frame">
         <div className="relative w-full h-screen text-amber-300">
           <img
-            src={selectedMovie.image}
+            src={selectedMovie.poster}
             alt={selectedMovie.title}
             className="w-full h-full object-cover"
           />
@@ -36,8 +55,6 @@ const MovieFrame = () => {
           </div>
         </div>
       </div>
-
-      {/* Tabs */}
       <div className="tabs-container">
         <div className="tabs">
           <div
@@ -86,20 +103,20 @@ const MovieFrame = () => {
               </div>
             </div>
           )}
-            {activeTab === "more" && (
+          {activeTab === "more" && (
             <div className="more-slider">
-            {movieData.slice(1, 5).map((movie) => (
-            <div key={movie.id} className="more-card">
-                <img src={movie.image} alt={movie.title} />
-                <div className="text">
-                <h4>{movie.title}</h4>
-                <div className="rating">
-                    <Star className="w-4 h-4" />
-                    {movie.rating}
+              {movieData.slice(1, 5).map((movie) => (
+                <div key={movie.id} className="more-card">
+                  <img src={movie.image} alt={movie.title} />
+                  <div className="text">
+                    <h4>{movie.title}</h4>
+                    <div className="rating">
+                      <Star className="w-4 h-4" />
+                      {movie.rating}
+                    </div>
+                  </div>
                 </div>
-                </div>
-            </div>
-            ))}
+              ))}
             </div>
           )}
         </div>
