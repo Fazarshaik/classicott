@@ -10,6 +10,7 @@ import VintageSubscriptionPage from './pages/Subscription';
 import PaymentPage from './pages/Payment';
 import CricketVideoPage from './pages/Video';
 import ClassicFooter from './pages/Footer';
+import Allmovies from './pages/Allmovies';
 
 const App = () => {
   return (
@@ -17,11 +18,15 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Signup />}/>
       <Route path='/home' element={<Home />} />
-      <Route path='/das' element={<Dashboard />} />
+      <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/subscription' element={<VintageSubscriptionPage />} />
       <Route path='/payment' element={<PaymentPage/>} />
       <Route path='/video' element={<CricketVideoPage/>} />
       <Route path='/footer' element={<ClassicFooter/>} />
+      <Route path='/categories' element={<Categories />}/>
+      <Route path='/moviepage' element={<MoviePage />}/>
+      <Route path='/allmovies' element={<Allmovies />}/>
+
     </Routes>
     </>
   );
