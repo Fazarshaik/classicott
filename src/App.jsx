@@ -3,7 +3,7 @@ import './App.scss';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/Forgotpassword';
 import Categories from './pages/Categories';
-import MoviePage from './pages/MoviesPage'; 
+import MoviesPage from './pages/MoviesPage';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import VintageSubscriptionPage from './pages/Subscription';
@@ -13,13 +13,18 @@ import ClassicFooter from './pages/Footer';
 import DownloadPage from './pages/Download';
 import VintageHistoryPage from './pages/History';
 import MovieFrame from './components/MovieFrame';
+import Login from './pages/Login';
 
 
 const App = () => {
   return (
-    <>
     <Routes>
-      <Route path='/' element={<Signup />}/>
+      <Route path='/' element={<Signup />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/forgot-password' element={<ForgotPassword />} />
+      <Route path='/categories' element={<Categories />} />
+      <Route path="/movies" element={<MoviesPage />} />
+       
       <Route path='/home' element={<Home />} />
       <Route path='/das' element={<Dashboard />} />
       <Route path='/subscription' element={<VintageSubscriptionPage />} />
@@ -30,7 +35,6 @@ const App = () => {
       <Route path='/history' element={<VintageHistoryPage/>} />
       <Route path='/movieframe' element={<MovieFrame/>} />
     </Routes>
-    </>
   );
 };
 
