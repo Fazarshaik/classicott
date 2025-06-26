@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
 
 .vintage-payment-page {
@@ -212,4 +213,38 @@ background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' 
     border: 2px solid gold; /* Visible border when selected */
     box-shadow: 0 0 15px gold;
   }
-    
+  .custom-toast-top {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    z-index: 1000;
+    animation: fadein 0.3s ease, fadeout 0.3s ease 2.7s;
+  }
+  
+  .custom-toast-top.success {
+    background-color: #28a745;
+    color: #fff;
+    box-shadow: 0 0 10px #28a745;
+  }
+  
+  .custom-toast-top.error {
+    background-color: #c0392b;
+    color: #fff;
+    box-shadow: 0 0 10px #c0392b;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; top: 10px; }
+    to   { opacity: 1; top: 20px; }
+  }
+  
+  @keyframes fadeout {
+    from { opacity: 1; top: 20px; }
+    to   { opacity: 0; top: 10px; }
+  }
+  
