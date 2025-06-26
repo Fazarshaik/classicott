@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Signup from './pages/Signup';
+import Login from './pages/Login';
 import ForgotPassword from './pages/Forgotpassword';
 import Categories from './pages/Categories';
 import MoviePage from './pages/MoviesPage'; 
@@ -13,12 +14,16 @@ import ClassicFooter from './pages/Footer';
 import DownloadPage from './pages/Download';
 import VintageHistoryPage from './pages/History';
 import MovieFrame from './components/MovieFrame';
+import ProfilePage from './pages/Profile';
 
 const App = () => {
   return (
     <>
     <Routes>
       <Route path='/' element={<Signup />}/>
+      <Route path='/signup' element={<Signup />}/>
+      <Route path='/login' element={<Login />}/>
+      <Route path='/forgot-password' element={<ForgotPassword />}/>
       <Route path='/home' element={<Home />} />
       <Route path='/das' element={<Dashboard />} />
       <Route path='/subscription' element={<VintageSubscriptionPage />} />
@@ -28,6 +33,7 @@ const App = () => {
       <Route path='/download' element={<DownloadPage/>} />
       <Route path='/history' element={<VintageHistoryPage/>} />
       <Route path='/movieframe' element={<MovieFrame/>} />
+      <Route path='/profile' element={<ProfilePage/>} />
     </Routes>
     </>
   );

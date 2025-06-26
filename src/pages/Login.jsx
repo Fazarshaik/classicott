@@ -22,8 +22,8 @@ const Login = () => {
       storedUser.password === formData.password
     ) {
       toast.success('🎬 Login successful!');
-      // You can redirect to profile page
-      // navigate('/profile');
+      // Redirect to profile page after successful login
+      navigate('/profile');
     } else {
       toast.error('❌ Invalid email or password');
     }
