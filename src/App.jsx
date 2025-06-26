@@ -12,6 +12,8 @@ import CricketVideoPage from './pages/Video';
 import ClassicFooter from './pages/Footer';
 import DownloadPage from './pages/Download';
 import VintageHistoryPage from './pages/History';
+import MovieFrame from './components/MovieFrame';
+
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
       <Route path='/footer' element={<ClassicFooter/>} />
       <Route path='/download' element={<DownloadPage/>} />
       <Route path='/history' element={<VintageHistoryPage/>} />
+      <Route path='/movieframe' element={<MovieFrame/>} />
     </Routes>
     </>
   );
