@@ -1,6 +1,17 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Play, Pause, Volume2, VolumeX, Maximize, SkipBack, SkipForward, Settings, Download, Sun } from "lucide-react";
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize,
+  SkipBack,
+  SkipForward,
+  Settings,
+  Download,
+  Sun,
+} from "lucide-react";
 import "../css/Video.scss";
 
 const VintageVideoPlayer = () => {
@@ -26,10 +37,10 @@ const VintageVideoPlayer = () => {
     duration: "3h 14m",
     poster: "/assets/images/Titanic.jpeg",
     videoSources: {
-      "720p": "/assets/videos/titanic-720p.mp4",
-      "480p": "/assets/videos/titanic-480p.mp4", 
-      "360p": "/assets/videos/titanic-360p.mp4"
-    }
+      "720p": "/assets/Videos/Titani.mp4",
+      "480p": "/assets/Videos/Titani1.mp4",
+      "360p": "/assets/Videos/Titani2.mp4",
+    },
   };
 
   // Get movie data from navigation state or use default Titanic
@@ -76,21 +87,33 @@ const VintageVideoPlayer = () => {
 
   const handleQualityChange = (newQuality) => {
     const currentTime = videoRef.current?.currentTime || 0;
+    const wasPlaying = isPlaying;
     setQuality(newQuality);
     setShowQualityMenu(false);
-    
+
     // Update video source
     if (videoRef.current) {
       videoRef.current.src = movieData.videoSources[newQuality];
       videoRef.current.currentTime = currentTime;
-      if (isPlaying) {
-        videoRef.current.play();
-      }
+
+      // Wait for the video to be ready before playing
+      videoRef.current.addEventListener(
+        "loadeddata",
+        function onLoadedData() {
+          if (wasPlaying) {
+            videoRef.current.play().catch((error) => {
+              console.log("Playback failed:", error);
+            });
+          }
+          videoRef.current.removeEventListener("loadeddata", onLoadedData);
+        },
+        { once: true }
+      );
     }
   };
 
   const handleDownload = (quality) => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = movieData.videoSources[quality];
     link.download = `${movieData.title}-${quality}.mp4`;
     link.click();
@@ -123,7 +146,7 @@ const VintageVideoPlayer = () => {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   useEffect(() => {
@@ -162,7 +185,9 @@ const VintageVideoPlayer = () => {
         </button>
         <div className="movie-info">
           <h1 className="movie-title">{movieData.title}</h1>
-          <p className="movie-meta">{movieData.year} • {movieData.duration} • {movieData.director}</p>
+          <p className="movie-meta">
+            {movieData.year} • {movieData.duration} • {movieData.director}
+          </p>
         </div>
       </div>
 
@@ -184,26 +209,30 @@ const VintageVideoPlayer = () => {
             </video>
 
             {/* Video Controls Overlay */}
-            <div className={`video-controls-overlay ${showOverlayControls ? "show" : ""}`}>
+            <div
+              className={`video-controls-overlay ${
+                showOverlayControls ? "show" : ""
+              }`}
+            >
               {/* Top Controls */}
               <div className="top-controls">
                 <div className="movie-title-overlay">{movieData.title}</div>
                 <div className="top-right-controls">
-                  <button 
+                  <button
                     className="control-button"
                     onClick={() => setShowBrightnessMenu(!showBrightnessMenu)}
                   >
                     <Sun className="w-5 h-5" />
                     {brightness}%
                   </button>
-                  <button 
+                  <button
                     className="control-button"
                     onClick={() => setShowQualityMenu(!showQualityMenu)}
                   >
                     <Settings className="w-5 h-5" />
                     {quality}
                   </button>
-                  <button 
+                  <button
                     className="control-button"
                     onClick={() => setShowDownloadMenu(!showDownloadMenu)}
                   >
@@ -215,28 +244,42 @@ const VintageVideoPlayer = () => {
               {/* Center Play Button */}
               <div className="center-controls">
                 <button className="play-button" onClick={togglePlay}>
-                  {isPlaying ? <Pause className="w-12 h-12" /> : <Play className="w-12 h-12" />}
+                  {isPlaying ? (
+                    <Pause className="w-12 h-12" />
+                  ) : (
+                    <Play className="w-12 h-12" />
+                  )}
                 </button>
               </div>
 
               {/* Bottom Controls */}
               <div className="bottom-controls">
                 <div className="progress-bar">
-                  <div 
-                    className="progress-fill" 
+                  <div
+                    className="progress-fill"
                     style={{ width: `${(currentTime / duration) * 100}%` }}
                   ></div>
                 </div>
-                
+
                 <div className="control-buttons">
                   <div className="left-controls">
                     <button className="control-button" onClick={togglePlay}>
-                      {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                      {isPlaying ? (
+                        <Pause className="w-5 h-5" />
+                      ) : (
+                        <Play className="w-5 h-5" />
+                      )}
                     </button>
-                    <button className="control-button" onClick={handleSkipBackward}>
+                    <button
+                      className="control-button"
+                      onClick={handleSkipBackward}
+                    >
                       <SkipBack className="w-5 h-5" />
                     </button>
-                    <button className="control-button" onClick={handleSkipForward}>
+                    <button
+                      className="control-button"
+                      onClick={handleSkipForward}
+                    >
                       <SkipForward className="w-5 h-5" />
                     </button>
                     <div className="time-display">
@@ -246,11 +289,19 @@ const VintageVideoPlayer = () => {
 
                   <div className="right-controls">
                     <div className="volume-control">
-                      <button 
+                      <button
                         className="control-button"
-                        onClick={() => handleVolumeChange({ target: { value: volume === 0 ? 50 : 0 } })}
+                        onClick={() =>
+                          handleVolumeChange({
+                            target: { value: volume === 0 ? 50 : 0 },
+                          })
+                        }
                       >
-                        {volume === 0 ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                        {volume === 0 ? (
+                          <VolumeX className="w-5 h-5" />
+                        ) : (
+                          <Volume2 className="w-5 h-5" />
+                        )}
                       </button>
                       <input
                         type="range"
@@ -261,7 +312,10 @@ const VintageVideoPlayer = () => {
                         className="volume-slider"
                       />
                     </div>
-                    <button className="control-button" onClick={handleFullscreen}>
+                    <button
+                      className="control-button"
+                      onClick={handleFullscreen}
+                    >
                       <Maximize className="w-5 h-5" />
                     </button>
                   </div>
@@ -292,7 +346,9 @@ const VintageVideoPlayer = () => {
                 {Object.keys(movieData.videoSources).map((q) => (
                   <button
                     key={q}
-                    className={`quality-option ${quality === q ? 'active' : ''}`}
+                    className={`quality-option ${
+                      quality === q ? "active" : ""
+                    }`}
                     onClick={() => handleQualityChange(q)}
                   >
                     {q}
