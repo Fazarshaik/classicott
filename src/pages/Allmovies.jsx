@@ -1,18 +1,21 @@
 import React, { useState, useRef } from "react";
 import { Play, Star, Calendar, Clock, Award, Plus } from "lucide-react";
-import movies from "../data/movies"; // Ensure this includes frameImages
+import allmovies from "../data/allmoviedata";
+import Home from "../components/Home";
+import { useMyList } from "../context/MyListContex"; 
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
-  const frameIndexRef = useRef(0);  
+  const frameIndexRef = useRef(0);
+
+  const { addToList } = useMyList(); 
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
-
     frameIndexRef.current = 0;
     setCurrentFrame(movie.frameImages[0]);
- 
+
     intervalRef.current = setInterval(() => {
       frameIndexRef.current =
         (frameIndexRef.current + 1) % movie.frameImages.length;
@@ -26,7 +29,8 @@ const MovieCard = ({ movie }) => {
   };
 
   const handleAddToList = () => {
-    alert(`Added "${movie.title}" to your list!`);
+    addToList(movie); // ✅ Add to context list
+    alert(`✅ "${movie.title}" added to My List!`);
   };
 
   return (
@@ -35,14 +39,12 @@ const MovieCard = ({ movie }) => {
       onMouseEnter={startPreview}
       onMouseLeave={stopPreview}
     >
-      {/* Film Strip Top */}
       <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
         {[...Array(4)].map((_, i) => (
           <div key={i} className="w-1 h-1 bg-black/40 rounded-full"></div>
         ))}
       </div>
 
-      {/* Poster or Preview */}
       <div className="relative w-[320px] h-[320px] overflow-hidden mx-auto mt-2 rounded">
         <img
           src={currentFrame || movie.poster}
@@ -58,14 +60,11 @@ const MovieCard = ({ movie }) => {
           }}
         />
 
-
-        {/* Star Rating */}
         <div className="absolute top-2 right-2 bg-black/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center space-x-1 border border-amber-600/30 text-xs">
           <Star className="w-3 h-3 text-amber-400 fill-current" />
           <span className="text-white font-bold">{movie.rating}</span>
         </div>
 
-        {/* Award Badge */}
         {parseFloat(movie.rating) >= 8.5 && (
           <div className="absolute top-2 left-2 bg-gradient-to-r from-amber-600 to-amber-500 rounded-full p-1">
             <Award className="w-3 h-3 text-white" />
@@ -73,7 +72,6 @@ const MovieCard = ({ movie }) => {
         )}
       </div>
 
-      {/* Movie Info */}
       <div className="px-3 py-2">
         <h3 className="text-white text-sm font-semibold mb-1 line-clamp-2">
           {movie.title}
@@ -90,9 +88,7 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
 
-        <p className="text-amber-100 text-xs line-clamp-2">
-          {movie.description}
-        </p>
+        <p className="text-amber-100 text-xs line-clamp-2">{movie.description}</p>
 
         <div className="flex flex-wrap gap-1 mt-2">
           {movie.genre
@@ -108,8 +104,6 @@ const MovieCard = ({ movie }) => {
             ))}
         </div>
 
-        {/* Add to My List Button */}
-        {/* Always-visible action buttons */}
         <div className="mt-3 flex justify-center gap-3">
           <button className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition">
             <Play className="w-4 h-4" />
@@ -126,7 +120,6 @@ const MovieCard = ({ movie }) => {
         </div>
       </div>
 
-      {/* Film Strip Bottom */}
       <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
         {[...Array(4)].map((_, i) => (
           <div key={i} className="w-1 h-1 bg-black/40 rounded-full"></div>
@@ -138,17 +131,20 @@ const MovieCard = ({ movie }) => {
 
 const Allmovies = () => {
   return (
-    <div className="px-4 py-6">
-       <h2 className="text-4xl md:text-5xl font-extrabold text-center text-amber-400 mb-12 font-serif tracking-wide drop-shadow-lg">
-        🍿 Our Movie Collection
-      </h2>
+    <>
+      <Home />
+      <div className="px-4 py-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-amber-400 mb-12 font-serif tracking-wide drop-shadow-lg">
+          🍿 Our Movie Collection
+        </h2>
 
-      <div className="flex flex-wrap justify-center gap-6">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        <div className="flex flex-wrap justify-center gap-6">
+          {allmovies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

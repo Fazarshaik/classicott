@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
  
-const FrameByFramePreview = ({ frameImages = [], poster, width = '220px', height = '320px' }) => {
+const FrameByFramePreview = ({ frameImages = [], poster, width = '280px', height = '380px' }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);

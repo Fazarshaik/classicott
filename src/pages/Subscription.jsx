@@ -200,6 +200,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // ✅ Import navigate
 import '../css/Subscription.scss';
+import Home from '../components/Home';
 
 function VintageSubscriptionPage() {
   const navigate = useNavigate(); // ✅
@@ -252,6 +253,8 @@ function VintageSubscriptionPage() {
   };
 
   return (
+    <>
+    <Home />
     <div className="vintage-subscription-page">
       <header className="page-header">
         <span className="star-icon">✦</span>
@@ -285,6 +288,7 @@ function VintageSubscriptionPage() {
         ))}
       </section>
     </div>
+    </>
   );
 }
 
