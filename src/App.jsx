@@ -15,6 +15,7 @@ import DownloadPage from "./pages/Download";
 import VintageHistoryPage from "./pages/History";
 import MovieFrame from "./components/MovieFrame";
 import Login from "./pages/Login";
+import ProfilePage from "./pages/Profile";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
       <Route path="/history" element={<VintageHistoryPage />} />
       <Route path="/movieframe" element={<MovieFrame />} />
       <Route path="/movieframe/:movieId" element={<MovieFrame />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 };
