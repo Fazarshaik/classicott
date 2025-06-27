@@ -38,6 +38,7 @@ const App = () => {
       <Route path="/download" element={<DownloadPage />} />
       <Route path="/history" element={<VintageHistoryPage />} />
       <Route path="/movieframe" element={<MovieFrame />} />
+      <Route path="/movieframe/:movieId" element={<MovieFrame />} />
     </Routes>
   );
 };
