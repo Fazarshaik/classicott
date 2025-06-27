@@ -10,29 +10,39 @@ const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    rememberMe: false,
   });
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const storedUser = JSON.parse(localStorage.getItem('classicUser'));
-    if (
-      storedUser &&
-      storedUser.email === formData.email &&
-      storedUser.password === formData.password
-    ) {
+    let valid = true;
+
+    setEmailError('');
+    setPasswordError('');
+
+    if (!storedUser || storedUser.email !== formData.email) {
+      setEmailError('Invalid or unregistered email address');
+      valid = false;
+    }
+
+    if (!storedUser || storedUser.password !== formData.password) {
+      setPasswordError('Incorrect password');
+      valid = false;
+    }
+
+    if (valid) {
       toast.success('🎬 Login successful!');
-      // You can redirect to profile page
-      // navigate('/profile');
-    } else {
-      toast.error('❌ Invalid email or password');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1500);
     }
   };
 
   return (
     <div className="login-overlay">
       <div className="login-modal">
-        {/* Frame border layers */}
         <div className="login-frame"></div>
         <div className="login-frame-inner"></div>
 
@@ -56,7 +66,6 @@ const Login = () => {
                 <Mail className="form-icon" />
                 <input
                   type="email"
-                  required
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -65,6 +74,7 @@ const Login = () => {
                   className="form-input"
                 />
               </div>
+              {emailError && <p className="error-message">{emailError}</p>}
             </div>
 
             {/* Password Field */}
@@ -74,7 +84,6 @@ const Login = () => {
                 <Lock className="form-icon" />
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  required
                   value={formData.password}
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
@@ -90,14 +99,12 @@ const Login = () => {
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
+              {passwordError && <p className="error-message">{passwordError}</p>}
             </div>
 
             {/* Options */}
             <div className="login-options">
-              <label className="remember-label">
-          
-              
-              </label>
+              <label className="remember-label"></label>
               <button
                 type="button"
                 className="forgot-password-btn"
@@ -123,7 +130,7 @@ const Login = () => {
           {/* Sign up Link */}
           <div className="signup-redirect">
             New to Login?
-            <button onClick={() => navigate('/signup')} className="signup-link">
+            <button onClick={() => navigate('/')} className="signup-link">
               Signup page
             </button>
           </div>
