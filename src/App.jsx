@@ -1,6 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import ForgotPassword from "./pages/Forgotpassword";
 import Categories from "./pages/Categories";
 import MoviesPage from "./pages/MoviesPage";
@@ -14,12 +18,15 @@ import Allmovies from "./pages/Allmovies";
 import DownloadPage from "./pages/Download";
 import VintageHistoryPage from "./pages/History";
 import MovieFrame from "./components/MovieFrame";
-import Login from "./pages/Login";
 import ProfilePage from "./pages/Profile";
 
 const App = () => {
   return (
+    <>
+    <ToastContainer
+      position="top-right"/>
     <Routes>
+      
       <Route path="/" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -42,6 +49,7 @@ const App = () => {
       <Route path="/movieframe/:movieId" element={<MovieFrame />} />
       <Route path="/profile" element={<ProfilePage />} />
     </Routes>
+    </>
   );
 };
 
