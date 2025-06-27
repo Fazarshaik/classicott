@@ -2,9 +2,12 @@
 import React from "react";
 import { Star, Calendar, Clock } from "lucide-react";
 
-const Card = ({ imageUrlTop, title, rating, year, duration, genre, description }) => {
+const Card = ({ imageUrlTop, title, rating, year, duration, genre, description, onClick }) => {
   return (
-    <div className="relative flex-shrink-0 w-64 h-96 from-amber-900/10 via-black to-amber-900/10 rounded-lg shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105">
+    <div 
+      className="relative flex-shrink-0 w-64 h-96 from-amber-900/10 via-black to-amber-900/10 rounded-lg shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105"
+      onClick={onClick}
+    >
       {/* Poster */}
       <div className="w-full h-2/3 overflow-hidden">
         <img
