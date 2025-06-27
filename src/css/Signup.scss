@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Great+Vibes&display=swap');
 
 body {
   margin: 0;
@@ -23,6 +22,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  position: relative; /* Required for absolutely positioned child */
 }
 
 .signup-branding {
@@ -44,6 +44,31 @@ body {
   color: gold;
   text-shadow: 1px 1px 2px black;
   margin: 0;
+  white-space: nowrap;
+}
+
+/* Diagonal Logo Sign */
+.diagonal-logo {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transform: rotate(-35deg);
+  z-index: 10;
+}
+
+.diagonal-logo img {
+  width: 70px;
+  height: 70px;
+}
+
+.diagonal-logo .logo-text {
+  font-size: 2rem;
+  font-family: 'Great Vibes', cursive;
+  color: gold;
+  text-shadow: 1px 1px 2px black;
   white-space: nowrap;
 }
 
@@ -77,8 +102,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 0rem;
   background-color: #1c140d;
+  overflow: auto;
 }
 
 .signup-modal {
@@ -147,7 +173,8 @@ body {
 
 .signup-header {
   text-align: center;
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
+  margin-top: 35px;
 }
 
 .signup-header-top {
@@ -220,7 +247,7 @@ input {
 }
 
 input:invalid {
-  box-shadow: none; /* disables native red glow */
+  box-shadow: none;
 }
 
 input::placeholder {
@@ -281,13 +308,13 @@ input::placeholder {
   height: 1rem;
 }
 
-.login-redirect {
+.signup-redirect {
   text-align: center;
   font-size: 0.85rem;
   color: #fff8dc;
 }
 
-.login-link {
+.signup-link {
   color: #fbbf24;
   margin-left: 0.4rem;
   font-weight: bold;
@@ -300,4 +327,13 @@ input::placeholder {
   margin-top: 0.25rem;
   margin-left: 0.25rem;
   font-style: italic;
+}
+
+.form-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 8px;
 }

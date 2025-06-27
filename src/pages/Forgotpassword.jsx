@@ -19,7 +19,9 @@ const ForgotPassword = () => {
     const storedUser = JSON.parse(localStorage.getItem('classicUser'));
 
     if (!email) {
-      toast.error('Please enter your email');
+      if (!toast.isActive('empty-email')) {
+        toast.error('Please enter your email', { toastId: 'empty-email' });
+      }
       return;
     }
 
@@ -83,7 +85,7 @@ const ForgotPassword = () => {
   return (
     <div className="forgot-container">
       <div className="forgot-box">
-        <h2 className="forgot-title">Reset Your Password</h2>
+        <h2 className="forgot-title">Forgot Password</h2>
 
         {step === 1 && (
           <form onSubmit={handleEmailSubmit}>
