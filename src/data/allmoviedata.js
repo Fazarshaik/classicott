@@ -2,9 +2,9 @@ const allmovies = [
   {
     id: 1,
     title: "Greed",
-    poster: "/assets/images/Greed.jpeg",
+    poster: "/assets/images/1920's/the General_1926.jpeg",
     rating: "8.0",
-    year: "1924",
+    year: "1926",
     duration: "4h",
     genre: "Silent Era",
     director: "Erich von Stroheim",
@@ -14,7 +14,7 @@ const allmovies = [
   {
     id: 2,
     title: "The Gold Rush",
-    poster: "/assets/images/TheGoldRush.jpeg",
+    poster: "/assets/images/1920's/Gold Rush_1925.jpeg",
     rating: "8.2",
     year: "1925",
     duration: "1h 35m",
@@ -26,7 +26,7 @@ const allmovies = [
   {
     id: 3,
     title: "Metropolis",
-    poster: "/assets/images/Metropolis.jpeg",
+    poster: "/assets/images/1920's/Metropolis_1927.jpeg",
     rating: "8.3",
     year: "1927",
     duration: "2h 30m",
@@ -38,7 +38,7 @@ const allmovies = [
   {
     id: 4,
     title: "Safety Last!",
-    poster: "/assets/images/SafetyLast.jpeg",
+    poster: "/assets/images/1920's/Safety Last! (1923).jpeg",
     rating: "8.1",
     year: "1923",
     duration: "1h 13m",
@@ -50,7 +50,7 @@ const allmovies = [
   {
     id: 5,
     title: "The Crowd",
-    poster: "/assets/images/TheCrowd.jpeg",
+    poster: "/assets/images/1920's/The Crowd_1928.jpeg",
     rating: "7.9",
     year: "1928",
     duration: "1h 38m",
@@ -62,7 +62,7 @@ const allmovies = [
   {
     id: 6,
     title: "The General",
-    poster: "/assets/images/TheGeneral.jpeg",
+    poster: "/assets/images/1920's/The General_1926.jpeg",
     rating: "8.1",
     year: "1926",
     duration: "1h 27m",
@@ -74,7 +74,7 @@ const allmovies = [
   {
     id: 7,
     title: "The Jazz Singer",
-    poster: "/assets/images/TheJazzSinger.jpeg",
+    poster: "/assets/images/1920's/The Jazz Singer, 1927.jpeg",
     rating: "7.0",
     year: "1927",
     duration: "1h 29m",
@@ -86,7 +86,7 @@ const allmovies = [
   {
     id: 8,
     title: "The Kid",
-    poster: "/assets/images/TheKid.jpeg",
+    poster: "/assets/images/1920's/The kid (1921).jpeg",
     rating: "8.3",
     year: "1921",
     duration: "1h 8m",
@@ -98,7 +98,7 @@ const allmovies = [
   {
     id: 9,
     title: "Way Down East",
-    poster: "/assets/images/WayDownEast.jpeg",
+    poster: "/assets/images/1920's/Way Down East (1920).jpeg",
     rating: "7.6",
     year: "1920",
     duration: "2h 25m",
@@ -110,7 +110,7 @@ const allmovies = [
   {
     id: 10,
     title: "Wings",
-    poster: "/assets/images/Wings.jpeg",
+    poster: "/assets/images/1920's/Wings_1927.jpeg",
     rating: "7.5",
     year: "1927",
     duration: "2h 24m",
@@ -122,7 +122,7 @@ const allmovies = [
   {
     id: 11,
     title: "Snow White and the Seven Dwarfs",
-    poster: "/assets/images/SnowWhite.jpeg",
+    poster: "/assets/images/1930's/_Snow White and the Seven Dwarfs_ (1937).jpeg",
     rating: "7.6",
     year: "1937",
     duration: "1h 23m",
@@ -134,7 +134,7 @@ const allmovies = [
   {
     id: 12,
     title: "All Quiet on the Western Front",
-    poster: "/assets/images/AllQuiet.jpeg",
+    poster: "/assets/images/1930's/1930_All Quiet on the Western Front_.jpeg",
     rating: "8.1",
     year: "1930",
     duration: "2h 32m",
@@ -146,7 +146,7 @@ const allmovies = [
   {
     id: 13,
     title: "Bringing Up Baby",
-    poster: "/assets/images/BringingUpBaby.jpeg",
+    poster: "/assets/images/1930's/Bringing Up Baby (1938).jpeg",
     rating: "7.8",
     year: "1938",
     duration: "1h 42m",
@@ -158,7 +158,7 @@ const allmovies = [
   {
     id: 14,
     title: "Frankenstein",
-    poster: "/assets/images/Frankenstein.jpeg",
+    poster: "/assets/images/1930's/Frankenstein (1931).jpeg",
     rating: "7.8",
     year: "1931",
     duration: "1h 11m",
@@ -170,7 +170,7 @@ const allmovies = [
   {
     id: 15,
     title: "Freaks",
-    poster: "/assets/images/Freaks.jpeg",
+    poster: "/assets/images/1930's/Freaks (1932).jpeg",
     rating: "7.8",
     year: "1932",
     duration: "1h 4m",
@@ -182,7 +182,7 @@ const allmovies = [
   {
     id: 16,
     title: "It Happened One Night",
-    poster: "/assets/images/ItHappenedOneNight.jpeg",
+    poster: "/assets/images/1930's/It Happend One Night_1934.jpeg",
     rating: "8.1",
     year: "1934",
     duration: "1h 45m",
@@ -194,7 +194,7 @@ const allmovies = [
   {
     id: 17,
     title: "King Kong",
-    poster: "/assets/images/KingKong.jpeg",
+    poster: "/assets/images/1930's/KingKong_1933.jpeg",
     rating: "7.9",
     year: "1933",
     duration: "1h 40m",
@@ -206,7 +206,7 @@ const allmovies = [
   {
     id: 18,
     title: "Modern Times",
-    poster: "/assets/images/ModernTimes.jpeg",
+    poster: "/assets/images/1930's/Modern Times_1936.jpeg",
     rating: "8.5",
     year: "1936",
     duration: "1h 27m",
@@ -218,7 +218,7 @@ const allmovies = [
   {
     id: 19,
     title: "The 39 Steps",
-    poster: "/assets/images/The39Steps.jpeg",
+    poster: "/assets/images/1930's/The 39 Steps _1935.jpeg",
     rating: "7.6",
     year: "1935",
     duration: "1h 26m",
@@ -230,7 +230,7 @@ const allmovies = [
   {
     id: 20,
     title: "The Wizard of Oz",
-    poster: "/assets/images/WizardOfOz.jpeg",
+    poster: "/assets/images/1930's/The Wizard of Oz_1939.jpeg",
     rating: "8.0",
     year: "1939",
     duration: "1h 42m",
@@ -242,7 +242,7 @@ const allmovies = [
   {
     id: 21,
     title: "Brief Encounter",
-    poster: "/assets/images/BriefEncounter.jpeg",
+    poster: "/assets/images/1940's/Brief Encounter_1945.jpeg",
     rating: "8.0",
     year: "1945",
     duration: "1h 26m",
@@ -254,7 +254,7 @@ const allmovies = [
   {
     id: 22,
     title: "Casablanca",
-    poster: "/assets/images/Casablanca.jpeg",
+    poster: "/assets/images/1940's/Casablanca_1942.jpeg",
     rating: "8.5",
     year: "1942",
     duration: "1h 42m",
@@ -266,7 +266,7 @@ const allmovies = [
   {
     id: 23,
     title: "Citizen Kane",
-    poster: "/assets/images/CitizenKane.jpeg",
+    poster: "/assets/images/1940's/Citizen Kane_1941.jpeg",
     rating: "8.3",
     year: "1941",
     duration: "1h 59m",
@@ -278,7 +278,7 @@ const allmovies = [
   {
     id: 24,
     title: "Double Indemnity",
-    poster: "/assets/images/DoubleIndemnity.jpeg",
+    poster: "/assets/images/1940's/Double Indemnity_1944.jpeg",
     rating: "8.3",
     year: "1944",
     duration: "1h 47m",
@@ -290,7 +290,7 @@ const allmovies = [
   {
     id: 25,
     title: "It's a Wonderful Life",
-    poster: "/assets/images/ItsAWonderfulLife.jpeg",
+    poster: "/assets/images/1940's/It's a Wonderful Life _1946.jpeg",
     rating: "8.6",
     year: "1946",
     duration: "2h 10m",
@@ -302,7 +302,7 @@ const allmovies = [
   {
     id: 26,
     title: "Out of the Past",
-    poster: "/assets/images/OutOfThePast.jpeg",
+    poster: "/assets/images/1940's/Out of the Past (1947).jpeg",
     rating: "8.0",
     year: "1947",
     duration: "1h 37m",
@@ -314,7 +314,7 @@ const allmovies = [
   {
     id: 27,
     title: "Shadow of a Doubt",
-    poster: "/assets/images/ShadowOfADoubt.jpeg",
+    poster: "/assets/images/1940's/Shadow of a Doubt (1943).jpeg",
     rating: "7.8",
     year: "1943",
     duration: "1h 48m",
@@ -326,7 +326,7 @@ const allmovies = [
   {
     id: 28,
     title: "The Great Dictator",
-    poster: "/assets/images/TheGreatDictator.jpeg",
+    poster: "/assets/images/1940's/The Great Dictator_1940.jpeg",
     rating: "8.4",
     year: "1940",
     duration: "2h 5m",
@@ -338,7 +338,7 @@ const allmovies = [
   {
     id: 29,
     title: "The Red Shoes",
-    poster: "/assets/images/TheRedShoes.jpeg",
+    poster: "/assets/images/1940's/The Red Shoes_1948.jpeg",
     rating: "8.1",
     year: "1948",
     duration: "2h 13m",
@@ -350,7 +350,7 @@ const allmovies = [
   {
     id: 30,
     title: "White Heat",
-    poster: "/assets/images/WhiteHeat.jpeg",
+    poster: "/assets/images/1940's/WHITE HEAT (1949).jpeg",
     rating: "8.1",
     year: "1949",
     duration: "1h 54m",
@@ -362,7 +362,7 @@ const allmovies = [
   {
     id: 31,
     title: "Vertigo",
-    poster: "/assets/images/Vertigo.jpeg",
+    poster: "/assets/images/1950's/1958 Vertigo.jpeg",
     rating: "8.3",
     year: "1958",
     duration: "2h 8m",
@@ -374,7 +374,7 @@ const allmovies = [
   {
     id: 32,
     title: "An American in Paris",
-    poster: "/assets/images/AnAmericanInParis.jpeg",
+    poster: "/assets/images/1950's/An American in Paris (1951).jpeg",
     rating: "7.2",
     year: "1951",
     duration: "1h 54m",
@@ -386,7 +386,7 @@ const allmovies = [
   {
     id: 33,
     title: "Ben-Hur",
-    poster: "/assets/images/BenHur.jpeg",
+    poster: "/assets/images/1950's/Ben-Hur 1959.jpeg",
     rating: "8.1",
     year: "1959",
     duration: "3h 32m",
@@ -398,7 +398,7 @@ const allmovies = [
   {
     id: 34,
     title: "Giant",
-    poster: "/assets/images/Giant.jpeg",
+    poster: "/assets/images/1950's/Giant 1956.jpeg",
     rating: "7.6",
     year: "1956",
     duration: "3h 21m",
@@ -410,7 +410,7 @@ const allmovies = [
   {
     id: 35,
     title: "On the Waterfront",
-    poster: "/assets/images/OnTheWaterfront.jpeg",
+    poster: "/assets/images/1950's/On the Waterfront 1954.jpeg",
     rating: "8.1",
     year: "1954",
     duration: "1h 48m",
@@ -422,7 +422,7 @@ const allmovies = [
   {
     id: 36,
     title: "Rebel Without a Cause",
-    poster: "/assets/images/RebelWithoutACause.jpeg",
+    poster: "/assets/images/1950's/rebel without a Cause 1955.jpeg",
     rating: "7.7",
     year: "1955",
     duration: "1h 51m",
@@ -434,7 +434,7 @@ const allmovies = [
   {
     id: 37,
     title: "Roman Holiday",
-    poster: "/assets/images/RomanHoliday.jpeg",
+    poster: "/assets/images/1950's/Roman Holiday 1953.jpeg",
     rating: "8.0",
     year: "1953",
     duration: "1h 58m",
@@ -446,7 +446,7 @@ const allmovies = [
   {
     id: 38,
     title: "Singin' in the Rain",
-    poster: "/assets/images/SinginInTheRain.jpeg",
+    poster: "/assets/images/1950's/Singin in the Rain 1952.jpeg",
     rating: "8.3",
     year: "1952",
     duration: "1h 43m",
@@ -458,7 +458,7 @@ const allmovies = [
   {
     id: 39,
     title: "Sunset Boulevard",
-    poster: "/assets/images/SunsetBoulevard.jpeg",
+    poster: "/assets/images/1950's/Sunset Boulevard_1950.jpeg",
     rating: "8.4",
     year: "1950",
     duration: "1h 50m",
@@ -470,7 +470,7 @@ const allmovies = [
   {
     id: 40,
     title: "The Bridge on the River Kwai",
-    poster: "/assets/images/BridgeOnTheRiverKwai.jpeg",
+    poster: "/assets/images/1950's/The Bridge on the River Kwai (1957).jpeg",
     rating: "8.1",
     year: "1957",
     duration: "2h 41m",
@@ -482,7 +482,7 @@ const allmovies = [
   {
     id: 41,
     title: "2001: A Space Odyssey",
-    poster: "/assets/images/2001SpaceOdyssey.jpeg",
+    poster: "/assets/images/1960's/2001 A Space Odyssey 1968.jpeg",
     rating: "8.3",
     year: "1968",
     duration: "2h 29m",
@@ -494,7 +494,7 @@ const allmovies = [
   {
     id: 42,
     title: "Bonnie and Clyde",
-    poster: "/assets/images/BonnieAndClyde.jpeg",
+    poster: "/assets/images/1960's/Bonnie and Clyde 1967.jpeg",
     rating: "7.8",
     year: "1967",
     duration: "1h 51m",
@@ -506,7 +506,7 @@ const allmovies = [
   {
     id: 43,
     title: "Easy Rider",
-    poster: "/assets/images/EasyRider.jpeg",
+    poster: "/assets/images/1960's/Easy Rider 1969.jpeg",
     rating: "7.3",
     year: "1969",
     duration: "1h 35m",
@@ -518,7 +518,7 @@ const allmovies = [
   {
     id: 44,
     title: "Mary Poppins",
-    poster: "/assets/images/MaryPoppins.jpeg",
+    poster: "/assets/images/1960's/Mary Poppins 1964.jpeg",
     rating: "7.8",
     year: "1964",
     duration: "2h 19m",
@@ -530,7 +530,7 @@ const allmovies = [
   {
     id: 45,
     title: "The Apartment",
-    poster: "/assets/images/TheApartment.jpeg",
+    poster: "/assets/images/1960's/The Apartment_1960.jpeg",
     rating: "8.3",
     year: "1960",
     duration: "2h 5m",
@@ -542,7 +542,7 @@ const allmovies = [
   {
     id: 46,
     title: "The Good, the Bad and the Ugly",
-    poster: "/assets/images/TheGoodTheBadTheUgly.jpeg",
+    poster: "/assets/images/1960's/The Good, the Bad and the Ugly 1966.jpeg",
     rating: "8.8",
     year: "1966",
     duration: "2h 58m",
@@ -554,7 +554,7 @@ const allmovies = [
   {
     id: 47,
     title: "The Great Escape",
-    poster: "/assets/images/TheGreatEscape.jpeg",
+    poster: "/assets/images/1960's/The Great Escape 1963.jpeg",
     rating: "8.2",
     year: "1963",
     duration: "2h 52m",
@@ -566,7 +566,7 @@ const allmovies = [
   {
     id: 48,
     title: "The Sound of Music",
-    poster: "/assets/images/TheSoundOfMusic.jpeg",
+    poster: "/assets/images/1960's/The Sound of Music 1965.jpeg",
     rating: "8.1",
     year: "1965",
     duration: "2h 52m",
@@ -578,7 +578,7 @@ const allmovies = [
   {
     id: 49,
     title: "To Kill a Mockingbird",
-    poster: "/assets/images/ToKillAMockingbird.jpeg",
+    poster: "/assets/images/1960's/To Kill a Mockingbird 1962.jpeg",
     rating: "8.2",
     year: "1962",
     duration: "2h 9m",
@@ -590,7 +590,7 @@ const allmovies = [
   {
     id: 50,
     title: "West Side Story",
-    poster: "/assets/images/WestSideStory.jpeg",
+    poster: "/assets/images/1960's/West Side Story (1961).jpeg",
     rating: "7.6",
     year: "1961",
     duration: "2h 33m",
@@ -602,7 +602,7 @@ const allmovies = [
   {
     id: 51,
     title: "Alien",
-    poster: "/assets/images/Alien.jpeg",
+    poster: "/assets/images/1970's/Alien 1979.jpeg",
     rating: "8.5",
     year: "1979",
     duration: "1h 57m",
@@ -614,7 +614,7 @@ const allmovies = [
   {
     id: 52,
     title: "Chinatown",
-    poster: "/assets/images/Chinatown.jpeg",
+    poster: "/assets/images/1970's/Chinatown 1974.jpeg",
     rating: "8.2",
     year: "1974",
     duration: "2h 11m",
@@ -626,7 +626,7 @@ const allmovies = [
   {
     id: 53,
     title: "Grease",
-    poster: "/assets/images/Grease.jpeg",
+    poster: "/assets/images/1970's/Grease 1978.jpeg",
     rating: "7.2",
     year: "1978",
     duration: "1h 50m",
@@ -638,7 +638,7 @@ const allmovies = [
   {
     id: 54,
     title: "Jaws",
-    poster: "/assets/images/Jaws.jpeg",
+    poster: "/assets/images/1970's/Jaws 1975.jpeg",
     rating: "8.1",
     year: "1975",
     duration: "2h 4m",
@@ -650,7 +650,7 @@ const allmovies = [
   {
     id: 55,
     title: "Patton",
-    poster: "/assets/images/Patton.jpeg",
+    poster: "/assets/images/1970's/Patton 1970.jpeg",
     rating: "8.0",
     year: "1970",
     duration: "2h 52m",
@@ -662,7 +662,7 @@ const allmovies = [
   {
     id: 56,
     title: "Star Wars",
-    poster: "/assets/images/StarWars.jpeg",
+    poster: "/assets/images/1970's/Star Wars 1977.jpeg",
     rating: "8.6",
     year: "1977",
     duration: "2h 1m",
@@ -674,7 +674,7 @@ const allmovies = [
   {
     id: 57,
     title: "Taxi Driver",
-    poster: "/assets/images/TaxiDriver.jpeg",
+    poster: "/assets/images/1970's/Taxi Driver 1976.jpeg",
     rating: "8.2",
     year: "1976",
     duration: "1h 54m",
@@ -686,7 +686,7 @@ const allmovies = [
   {
     id: 58,
     title: "The Exorcist",
-    poster: "/assets/images/TheExorcist.jpeg",
+    poster: "/assets/images/1970's/The Exorcist 1973.jpeg",
     rating: "8.1",
     year: "1973",
     duration: "2h 2m",
@@ -698,7 +698,7 @@ const allmovies = [
   {
     id: 59,
     title: "The French Connection",
-    poster: "/assets/images/TheFrenchConnection.jpeg",
+    poster: "/assets/images/1970's/The French Connection 1971.jpeg",
     rating: "7.7",
     year: "1971",
     duration: "1h 44m",
@@ -710,7 +710,7 @@ const allmovies = [
   {
     id: 60,
     title: "The Godfather",
-    poster: "/assets/images/TheGodfather.jpeg",
+    poster: "/assets/images/1970's/The Godfather 1972.jpeg",
     rating: "9.2",
     year: "1972",
     duration: "2h 55m",
