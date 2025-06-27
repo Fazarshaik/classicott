@@ -236,3 +236,18 @@
   margin-top: 4px;
   margin-left: 2px;
 }
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-icon {
+  position: absolute;
+  left: 10px;
+  color: #d97706;
+}
+
+.form-input {
+  padding: 10px 36px 10px 36px; // Enough space for both icon and eye toggle
+}
