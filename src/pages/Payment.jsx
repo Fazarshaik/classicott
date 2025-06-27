@@ -16,12 +16,83 @@ const PaymentPage = () => {
   const [upiId, setUpiId] = useState('');
   const [toast, setToast] = useState({ message: '', type: '' });
   const [paymentSummary, setPaymentSummary] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
 
   useEffect(() => {
     if (location.state?.selectedPlan) {
       setSelectedPlan(location.state.selectedPlan.id);
     }
   }, [location]);
+
+  // Enhanced validation functions
+  const validateCardNumber = (number) => {
+    if (!number) return 'Card number is required';
+    if (number.length !== 16) return 'Card number must be 16 digits';
+    if (!/^\d{16}$/.test(number)) return 'Card number must contain only digits';
+    
+    // Luhn algorithm for card validation
+    let sum = 0;
+    let isEven = false;
+    for (let i = number.length - 1; i >= 0; i--) {
+      let digit = parseInt(number[i]);
+      if (isEven) {
+        digit *= 2;
+        if (digit > 9) digit -= 9;
+      }
+      sum += digit;
+      isEven = !isEven;
+    }
+    if (sum % 10 !== 0) return 'Invalid card number';
+    return '';
+  };
+
+  const validateExpiry = (expiry) => {
+    if (!expiry) return 'Expiry date is required';
+    if (!/^\d{2}\/\d{2}$/.test(expiry)) return 'Invalid format (MM/YY)';
+    
+    const [month, year] = expiry.split('/');
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear() % 100;
+    const currentMonth = currentDate.getMonth() + 1;
+    
+    if (parseInt(month) < 1 || parseInt(month) > 12) return 'Invalid month';
+    if (parseInt(year) < currentYear || (parseInt(year) === currentYear && parseInt(month) < currentMonth)) {
+      return 'Card has expired';
+    }
+    return '';
+  };
+
+  const validateCVV = (cvv) => {
+    if (!cvv) return 'CVV is required';
+    if (cvv.length !== 3) return 'CVV must be 3 digits';
+    if (!/^\d{3}$/.test(cvv)) return 'CVV must contain only digits';
+    return '';
+  };
+
+  const validateCardholderName = (name) => {
+    if (!name.trim()) return 'Cardholder name is required';
+    if (name.trim().length < 2) return 'Name must be at least 2 characters';
+    if (!/^[a-zA-Z\s]+$/.test(name)) return 'Name can only contain letters and spaces';
+    return '';
+  };
+
+  const validateUPI = (upi) => {
+    if (!upi.trim()) return 'UPI ID is required';
+    if (upi.length < 10) return 'UPI ID must be at least 10 characters';
+    if (upi.length > 50) return 'UPI ID is too long';
+    
+    // Enhanced UPI validation pattern
+    const upiRegex = /^[a-z0-9._-]+@[a-z]{2,}$/;
+    if (!upiRegex.test(upi)) return 'Invalid UPI format (e.g., username@bank)';
+    
+    // Check for common UPI providers
+    const validProviders = ['upi', 'okicici', 'paytm', 'phonepe', 'amazonpay', 'googlepay'];
+    const provider = upi.split('@')[1];
+    if (!validProviders.includes(provider)) {
+      return 'Please use a valid UPI provider';
+    }
+    return '';
+  };
 
   const showToast = (message, type = 'info') => {
     setToast({ message, type });
@@ -31,13 +102,36 @@ const PaymentPage = () => {
   const handleCardChange = (e) => {
     const { name, value } = e.target;
     let val = value;
-    if (name === 'name') val = val.replace(/[^a-zA-Z\s]/g, '');
-    else if (name === 'number') val = val.replace(/\D/g, '').slice(0, 16);
-    else if (name === 'expiry') {
+    
+    // Input formatting
+    if (name === 'name') {
+      val = val.replace(/[^a-zA-Z\s]/g, '').slice(0, 50);
+    } else if (name === 'number') {
+      val = val.replace(/\D/g, '').slice(0, 16);
+      // Add spaces for better readability
+      if (val.length > 0) {
+        val = val.replace(/(\d{4})(?=\d)/g, '$1 ');
+      }
+    } else if (name === 'expiry') {
       val = val.replace(/\D/g, '').slice(0, 4);
       if (val.length > 2) val = `${val.slice(0, 2)}/${val.slice(2)}`;
-    } else if (name === 'cvv') val = val.replace(/\D/g, '').slice(0, 3);
+    } else if (name === 'cvv') {
+      val = val.replace(/\D/g, '').slice(0, 3);
+    }
+    
     setCardDetails({ ...cardDetails, [name]: val });
+    
+    // Real-time validation
+    let error = '';
+    if (name === 'name') error = validateCardholderName(val);
+    else if (name === 'number') error = validateCardNumber(val.replace(/\s/g, ''));
+    else if (name === 'expiry') error = validateExpiry(val);
+    else if (name === 'cvv') error = validateCVV(val);
+    
+    setValidationErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
   };
 
   const handleUpiChange = (e) => {
@@ -46,36 +140,60 @@ const PaymentPage = () => {
       showToast("❌ UPI should not contain capital letters", "error");
       return;
     }
-    setUpiId(input.toLowerCase().replace(/[^a-z0-9@._-]/g, ''));
+    const formattedInput = input.toLowerCase().replace(/[^a-z0-9@._-]/g, '');
+    setUpiId(formattedInput);
+    
+    // Real-time UPI validation
+    const error = validateUPI(formattedInput);
+    setValidationErrors(prev => ({
+      ...prev,
+      upi: error
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!selectedPlan) return showToast("⚠️ Please select a plan", "error");
+    
+    if (!selectedPlan) {
+      showToast("⚠️ Please select a plan", "error");
+      return;
+    }
+    
     const plan = allPlans.find((p) => p.id === selectedPlan);
 
     if (selectedMethod === 'upi') {
-      if (!upiId.trim()) return showToast("⚠️ Enter your UPI ID", "error");
-      if (upiId.length < 10) return showToast("⚠️ UPI ID must be at least 10 characters", "error");
-      const upiRegex = /^[a-z0-9._-]+@[a-z]{2,}$/;
-      if (!upiRegex.test(upiId)) return showToast("❌ Invalid UPI ID (e.g. abc12@upi)", "error");
+      const upiError = validateUPI(upiId);
+      if (upiError) {
+        showToast(`❌ ${upiError}`, "error");
+        return;
+      }
+      
       setPaymentSummary({ method: 'UPI', plan: plan.name, detail: upiId });
-      return showToast(`✅ Paid ${plan.currency}${plan.price} via UPI`, "success");
+      showToast(`✅ Payment initiated for ${plan.currency}${plan.price} via UPI`, "success");
+      return;
     }
 
     if (selectedMethod === 'card') {
       const { name, number, expiry, cvv } = cardDetails;
-      if (!name) return showToast("⚠️ Cardholder name is required", "error");
-      if (number.length !== 16) return showToast("⚠️ Card number must be 16 digits", "error");
-      if (!/^\d{2}\/\d{2}$/.test(expiry)) return showToast("⚠️ Invalid expiry format (MM/YY)", "error");
-      if (cvv.length !== 3) return showToast("⚠️ CVV must be 3 digits", "error");
+      
+      // Comprehensive card validation
+      const nameError = validateCardholderName(name);
+      const numberError = validateCardNumber(number.replace(/\s/g, ''));
+      const expiryError = validateExpiry(expiry);
+      const cvvError = validateCVV(cvv);
+      
+      if (nameError || numberError || expiryError || cvvError) {
+        const firstError = nameError || numberError || expiryError || cvvError;
+        showToast(`❌ ${firstError}`, "error");
+        return;
+      }
 
       setPaymentSummary({
         method: 'Card',
         plan: plan.name,
-        detail: `**** **** **** ${number.slice(-4)}`
+        detail: `**** **** **** ${number.replace(/\s/g, '').slice(-4)}`
       });
-      return showToast(`✅ Paid ${plan.currency}${plan.price} via Card`, "success");
+      showToast(`✅ Payment processed for ${plan.currency}${plan.price} via Card`, "success");
     }
   };
 
@@ -121,33 +239,74 @@ const PaymentPage = () => {
 
         {selectedMethod === 'card' && (
           <>
-            <label>Cardholder Name</label>
-            <input type="text" name="name" value={cardDetails.name} onChange={handleCardChange} />
-            <label>Card Number</label>
-            <input type="text" name="number" value={cardDetails.number} onChange={handleCardChange} />
+            <div className="input-group">
+              <label>Cardholder Name</label>
+              <input 
+                type="text" 
+                name="name" 
+                value={cardDetails.name} 
+                onChange={handleCardChange}
+                placeholder="Enter cardholder name"
+                className={validationErrors.name ? 'error' : ''}
+              />
+              {validationErrors.name && <span className="error-message">{validationErrors.name}</span>}
+            </div>
+            
+            <div className="input-group">
+              <label>Card Number</label>
+              <input 
+                type="text" 
+                name="number" 
+                value={cardDetails.number} 
+                onChange={handleCardChange}
+                placeholder="1234 5678 9012 3456"
+                className={validationErrors.number ? 'error' : ''}
+              />
+              {validationErrors.number && <span className="error-message">{validationErrors.number}</span>}
+            </div>
+            
             <div className="row">
-              <div>
+              <div className="input-group">
                 <label>Expiry</label>
-                <input type="text" name="expiry" value={cardDetails.expiry} onChange={handleCardChange} placeholder="MM/YY" />
+                <input 
+                  type="text" 
+                  name="expiry" 
+                  value={cardDetails.expiry} 
+                  onChange={handleCardChange} 
+                  placeholder="MM/YY"
+                  className={validationErrors.expiry ? 'error' : ''}
+                />
+                {validationErrors.expiry && <span className="error-message">{validationErrors.expiry}</span>}
               </div>
-              <div>
+              <div className="input-group">
                 <label>CVV</label>
-                <input type="password" name="cvv" value={cardDetails.cvv} onChange={handleCardChange} />
+                <input 
+                  type="password" 
+                  name="cvv" 
+                  value={cardDetails.cvv} 
+                  onChange={handleCardChange}
+                  placeholder="123"
+                  className={validationErrors.cvv ? 'error' : ''}
+                />
+                {validationErrors.cvv && <span className="error-message">{validationErrors.cvv}</span>}
               </div>
             </div>
           </>
         )}
 
         {selectedMethod === 'upi' && (
-          <>
+          <div className="input-group">
             <label>UPI ID</label>
             <input
               type="text"
-              placeholder="example@upi"
+              placeholder="username@upi"
               value={upiId}
               onChange={handleUpiChange}
+              className={validationErrors.upi ? 'error' : ''}
             />
-          </>
+            {validationErrors.upi && <span className="error-message">{validationErrors.upi}</span>}
+            <small className="help-text">Format: username@provider (e.g., john@upi, paytm@paytm)</small>
+          </div>
         )}
 
         <button type="submit">PAY NOW</button>

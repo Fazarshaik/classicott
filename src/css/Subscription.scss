@@ -1,20 +1,6 @@
-/* Import Google Fonts - I've tried to match them as closely as possible */
-/* 'Cinzel Decorative' for the main heading and plan names */
-/* 'Libre Baskerville' for price numbers */
-/* 'Lora' for features and button text */
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600&display=swap');
 
-/* Basic Reset & Body Styling */
-// body {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   font-family: 'Lora', serif; /* Default font for readability */
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-/* Page Container (Dark Background & Subtle Texture) */
 .vintage-subscription-page {
   background-color: #2b1f1a; /* Dark brown/black background */
   min-height: 100vh; /* Full viewport height */

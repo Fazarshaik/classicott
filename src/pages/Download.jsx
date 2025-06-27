@@ -11,7 +11,7 @@ const initialHistory = [
     genre: "Romance, Drama",
     description:
       "In the midst of WWII, a nightclub owner in Casablanca must choose between love and virtue.",
-    poster: "https://upload.wikimedia.org/wikipedia/en/7/7e/CasablancaPoster-Gold.jpg",
+    poster: "/assets/images/1940's/Casablanca_1942.jpeg",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const initialHistory = [
     genre: "Crime, Drama",
     description:
       "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
-    poster: "https://upload.wikimedia.org/wikipedia/en/1/1c/Godfather_ver1.jpg",
+    poster: "/assets/images/The GodFather.jpeg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const initialHistory = [
     genre: "Drama, Mystery",
     description:
       "Following the death of publishing tycoon Charles Foster Kane, reporters scramble for the meaning of his final utterance.",
-    poster: "https://upload.wikimedia.org/wikipedia/en/c/ce/Citizenkane.jpg",
+    poster: "/assets/images/1940's/Citizen Kane_1941.jpeg",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const initialHistory = [
     genre: "Drama, Romance",
     description:
       "A manipulative woman and a roguish man carry on a turbulent love affair in the American South during the Civil War.",
-    poster: "https://upload.wikimedia.org/wikipedia/en/b/b0/Gone_with_the_Wind_poster.jpg",
+    poster: "/assets/images/1930's/The Wizard of Oz_1939.jpeg",
   },
 ];
 

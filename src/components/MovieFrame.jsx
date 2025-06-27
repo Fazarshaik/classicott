@@ -1,12 +1,46 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Play, Star, Film, Users } from "lucide-react";
 import Home from "./Home";
 import "../css/MovieFrame.scss";
 import movieData from "../data/movieData";
+import movies from "../data/movies";
 
 const MovieFrame = () => {
   const [activeTab, setActiveTab] = useState("trailer");
-  const selectedMovie = movieData[0]; // Titanic
+  const { movieId } = useParams();
+  const navigate = useNavigate();
+
+  // Find the selected movie by ID from movies.js, or default to the first movie
+  const selectedMovieFromMovies = movieId
+    ? movies.find((movie) => movie.id === parseInt(movieId)) || movies[0]
+    : movies[0];
+
+  // Find corresponding movie data from movieData.js for trailer and cast
+  const selectedMovieData =
+    movieData.find((movie) => movie.id === selectedMovieFromMovies.id) ||
+    movieData[0];
+
+  // Combine the data - use movies.js for basic info and movieData.js for trailer/cast
+  const selectedMovie = {
+    ...selectedMovieFromMovies,
+    image: selectedMovieData.image,
+    trailer: selectedMovieData.trailer,
+    cast: selectedMovieData.cast,
+  };
+
+  const handleStartWatching = () => {
+    // Add videoSources to the movie data for the Video component
+    const movieWithVideoSources = {
+      ...selectedMovie,
+      videoSources: {
+        "720p": "/assets/Videos/Titanic1.mp4",
+        "480p": "/assets/Videos/Titanic2.mp4",
+        "360p": "/assets/Videos/Titanic3.mp4",
+      },
+    };
+    navigate("/video", { state: { movie: movieWithVideoSources } });
+  };
 
   return (
     <>
@@ -29,15 +63,16 @@ const MovieFrame = () => {
                 Rating: {selectedMovie.rating}/10
               </p>
             </div>
-            <button className="flex items-center space-x-2 bg-amber-600 hover:bg-amber-500 transition px-5 py-2 rounded-full text-sm font-semibold border border-amber-400">
+            <button
+              onClick={handleStartWatching}
+              className="flex items-center space-x-2 bg-amber-600 hover:bg-amber-500 transition px-5 py-2 rounded-full text-sm font-semibold border border-amber-400"
+            >
               <Play className="w-5 h-5 text-white" />
               <span>Start Watching</span>
             </button>
           </div>
         </div>
       </div>
-
-      {/* Tabs */}
       <div className="tabs-container">
         <div className="tabs">
           <div
@@ -86,20 +121,20 @@ const MovieFrame = () => {
               </div>
             </div>
           )}
-            {activeTab === "more" && (
+          {activeTab === "more" && (
             <div className="more-slider">
-            {movieData.slice(1, 5).map((movie) => (
-            <div key={movie.id} className="more-card">
-                <img src={movie.image} alt={movie.title} />
-                <div className="text">
-                <h4>{movie.title}</h4>
-                <div className="rating">
-                    <Star className="w-4 h-4" />
-                    {movie.rating}
+              {movieData.slice(8, 12).map((movie) => (
+                <div key={movie.id} className="more-card">
+                  <img src={movie.image} alt={movie.title} />
+                  <div className="text">
+                    <h4>{movie.title}</h4>
+                    <div className="rating">
+                      <Star className="w-4 h-4" />
+                      {movie.rating}
+                    </div>
+                  </div>
                 </div>
-                </div>
-            </div>
-            ))}
+              ))}
             </div>
           )}
         </div>
