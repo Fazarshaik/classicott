@@ -23,19 +23,14 @@ import MyListPage from "./pages/MyListPage";
 import TimeMachine from "./components/TimeMachine";
 // import { MyListProvider } from "./context/MyListContex";
 import { Toaster } from "react-hot-toast";
-
 import ProfilePage from "./pages/Profile";
-
 
 const App = () => {
   return (
     <>
-
     <Toaster position="top-center" reverseOrder={false} /> 
-
     <ToastContainer
       position="top-right"/>
-
     <Routes>
       
       <Route path="/" element={<Signup />} />
@@ -47,11 +42,8 @@ const App = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/subscription" element={<VintageSubscriptionPage />} />
-
-
       <Route path="/payment" element={<PaymentPage />} /> 
       <Route path="/video" element={<VintageVideoPage />} />
-
       <Route path="/footer" element={<ClassicFooter />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/allmovies" element={<Allmovies />} />
@@ -63,7 +55,6 @@ const App = () => {
       <Route path="/mylist" element={<MyListPage />} />
       <Route path="/decades" element={<TimeMachine />}/>
       <Route path="/profile" element={<ProfilePage />} />
-
     </Routes>
     </>
   );
