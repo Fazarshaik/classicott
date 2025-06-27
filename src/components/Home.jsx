@@ -28,7 +28,7 @@ const Home = () => {
         <nav className="hidden md:flex items-center space-x-8">
           
             <Link
-              to="/movies"
+              to="/allmovies"
               className="text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
             >
               Movies
@@ -52,7 +52,7 @@ const Home = () => {
               Subscription
             </Link>
             <Link
-              to="/collections"
+              to="/mylist"
               className="text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
             >
               Collections

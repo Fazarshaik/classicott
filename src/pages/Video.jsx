@@ -37,9 +37,9 @@ const VintageVideoPlayer = () => {
     duration: "3h 14m",
     poster: "/assets/images/Titanic.jpeg",
     videoSources: {
-      "720p": "/assets/Videos/Titani.mp4",
-      "480p": "/assets/Videos/Titani1.mp4",
-      "360p": "/assets/Videos/Titani2.mp4",
+      "720p": "/assets/videos/Titanic1.mp4",
+      "480p": "/assets/videos/Titanic2.mp4",
+      "360p": "/assets/videos/Titanic3.mp4",
     },
   };
 
@@ -150,6 +150,12 @@ const VintageVideoPlayer = () => {
   };
 
   useEffect(() => {
+    // Debug: Log the video sources
+    console.log("Movie data:", movieData);
+    console.log("Video sources:", movieData.videoSources);
+    console.log("Current quality:", quality);
+    console.log("Current video src:", movieData.videoSources?.[quality]);
+
     const videoWrapper = videoRef.current?.parentElement;
     if (!videoWrapper) return;
     let timeout;
@@ -174,7 +180,23 @@ const VintageVideoPlayer = () => {
       });
       clearTimeout(timeout);
     };
-  }, []);
+  }, [movieData, quality]);
+
+  // Test video file accessibility
+  useEffect(() => {
+    const testVideoAccess = async () => {
+      try {
+        const response = await fetch(movieData.videoSources?.[quality] || "");
+        console.log("Video file accessible:", response.ok);
+        console.log("Video file status:", response.status);
+        console.log("Video file headers:", response.headers);
+      } catch (error) {
+        console.error("Video file not accessible:", error);
+      }
+    };
+
+    testVideoAccess();
+  }, [movieData.videoSources, quality]);
 
   return (
     <div className="video-page">
@@ -199,12 +221,26 @@ const VintageVideoPlayer = () => {
               ref={videoRef}
               className="video-player"
               poster={movieData.poster}
-              src={movieData.videoSources[quality]}
+              src={movieData.videoSources?.[quality] || ""}
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleLoadedMetadata}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
+              onError={(e) => {
+                console.error("Video error:", e);
+                console.error("Video src:", movieData.videoSources?.[quality]);
+                console.error("Video element:", videoRef.current);
+              }}
+              controls
             >
+              <source
+                src={movieData.videoSources?.[quality] || ""}
+                type="video/mp4"
+              />
+              <source
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
 

@@ -18,11 +18,17 @@ import Allmovies from "./pages/Allmovies";
 import DownloadPage from "./pages/Download";
 import VintageHistoryPage from "./pages/History";
 import MovieFrame from "./components/MovieFrame";
+import GenrePage from "./pages/GenrePage";
+import MyListPage from "./pages/MyListPage";
+import TimeMachine from "./components/TimeMachine";
+// import { MyListProvider } from "./context/MyListContex";
+import { Toaster } from "react-hot-toast";
 import ProfilePage from "./pages/Profile";
 
 const App = () => {
   return (
     <>
+    <Toaster position="top-center" reverseOrder={false} /> 
     <ToastContainer
       position="top-right"/>
     <Routes>
@@ -40,13 +46,14 @@ const App = () => {
       <Route path="/video" element={<VintageVideoPage />} />
       <Route path="/footer" element={<ClassicFooter />} />
       <Route path="/categories" element={<Categories />} />
-      {/* <Route path="/moviepage" element={<MoviesPage />} />  */}
       <Route path="/allmovies" element={<Allmovies />} />
-
+      <Route path="/genre/:genreName" element={<GenrePage />} />
       <Route path="/download" element={<DownloadPage />} />
       <Route path="/history" element={<VintageHistoryPage />} />
       <Route path="/movieframe" element={<MovieFrame />} />
       <Route path="/movieframe/:movieId" element={<MovieFrame />} />
+      <Route path="/mylist" element={<MyListPage />} />
+      <Route path="/decades" element={<TimeMachine />}/>
       <Route path="/profile" element={<ProfilePage />} />
     </Routes>
     </>
