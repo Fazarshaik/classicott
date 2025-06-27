@@ -1,6 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import ForgotPassword from "./pages/Forgotpassword";
 import Categories from "./pages/Categories";
 import MoviesPage from "./pages/MoviesPage";
@@ -14,31 +18,29 @@ import Allmovies from "./pages/Allmovies";
 import DownloadPage from "./pages/Download";
 import VintageHistoryPage from "./pages/History";
 import MovieFrame from "./components/MovieFrame";
-import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/movies" element={<MoviesPage />} />
-
-      <Route path="/home" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/subscription" element={<VintageSubscriptionPage />} />
-      <Route path="/payment" element={<PaymentPage />} />
-      <Route path="/video" element={<CricketVideoPage />} />
-      <Route path="/footer" element={<ClassicFooter />} />
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/moviepage" element={<MoviesPage />} />
-      <Route path="/allmovies" element={<Allmovies />} />
-
-      <Route path="/download" element={<DownloadPage />} />
-      <Route path="/history" element={<VintageHistoryPage />} />
-      <Route path="/movieframe" element={<MovieFrame />} />
-    </Routes>
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/subscription" element={<VintageSubscriptionPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/video" element={<CricketVideoPage />} />
+        <Route path="/footer" element={<ClassicFooter />} />
+        <Route path="/allmovies" element={<Allmovies />} />
+        <Route path="/download" element={<DownloadPage />} />
+        <Route path="/history" element={<VintageHistoryPage />} />
+        <Route path="/movieframe" element={<MovieFrame />} />
+      </Routes>
+    </>
   );
 };
 
