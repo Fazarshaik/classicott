@@ -22,7 +22,7 @@ const initialHistory = [
     genre: "Crime, Drama",
     description:
       "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
-    poster: "/assets/images/The GodFather.jpeg",
+    poster: "/assets/images/1970's/The Godfather 1972.jpeg",
   },
   {
     id: 3,
