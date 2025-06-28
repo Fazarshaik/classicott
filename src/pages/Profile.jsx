@@ -21,6 +21,7 @@ import {
   Trash2
 } from "lucide-react";
 import "../css/Profile.scss";
+import Home from "../components/Home";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -473,6 +474,8 @@ const ProfilePage = () => {
   );
 
   return (
+    <>
+    <Home />
     <div className="profile-page">
       <div className="profile-container">
         {/* Header */}
@@ -742,6 +745,7 @@ const ProfilePage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
