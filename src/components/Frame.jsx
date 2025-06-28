@@ -40,7 +40,7 @@ const classicMovies = [
   {
     id: 10,
     title: "The Godfather",
-    image: "/assets/images/1970's/The Godfather 1972 movie.jpeg",
+    image: "/assets/images/1970's/The Godfather 1972.jpeg",
     rating: 9.2,
     description:
       "An epic tale of family, power, and betrayal, tracing the transformation of Michael Corleone into a ruthless mafia boss.",
