@@ -5,7 +5,7 @@ import Home from './Home';
 import FeaturedClassicsSection from './FeaturedClassicsSection';
 
 const decades = [
-  { value: 'all', label: 'All Eras', period: '' },
+  { value: 'all', label: 'All Eras', period: 'all era' },
   { value: '1920s', label: '1920s', period: 'Silent Era' },
   { value: '1930s', label: '1930s', period: 'Golden Dawn' },
   { value: '1940s', label: '1940s', period: 'War & Drama' },
@@ -16,7 +16,7 @@ const decades = [
 
 const TimeMachine = () => {
   const scrollRef = useRef(null);
-  const [selectedDecade, setSelectedDecade] = useState('all');
+  const [selectedDecade, setSelectedDecade] = useState('');
   const navigate = useNavigate();
 
   const scrollLeft = () => {
