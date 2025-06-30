@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card"; // Your updated frame-preview card
 // import movieData from '../data/movieData';
 import movies from "../data/movies";
@@ -6,6 +7,7 @@ import movies from "../data/movies";
 const FeaturedClassicsSection = () => {
   const scrollRef = useRef(null);
   const [scrollSpeed, setScrollSpeed] = useState(200);
+  const navigate = useNavigate();
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -25,8 +27,12 @@ const FeaturedClassicsSection = () => {
     setScrollSpeed((prev) => Math.min(prev + 100, 800)); // max speed cap
   };
 
+  const handleCardClick = (movieId) => {
+    navigate(`/movieframe/${movieId}`);
+  };
+
   return (
-    <div className="bg-gradient-to-r from-amber-900/10 via-black to-amber-900/10 text-white py-10 px-6">
+    <div className="bg-gradient-to-r bg-#1c140d-900  text-white py-10 px-6">
       {/* Header and Navigation */}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl md:text-4xl font-serif text-amber-400">
@@ -92,6 +98,7 @@ const FeaturedClassicsSection = () => {
             duration={movie.duration}
             genre={movie.genre}
             description={movie.description}
+            onClick={() => handleCardClick(movie.id)}
           />
         ))}
       </div>

@@ -50,7 +50,7 @@ const movies = [
   {
     id: 5,
     title: "2001: A Space Odyssey",
-    poster: "/assets/images/1960's/2001 A Space Odyssey 1968 movie.jpeg",
+    poster: "/assets/images/1960's/2001 A Space Odyssey 1968.jpeg",
     rating: "8.3",
     year: "1968",
     duration: "2h 29m",
@@ -62,7 +62,7 @@ const movies = [
   {
     id: 6,
     title: "The Godfather",
-    poster: "/assets/images/1970's/The Godfather 1972 movie.jpeg",
+    poster: "/assets/images/1970's/The Godfather 1972.jpeg",
     rating: "9.2",
     year: "1972",
     duration: "2h 55m",
@@ -74,7 +74,7 @@ const movies = [
   {
     id: 7,
     title: "Star Wars",
-    poster: "/assets/images/1970's/Star Wars 1977 movie.jpeg",
+    poster: "/assets/images/1970's/Star Wars 1977.jpeg",
     rating: "8.6",
     year: "1977",
     duration: "2h 1m",
@@ -86,7 +86,7 @@ const movies = [
   {
     id: 8,
     title: "Jaws",
-    poster: "/assets/images/1970's/Jaws 1975 movie.jpeg",
+    poster: "/assets/images/1970's/Jaws 1975.jpeg",
     rating: "8.0",
     year: "1975",
     duration: "2h 4m",

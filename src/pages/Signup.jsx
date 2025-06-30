@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -64,11 +65,9 @@ const Signup = () => {
           <div className="signup-frame-inner"></div>
 
           <div className="signup-content">
+            {/* ✅ Only this part was changed */}
             <div className="signup-header">
-              <div className="signup-header-top">
-                <h2 className="signup-title">signup</h2>
-              </div>
-              <div className="signup-divider"></div>
+              <h2 className="signup-title">Signup</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="signup-form">
@@ -160,9 +159,9 @@ const Signup = () => {
               <div className="divider-line"></div>
             </div>
 
-            <div className="login-redirect">
+            <div className="signup-redirect">
               Already has login?{' '}
-              <button onClick={() => navigate('/login')} className="login-link">
+              <button onClick={() => navigate('/login')} className="signup-link">
                 Log In
               </button>
             </div>

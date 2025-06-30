@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Star, Calendar, Clock, Award, Trash2, Play } from "lucide-react";
+import { Star, Calendar, Clock, Award, Trash2, Play, ChevronLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const initialHistory = [
   {
@@ -22,7 +23,7 @@ const initialHistory = [
     genre: "Crime, Drama",
     description:
       "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
-    poster: "/assets/images/The GodFather.jpeg",
+    poster: "/assets/images/1970's/The Godfather 1972.jpeg",
   },
   {
     id: 3,
@@ -50,6 +51,7 @@ const initialHistory = [
 
 const HistoryPage = () => {
   const [history, setHistory] = useState(initialHistory);
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     setHistory(history.filter((movie) => movie.id !== id));
@@ -57,6 +59,15 @@ const HistoryPage = () => {
 
   return (
     <div className="bg-[#1a120b] min-h-screen px-6 py-10 font-serif text-white">
+      {/* Back Button */}
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-6 flex items-center gap-2 text-amber-400 hover:text-white transition font-semibold"
+      >
+        <ChevronLeft className="w-5 h-5" />
+        Back
+      </button>
+
       <h1 className="text-4xl font-bold text-center text-amber-400 mb-12 drop-shadow-md">
         🎬 Downloads
       </h1>
@@ -82,10 +93,13 @@ const HistoryPage = () => {
                 className="w-full h-full object-cover transition group-hover:blur-[1px]"
               />
 
-              {/* Only Play icon on hover */}
+              {/* Play icon on hover */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="hidden group-hover:flex">
-                  <div className="bg-amber-500 text-black p-4 rounded-full shadow-xl animate-pulse cursor-pointer">
+                  <div
+                    className="bg-amber-500 text-black p-4 rounded-full shadow-xl animate-pulse cursor-pointer"
+                    onClick={() => navigate("/video")}
+                  >
                     <Play className="w-6 h-6" />
                   </div>
                 </div>
@@ -119,10 +133,6 @@ const HistoryPage = () => {
                   {movie.duration}
                 </span>
               </div>
-
-              {/* <p className="text-xs text-amber-200 mb-2 line-clamp-3">
-                {movie.description}
-              </p> */}
 
               <div className="flex flex-wrap gap-2 mt-1">
                 {movie.genre.split(",").map((g, i) => (
