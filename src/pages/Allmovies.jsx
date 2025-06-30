@@ -11,6 +11,7 @@ import allmovies from "../data/allmoviedata";
 import Home from "../components/Home";
 import { useMyList } from "../context/MyListContex";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
@@ -140,10 +141,12 @@ const MovieCard = ({ movie }) => {
         </div>
 
         <div className="mt-3 flex justify-center gap-3">
+          <Link to={'/video'}>
           <button className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition">
             <Play className="w-4 h-4" />
             Play
           </button>
+          </Link>
 
           <button
             onClick={handleAddToList}

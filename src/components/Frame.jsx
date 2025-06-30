@@ -9,16 +9,14 @@ const movieFrameData = {
     "https://image.tmdb.org/t/p/original/jdHsptJbtalEuVhCV5i7kSC3g0x.jpg", 
     "https://image.tmdb.org/t/p/original/ra8AmdbM29msIPQjToOT60LR63R.jpg", 
   ],
-
- romanHoliday: [
-  'https://image.tmdb.org/t/p/original/6f50k0bAekjxDvVvGC1SupJSzf4.jpg', 
-  'https://image.tmdb.org/t/p/original/4psf8OdNFLVGz185HG2Z5vOYXmu.jpg', 
-  'https://image.tmdb.org/t/p/original/2H9B5SGxgFoXWzMBcXYEI8WCUBB.jpg', 
-  'https://image.tmdb.org/t/p/original/9p2oLEbktIrmwaZWRJkUtuQiSH8.jpg',
-  'https://image.tmdb.org/t/p/original/zA6YXJ6DndyQyk16WinpgSy5CK8.jpg', 
-  'https://image.tmdb.org/t/p/original/aIQFhF4mH3mbInmf2C1Hgd0fokI.jpg', 
-],
-
+  romanHoliday: [
+    'https://image.tmdb.org/t/p/original/6f50k0bAekjxDvVvGC1SupJSzf4.jpg', 
+    'https://image.tmdb.org/t/p/original/4psf8OdNFLVGz185HG2Z5vOYXmu.jpg', 
+    'https://image.tmdb.org/t/p/original/2H9B5SGxgFoXWzMBcXYEI8WCUBB.jpg', 
+    'https://image.tmdb.org/t/p/original/9p2oLEbktIrmwaZWRJkUtuQiSH8.jpg',
+    'https://image.tmdb.org/t/p/original/zA6YXJ6DndyQyk16WinpgSy5CK8.jpg', 
+    'https://image.tmdb.org/t/p/original/aIQFhF4mH3mbInmf2C1Hgd0fokI.jpg', 
+  ],
   psycho: [
     "https://image.tmdb.org/t/p/original/rRwD4MoBlkBXWQ6PDnbKRSU5dDu.jpg",
     "https://image.tmdb.org/t/p/original/fVJQjlTIEczbHKi4Uk11zBBMypb.jpg",
@@ -46,14 +44,14 @@ const classicMovies = [
       "An epic tale of family, power, and betrayal, tracing the transformation of Michael Corleone into a ruthless mafia boss.",
     frameImages: movieFrameData.godfather,
   },
- {
-  id: 11,
-  title: "Roman Holiday",
-  image: "/assets/images/romanholiday.jpg",
-  rating: 8.0,
-  description: "A princess escapes her royal duties and explores Rome with a journalist in this charming romantic classic.",
-  frameImages: movieFrameData.romanHoliday,
-},
+  {
+    id: 11,
+    title: "Roman Holiday",
+    image: "/assets/images/romanholiday.jpg",
+    rating: 8.0,
+    description: "A princess escapes her royal duties and explores Rome with a journalist in this charming romantic classic.",
+    frameImages: movieFrameData.romanHoliday,
+  },
   {
     id: 8,
     title: "Psycho",
@@ -77,33 +75,36 @@ const classicMovies = [
 const Frame = () => {
   return (
     <div>
+      <h1
+        style={{
+          fontFamily: "'Cinzel Decorative', serif",
+          padding: 20,
+          color: "gold",
+          fontSize: 30,
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        🌟 Classic Movie Posters
+      </h1>
+
       <div
         style={{
           padding: 20,
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
+          justifyContent: "center",
         }}
       >
-        <h1
-          style={{
-            fontFamily: "'Cinzel Decorative', serif",
-            padding: 20,
-            color: "gold",
-            fontSize:30,
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          🌟 Classic Movie Posters
-        </h1>
-
-        {/* Displaying Classic Movies */}
         {classicMovies.map((movie) => (
           <FrameByFramePreview
             key={movie.id}
             poster={movie.image}
             frameImages={movie.frameImages}
+            title={movie.title}
+            rating={movie.rating}
+            description={movie.description}
+            videoUrl={`/video`} // ✅ Navigates to the video
           />
         ))}
       </div>

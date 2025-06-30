@@ -5,7 +5,7 @@ import {
   Palette, Camera, Wind
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import '../css/Categories.scss'; // ✅ Import your SCSS file here
+import '../css/Categories.scss'; // 
 import Home from '../components/Home';
 
 const Categories = () => {
@@ -18,42 +18,42 @@ const Categories = () => {
       title: "Silent Era",
       description: "Groundbreaking films from cinema's earliest years",
       iconType: 'Film',
-      image: "https://images.pexels.com/photos/3805983/pexels-photo-3805983.jpeg",
+      image: "/assets/images/Casablancaa.jpeg",
     },
     {
       id: 2,
       title: "Golden Dawn",
       description: "The birth of Hollywood's golden age",
       iconType: 'Sunrise',
-      image: "https://images.pexels.com/photos/3807697/pexels-photo-3807697.jpeg",
+      image: "/assets/images/NoteBook.jpeg",
     },
     {
       id: 3,
       title: "War and Drama",
       description: "Powerful stories from the battlefield and beyond",
       iconType: 'Sword',
-      image: "https://images.pexels.com/photos/3807701/pexels-photo-3807701.jpeg",
+      image: "/assets/images/The GodFather.jpeg",
     },
     {
       id: 4,
       title: "Technicolor",
       description: "Vibrant color films that defined an era",
       iconType: 'Palette',
-      image: "https://images.pexels.com/photos/3807705/pexels-photo-3807705.jpeg",
+      image: "/assets/images/1970's/Alien 1979.jpeg",
     },
     {
       id: 5,
       title: "New Wave",
       description: "Innovative films that broke cinematic conventions",
       iconType: 'Wind',
-      image: "https://images.pexels.com/photos/3807710/pexels-photo-3807710.jpeg",
+      image: "/assets/images/a space.jpeg",
     },
     {
       id: 6,
       title: "Auteur Era",
       description: "Visionary directors and their signature styles",
       iconType: 'Camera',
-      image: "https://images.pexels.com/photos/3807715/pexels-photo-3807715.jpeg",
+      image: "/assets/images/1950's/Roman Holiday 1953.jpeg",
     }
   ];
 
@@ -103,7 +103,7 @@ const Categories = () => {
                     className="card-image"
                   />
                   <div className="image-overlay"></div>
-                  <div className="film-count">4 Films</div>
+                  <div className="film-count">10 Films</div>
                 </div>
 
                 <div className="card-content">

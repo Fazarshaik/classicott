@@ -10,6 +10,7 @@ import "../css/swiper.scss";
 import FeaturedMovies from "./FeaturedMovies";
 import Footer from "../pages/Footer";
 import Frame from "./Frame";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -76,28 +77,35 @@ const Dashboard = () => {
                 className="w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-black/60 text-white flex flex-col justify-end md:justify-center items-start p-6 md:p-12">
-                <div className="max-w-xl mb-6 md:mb-12">
-                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-amber-400">
+              <div className="absolute inset-0 bg-black/60 text-white flex flex-col justify-end items-start p-6 sm:p-8 md:p-12">
+                <div className="max-w-xl mb-6 md:mb-10">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-amber-400 leading-tight">
                     {movie.title}
                   </h1>
+
                   <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
                     {movie.description}
                   </p>
-                  <p className="mt-2 text-sm sm:text-base text-amber-300 font-medium">
-                    Rating: {movie.rating}/10
+
+                  <p className="mt-3 text-sm sm:text-base text-amber-300 font-medium">
+                    ⭐ Rating: {movie.rating}/10
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4">
-                  <button className="flex items-center gap-2 bg-amber-600 hover:bg-amber-500 transition px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold border border-amber-400">
-                    <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    <span>Start Watching</span>
-                  </button>
-                  <button className="flex items-center gap-2 border border-amber-400 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-amber-500/10 transition">
-                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-                    <span>Browse Classics</span>
-                  </button>
+                <div className="flex flex-wrap items-center gap-4 mb-2 sm:mb-4">
+                  <Link to="/video">
+                    <button className="flex items-center gap-2 bg-amber-600 hover:bg-amber-500 transition px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold border border-amber-400">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <span>Start Watching</span>
+                    </button>
+                  </Link>
+
+                  <Link to="/allmovies">
+                    <button className="flex items-center gap-2 border border-amber-400 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold hover:bg-amber-500/10 transition">
+                      <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                      <span>Browse Classics</span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
