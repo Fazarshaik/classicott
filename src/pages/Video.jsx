@@ -199,19 +199,6 @@ const VintageVideoPlayer = () => {
   }, [movieData.videoSources, quality]);
 
   return (
-    // <div className="video-page">
-    //   {/* Header */}
-    //   <div className="video-header">
-    //     <button className="back-button" onClick={() => navigate(-1)}>
-    //       ⬅ Back
-    //     </button>
-    //     <div className="movie-info">
-    //       <h1 className="movie-title">{movieData.title}</h1>
-    //       <p className="movie-meta">
-    //         {movieData.year} • {movieData.duration} • {movieData.director}
-    //       </p>
-    //     </div>
-    //   </div>
     <div className="video-page">
       {/* Header */}
       <div className="video-header">
@@ -244,10 +231,13 @@ const VintageVideoPlayer = () => {
                 console.error("Video src:", movieData.videoSources?.[quality]);
                 console.error("Video element:", videoRef.current);
               }}
-              controls
             >
               <source
                 src={movieData.videoSources?.[quality] || ""}
+                type="video/mp4"
+              />
+              <source
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
