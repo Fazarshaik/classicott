@@ -54,8 +54,8 @@ const Signup = () => {
           <h1 className="logo-text">Classic Cinema</h1>
         </div>
         <div className="reel-frame">
-          <img src="/images/casablanca.jpg" alt="Casablanca" />
-          <img src="/images/gonewithwind.jpg" alt="Gone With the Wind" />
+          <img src="/assets/images/Casablanca.jpeg" alt="Casablanca" />
+          <img src="/assets/images/Titanic1.jpeg" alt="Titanic" />
         </div>
       </div>
 
