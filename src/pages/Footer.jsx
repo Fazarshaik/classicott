@@ -6,19 +6,19 @@ const Footer = () => {
   const location = useLocation();
 
   const navItems = [
+    {label: 'Home' ,path: '/dashboard'},
     { label: 'Featured Movies', path: '/allmovies' },
     { label: 'Time Machine', path: '/decades' },
-    { label: 'Classic Stars', path: '/stars' },
     { label: 'Directors', path: '/directors' },
     { label: 'Collections', path: '/mylist' },
   ];
 
   const eraItems = [
-    { label: 'Silent Era (1920s)', path: '/era/1920s' },
-    { label: 'Golden Dawn (1930s)', path: '/era/1930s' },
-    { label: 'War & Drama (1940s)', path: '/era/1940s' },
-    { label: 'Technicolor (1950s)', path: '/era/1950s' },
-    { label: 'New Wave (1960s)', path: '/era/1960s' },
+    { label: 'Silent Era' },
+    { label: 'Golden Dawn' },
+    { label: 'War and Drama' },
+    { label: 'Technicolor' },
+    { label: 'New Wave' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -61,16 +61,19 @@ const Footer = () => {
           <div>
             <h4>Golden Eras</h4>
             <ul>
-              {eraItems.map(({ label, path }) => (
-                <li key={path}>
-                  <Link
-                    to={path}
-                    className={isActive(path) ? 'active-link' : ''}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {eraItems.map(({ label }) => {
+                const path = `/genre/${encodeURIComponent(label)}`;
+                return (
+                  <li key={label}>
+                    <Link
+                      to={path}
+                      className={isActive(path) ? 'active-link' : ''}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -98,9 +101,9 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2024 Classic Cinema. Preserving film heritage since the digital age.</p>
         <div className="footer-policy">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Contact</a>
+          <Link>Privacy Policy</Link>
+           <Link>Terms of Service</Link>
+           <Link>Contact</Link>
         </div>
       </div>
     </footer>

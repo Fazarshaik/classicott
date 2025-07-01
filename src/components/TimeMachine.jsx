@@ -3,6 +3,7 @@ import { Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Home from './Home';
 import FeaturedClassicsSection from './FeaturedClassicsSection';
+import Footer from '../pages/Footer';
 
 const decades = [
   { value: 'all', label: 'All Eras', period: 'all era' },
@@ -128,6 +129,7 @@ const TimeMachine = () => {
         </div>
       </section>
       <FeaturedClassicsSection />
+      <Footer />
     </>
   );
 };
