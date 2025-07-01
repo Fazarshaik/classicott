@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +37,9 @@ const Signup = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      localStorage.setItem('classicUser', JSON.stringify(formData));
+      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+      existingUsers.push({ name: formData.name, email: formData.email, password: formData.password });
+      localStorage.setItem('users', JSON.stringify(existingUsers));
       toast.success('Signup successful! Redirecting to login...', {
         onClose: () => navigate('/login'),
         autoClose: 2000,
@@ -65,13 +66,11 @@ const Signup = () => {
           <div className="signup-frame-inner"></div>
 
           <div className="signup-content">
-            {/* ✅ Only this part was changed */}
             <div className="signup-header">
               <h2 className="signup-title">Signup</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="signup-form">
-              {/* Full Name */}
               <div className="form-group">
                 <label className="form-label">FULL NAME</label>
                 <input
@@ -86,7 +85,6 @@ const Signup = () => {
                 {errors.name && <p className="error-message">{errors.name}</p>}
               </div>
 
-              {/* Email */}
               <div className="form-group">
                 <label className="form-label">EMAIL ADDRESS</label>
                 <div className="form-input-wrapper">
@@ -104,7 +102,6 @@ const Signup = () => {
                 {errors.email && <p className="error-message">{errors.email}</p>}
               </div>
 
-              {/* Password */}
               <div className="form-group">
                 <label className="form-label">CREATE PASSWORD</label>
                 <div className="form-input-wrapper">
@@ -127,7 +124,6 @@ const Signup = () => {
                 {errors.password && <p className="error-message">{errors.password}</p>}
               </div>
 
-              {/* Confirm Password */}
               <div className="form-group">
                 <label className="form-label">CONFIRM PASSWORD</label>
                 <div className="form-input-wrapper">
