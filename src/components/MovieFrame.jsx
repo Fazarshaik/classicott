@@ -34,9 +34,9 @@ const MovieFrame = () => {
     const movieWithVideoSources = {
       ...selectedMovie,
       videoSources: {
-        "720p": "/assets/videos/Titani.mp4",
-        "480p": "/assets/videos/Titani1.mp4",
-        "360p": "/assets/videos/Titani2.mp4",
+        "720p": "/assets/videos/Titanic1.mp4",
+        "480p": "/assets/videos/Titanic2.mp4",
+        "360p": "/assets/videos/Titanic3.mp4",
       },
     };
     navigate("/video", { state: { movie: movieWithVideoSources } });

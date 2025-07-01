@@ -21,7 +21,6 @@ import MovieFrame from "./components/MovieFrame";
 import GenrePage from "./pages/GenrePage";
 import MyListPage from "./pages/MyListPage";
 import TimeMachine from "./components/TimeMachine";
-// import { MyListProvider } from "./context/MyListContex";
 import { Toaster } from "react-hot-toast";
 import ProfilePage from "./pages/Profile";
 
@@ -32,13 +31,11 @@ const App = () => {
     <ToastContainer
       position="top-right"/>
     <Routes>
-      
       <Route path="/" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/movies" element={<MoviesPage />} />
-
       <Route path="/home" element={<Home />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/subscription" element={<VintageSubscriptionPage />} />
