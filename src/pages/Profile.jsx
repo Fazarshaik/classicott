@@ -2,17 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   User, 
-  Settings, 
   Heart, 
   Clock, 
   Download, 
   CreditCard, 
   Edit3, 
   Camera,
-  Bell,
-  Shield,
-  HelpCircle,
-  LogOut,
+  
   Star,
   Calendar,
   Eye,
@@ -22,6 +18,7 @@ import {
 } from "lucide-react";
 import "../css/Profile.scss";
 import Home from "../components/Home";
+import Footer from './Footer'
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -745,6 +742,7 @@ const ProfilePage = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 };
