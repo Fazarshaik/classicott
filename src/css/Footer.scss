@@ -120,3 +120,16 @@
     }
   }
 }
+.footer-links a.active-link {
+  color: #fbbf24; // Amber-400
+  font-weight: 600;
+  border-bottom: 1px solid #fbbf24;
+}
+.footer-links a {
+  color: #fcd34d; // default
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: #fbbf24;
+}
