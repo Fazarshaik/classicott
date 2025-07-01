@@ -1,13 +1,21 @@
 // Card.jsx
 import React from "react";
 import { Star, Calendar, Clock } from "lucide-react";
+import '../css/MoviesPage.scss';
 
 const Card = ({ imageUrlTop, title, rating, year, duration, genre, description, onClick }) => {
   return (
-    <div 
-      className="relative flex-shrink-0 w-64 h-96 from-amber-900/10 via-black to-amber-900/10 rounded-lg shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105"
+    <div
+      className="relative flex-shrink-0 w-64 h-[425px] rounded-lg shadow-xl border border-amber-900/10 overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105"
       onClick={onClick}
     >
+      {/* Top Strip */}
+      <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="w-1 h-1 bg-black/40 rounded-full" />
+        ))}
+      </div>
+
       {/* Poster */}
       <div className="w-full h-2/3 overflow-hidden">
         <img
@@ -41,8 +49,15 @@ const Card = ({ imageUrlTop, title, rating, year, duration, genre, description, 
           {genre}
         </div>
 
-        {/* Optional: Short Description */}
+        {/* Description */}
         <p className="text-xs text-gray-300 line-clamp-2">{description}</p>
+      </div>
+
+      {/* Bottom Strip */}
+      <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="w-1 h-1 bg-black/40 rounded-full" />
+        ))}
       </div>
     </div>
   );

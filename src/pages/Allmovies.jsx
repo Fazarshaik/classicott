@@ -1,15 +1,24 @@
 import React, { useState, useRef } from "react";
-import { Play, Star, Calendar, Clock, Award, Plus } from "lucide-react";
+import {
+  Play,
+  Star,
+  Calendar,
+  Clock,
+  Award,
+  Plus,
+} from "lucide-react";
 import allmovies from "../data/allmoviedata";
 import Home from "../components/Home";
-import { useMyList } from "../context/MyListContex"; 
+import { useMyList } from "../context/MyListContex";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
 
-  const { addToList } = useMyList(); 
+  const { addToList, myList } = useMyList(); 
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
@@ -29,8 +38,35 @@ const MovieCard = ({ movie }) => {
   };
 
   const handleAddToList = () => {
-    addToList(movie); // ✅ Add to context list
-    alert(`✅ "${movie.title}" added to My List!`);
+    const alreadyExists = myList.some((item) => item.id === movie.id);
+
+    if (alreadyExists) {
+      toast.error(` "${movie.title}" is already in your list.`, {
+        style: {
+          background: "#1c140d",
+          color: "white",
+          border: "1px solid #ef4444",
+        },
+        iconTheme: {
+          primary: "#f87171",
+          secondary: "#1c140d",
+        },
+      });
+      return;
+    }
+
+    addToList(movie);
+    toast.success(` "${movie.title}" added to My List!`, {
+      style: {
+        background: "#1c140d",
+        color: "white",
+        border: "1px solid #d97706",
+      },
+      iconTheme: {
+        primary: "#f59e0b",
+        secondary: "#1c140d",
+      },
+    });
   };
 
   return (
@@ -105,10 +141,12 @@ const MovieCard = ({ movie }) => {
         </div>
 
         <div className="mt-3 flex justify-center gap-3">
+          <Link to={'/video'}>
           <button className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition">
             <Play className="w-4 h-4" />
             Play
           </button>
+          </Link>
 
           <button
             onClick={handleAddToList}

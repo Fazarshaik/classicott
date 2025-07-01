@@ -32,7 +32,7 @@ const FeaturedClassicsSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-amber-900/10 via-black to-amber-900/10 text-white py-10 px-6">
+    <div className="bg-gradient-to-r bg-#1c140d-900  text-white py-10 px-6">
       {/* Header and Navigation */}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl md:text-4xl font-serif text-amber-400">
