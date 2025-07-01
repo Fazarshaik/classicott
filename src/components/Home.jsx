@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import { Film, User, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { path: "/dashboard", label: "Home" },
+    { path: "/allmovies", label: "Movies" },
+    { path: "/decades", label: "Decades" },
+    { path: "/categories", label: "Categories" },
+    { path: "/subscription", label: "Subscription" },
+    { path: "/mylist", label: "MyList" },
+  ];
 
   return (
     <>
@@ -24,32 +34,19 @@ const Home = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {[
-              "/dashboard",
-              "/allmovies",
-              "/decades",
-              "/categories",
-              "/subscription",
-              "/mylist",
-            ].map((path, i) => {
-              const labels = [
-                "Home",
-                "Movies",
-                "Decades",
-                "Categories",
-                "Subscription",
-                "MyList",
-              ];
-              return (
-                <Link
-                  key={path}
-                  to={path}
-                  className="text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
-                >
-                  {labels[i]}
-                </Link>
-              );
-            })}
+            {navLinks.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`relative font-serif tracking-wide transition-colors ${
+                  location.pathname === path
+                    ? "text-amber-500 font-semibold after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-amber-500"
+                    : "text-amber-400 hover:text-amber-500"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
 
           {/* Desktop Profile Button */}
@@ -77,31 +74,20 @@ const Home = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 space-y-4 px-4 pb-4 border-t border-amber-700/20">
-            {[
-              "/allmovies",
-              "/decades",
-              "/categories",
-              "/subscription",
-              "/mylist",
-            ].map((path, i) => {
-              const labels = [
-                "Movies",
-                "Decades",
-                "Categories",
-                "Subscription",
-                "Collections",
-              ];
-              return (
-                <Link
-                  key={path}
-                  to={path}
-                  className="block text-amber-400 hover:text-amber-500 transition-colors font-serif tracking-wide"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {labels[i]}
-                </Link>
-              );
-            })}
+            {navLinks.slice(1).map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`block font-serif tracking-wide transition-colors ${
+                  location.pathname === path
+                    ? "text-amber-500 font-semibold"
+                    : "text-amber-400 hover:text-amber-500"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {label === "MyList" ? "Collections" : label}
+              </Link>
+            ))}
           </div>
         )}
       </header>
