@@ -1,127 +1,166 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Film } from 'lucide-react';
-import '../css/Login.scss';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Eye, EyeOff, User, Lock, Film } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../css/Login.scss";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const [existingUserError, setExistingUserError] = useState("");
+
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
+  const validateForm = () => {
+    const errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.trim()) {
+      errors.email = "Email is required";
+    } else if (!emailRegex.test(email)) {
+      errors.email = "Invalid email format";
+    }
+
+    if (!password.trim()) {
+      errors.password = "Password is required";
+    } else if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
+    setExistingUserError("");
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const matchedUser = users.find((user) => user.email === email && user.password === password);
+    if (!validateForm()) return;
 
-    if (matchedUser) {
-      localStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
-      navigate('/profile');
-    } else {
-      setError('Invalid email or password');
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userExists = users.some((user) => user.email === email);
+
+    if (userExists) {
+      setExistingUserError("User with this email already exists!");
+      return;
     }
+
+    const newUser = { email, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    toast.success("Successfully logged in!", {
+      position: "top-right",
+      autoClose: 2000,
+      theme: "dark",
+    });
+
+    setTimeout(() => navigate("/dashboard"), 2500);
   };
 
   return (
-    <div className="login-overlay">
-      <div className="login-modal">
+    <div className="auth-overlay">
+      <div className="auth-modal">
         <div className="film-strip left">
-          {[...Array(6)].map((_, i) => <div className="film-hole" key={i} />)}
+          {[...Array(6)].map((_, i) => (
+            <div className="film-hole" key={i} />
+          ))}
         </div>
         <div className="film-strip right">
-          {[...Array(6)].map((_, i) => <div className="film-hole" key={i} />)}
+          {[...Array(6)].map((_, i) => (
+            <div className="film-hole" key={i} />
+          ))}
         </div>
 
-        <div className="login-frame" />
-        <div className="login-frame-inner" />
+        <div className="auth-frame" />
+        <div className="auth-frame-inner" />
 
-        <div className="login-content">
-          <div className="login-header">
-            <div className="login-header-top">
+        <div className="auth-content">
+          <div className="auth-header">
+            <div className="auth-header-top">
               <Film className="film-icon" />
-              <h2 className="login-title">Classic Cinema</h2>
+              <h2 className="auth-title">Classic Cinema</h2>
             </div>
-            <p className="login-subtitle">Welcome back to the golden era</p>
-            <div className="login-divider" />
+            <p className="auth-subtitle">Welcome back to the golden era</p>
+            <div className="auth-divider" />
           </div>
 
-          <form className="login-form" onSubmit={handleLogin}>
-            <div className="form-group">
-              <label className="form-label">Email</label>
-              <div className="form-input-wrapper">
-                <User className="form-icon" />
+          <form className="auth-form" onSubmit={handleLogin}>
+            <div className="input-group">
+              <label className="input-label">Email</label>
+              <div className={`input-wrapper ${formErrors.email ? "input-error" : ""}`}>
+                <User className="input-icon" />
                 <input
                   type="email"
-                  className="form-input"
+                  className="input-field"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  required
                 />
               </div>
+              {formErrors.email && <div className="input-error-message">{formErrors.email}</div>}
             </div>
 
-            <div className="form-group">
-              <label className="form-label">Password</label>
-              <div className="form-input-wrapper">
-                <Lock className="form-icon" />
+            <div className="input-group">
+              <label className="input-label">Password</label>
+              <div className={`input-wrapper ${formErrors.password ? "input-error" : ""}`}>
+                <Lock className="input-icon" />
                 <input
-                  type={showPassword ? 'text' : 'password'}
-                  className="form-input"
+                  type={showPassword ? "text" : "password"}
+                  className="input-field"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  required
                 />
                 <button
                   type="button"
-                  className="eye-toggle"
+                  className="toggle-visibility"
                   onClick={togglePasswordVisibility}
-                  aria-label="Toggle Password Visibility"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
-              {error && <div className="error-message">{error}</div>}
+              {formErrors.password && <div className="input-error-message">{formErrors.password}</div>}
             </div>
 
-            <div className="login-options">
-              <label className="remember-label">
-                
-              </label>
+            {existingUserError && <div className="auth-error">{existingUserError}</div>}
+
+            <div className="auth-options">
               <button
                 type="button"
-                onClick={() => navigate('/forgot-password')}
+                onClick={() => navigate("/forgot-password")}
                 className="forgot-password-btn"
               >
                 Forgot Password?
               </button>
             </div>
 
-            <button type="submit" className="login-button">Login</button>
+            <button type="submit" className="auth-button">
+              Login
+            </button>
           </form>
 
-          <div className="login-divider-with-icon">
+          <div className="auth-divider-icon">
             <div className="divider-line" />
             <Film className="divider-icon" size={16} />
             <div className="divider-line" />
           </div>
 
-          <div className="signup-redirect">
+          <div className="auth-footer">
             Don’t have an account?
-            <span
-              onClick={() => navigate('/')}
-              className="signup-link"
-            >
+            <span onClick={() => navigate("/")} className="signup-link">
               Sign Up
             </span>
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

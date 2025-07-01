@@ -6,7 +6,6 @@ import FeaturedClassicsSection from './FeaturedClassicsSection';
 import Footer from '../pages/Footer';
 
 const decades = [
-  { value: 'all', label: 'All Eras', period: 'all era' },
   { value: '1920s', label: '1920s', period: 'Silent Era' },
   { value: '1930s', label: '1930s', period: 'Golden Dawn' },
   { value: '1940s', label: '1940s', period: 'War & Drama' },

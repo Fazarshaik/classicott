@@ -24,6 +24,7 @@ import TimeMachine from "./components/TimeMachine";
 // import { MyListProvider } from "./context/MyListContex";
 import { Toaster } from "react-hot-toast";
 import ProfilePage from "./pages/Profile";
+import DirectorsPage from "./components/DirectorsPage";
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
       <Route path="/mylist" element={<MyListPage />} />
       <Route path="/decades" element={<TimeMachine />}/>
       <Route path="/profile" element={<ProfilePage />} />
+       <Route path="/directors" element={<DirectorsPage />} />
     </Routes>
     </>
   );
