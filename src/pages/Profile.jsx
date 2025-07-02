@@ -14,7 +14,8 @@ import {
   Eye,
   Play,
   Award,
-  Trash2
+  Trash2,
+  LogOut
 } from "lucide-react";
 import "../css/Profile.scss";
 import Home from "../components/Home";
@@ -228,6 +229,10 @@ const ProfilePage = () => {
       reader.readAsDataURL(file);
     }
   };
+ const handleLogout = () => {
+  localStorage.removeItem('classicUser'); // Clear user data
+  navigate('/login'); // Redirect to login
+};
 
   // Mobile validation
   const validateMobile = (phone) => {
@@ -544,6 +549,13 @@ const ProfilePage = () => {
                     <p className="user-email">{userProfile.email}</p>
                     <p className="user-join-date">Member since {userProfile.joinDate}</p>
                   </div>
+                  <button
+                      onClick={handleLogout}
+                      className="btn-logout mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg shadow-md transition flex items-center gap-2"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </button>
                 </div>
 
                 <div className="profile-stats">
