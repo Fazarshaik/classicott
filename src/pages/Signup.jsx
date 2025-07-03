@@ -18,14 +18,24 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/;
+
   const validate = () => {
     const newErrors = {};
     const { name, email, password, confirmPassword } = formData;
 
     if (!name.trim()) newErrors.name = 'Full name is required.';
     if (!email.includes('@') || !email.includes('.')) newErrors.email = 'Enter a valid email.';
-    if (password.length !== 8) newErrors.password = 'Password must be exactly 8 characters.';
-    if (password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match.';
+
+    if (!passwordRegex.test(password)) {
+      newErrors.password =
+        'Must be exactly 8 chars with uppercase, lowercase, number & special char.';
+    }
+
+    if (password !== confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match.';
+    }
 
     return newErrors;
   };
@@ -156,7 +166,7 @@ const Signup = () => {
             </div>
 
             <div className="signup-redirect">
-              Already has login?{' '}
+              Already have login?{' '}
               <button onClick={() => navigate('/login')} className="signup-link">
                 Log In
               </button>

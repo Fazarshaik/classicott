@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [existingUserError, setExistingUserError] = useState("");
+  const [touched, setTouched] = useState({ email: false, password: false });
 
   const navigate = useNavigate();
 
@@ -19,6 +20,8 @@ const Login = () => {
   const validateForm = () => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/;
 
     if (!email.trim()) {
       errors.email = "Email is required";
@@ -28,8 +31,9 @@ const Login = () => {
 
     if (!password.trim()) {
       errors.password = "Password is required";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters";
+    } else if (!passwordRegex.test(password)) {
+      errors.password =
+        "Must be 8 chars with uppercase, lowercase, number & special character";
     }
 
     setFormErrors(errors);
@@ -93,29 +97,43 @@ const Login = () => {
           <form className="auth-form" onSubmit={handleLogin}>
             <div className="input-group">
               <label className="input-label">Email</label>
-              <div className={`input-wrapper ${formErrors.email ? "input-error" : ""}`}>
+              <div
+                className={`input-wrapper ${
+                  formErrors.email && touched.email ? "input-error" : ""
+                }`}
+              >
                 <User className="input-icon" />
                 <input
                   type="email"
                   className="input-field"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setTouched({ ...touched, email: true })}
                   placeholder="Enter your email"
                 />
               </div>
-              {formErrors.email && <div className="input-error-message">{formErrors.email}</div>}
+              {touched.email && formErrors.email && (
+                <div className="input-error-message">{formErrors.email}</div>
+              )}
             </div>
 
             <div className="input-group">
               <label className="input-label">Password</label>
-              <div className={`input-wrapper ${formErrors.password ? "input-error" : ""}`}>
+              <div
+                className={`input-wrapper ${
+                  formErrors.password && touched.password ? "input-error" : ""
+                }`}
+              >
                 <Lock className="input-icon" />
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input-field"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  onBlur={() => setTouched({ ...touched, password: true })}
                   placeholder="Enter your password"
+                   minLength={8}
+                    maxLength={8}
                 />
                 <button
                   type="button"
@@ -125,10 +143,14 @@ const Login = () => {
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
-              {formErrors.password && <div className="input-error-message">{formErrors.password}</div>}
+              {touched.password && formErrors.password && (
+                <div className="input-error-message">{formErrors.password}</div>
+              )}
             </div>
 
-            {existingUserError && <div className="auth-error">{existingUserError}</div>}
+            {existingUserError && (
+              <div className="auth-error">{existingUserError}</div>
+            )}
 
             <div className="auth-options">
               <button

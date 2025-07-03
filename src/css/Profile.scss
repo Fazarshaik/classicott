@@ -501,3 +501,19 @@
     flex-direction: column;
   }
 } 
+.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  background-color: #dc2626;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #b91c1c;
+  }
+}
