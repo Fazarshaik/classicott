@@ -25,10 +25,9 @@ const Home = () => {
               <Film className="w-8 h-8 text-amber-400" />
               <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-sm"></div>
             </div>
-            <div className="text-2xl font-bold">
-              <span className="text-amber-400 font-serif tracking-wider">
-                CLASSIC
-              </span>
+            <div className="text-2xl font-bold font-serif tracking-wider">
+              <span className="text-amber-400">CLASSIC</span>{" "}
+              <span>CINEMA</span>
             </div>
           </div>
 

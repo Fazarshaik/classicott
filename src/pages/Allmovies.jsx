@@ -12,6 +12,7 @@ import Home from "../components/Home";
 import { useMyList } from "../context/MyListContex";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
@@ -182,6 +183,7 @@ const Allmovies = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
