@@ -86,6 +86,50 @@ background-color: #1c140d;
   color: #f5cc73;
   // font-family: 'Cinzel', serif;
   margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+.vintage-payment-form input.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+}
+
+.vintage-payment-form input:focus {
+  outline: none;
+  border-color: #f39c12;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  text-align: left;
+  display: block;
+  font-family: 'Arial', sans-serif;
+}
+
+.help-text {
+  color: #95a5a6;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  text-align: left;
+  display: block;
+  font-family: 'Arial', sans-serif;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.amount-bar {
+  background-color: #2c1810;
+  border: 2px solid #f5cc73;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #f5cc73;
 }
 
 .vintage-payment-form .row {
