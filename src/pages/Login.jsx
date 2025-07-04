@@ -33,7 +33,7 @@ const Login = () => {
       errors.password = "Password is required";
     } else if (!passwordRegex.test(password)) {
       errors.password =
-        "Must be 8 chars with uppercase, lowercase, number & special character";
+        "Password must be exactly 8 characters with at least one uppercase letter, one lowercase letter, one number, and one special character";
     }
 
     setFormErrors(errors);
@@ -45,19 +45,6 @@ const Login = () => {
     setExistingUserError("");
 
     if (!validateForm()) return;
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const userExists = users.some((user) => user.email === email);
-
-    if (userExists) {
-      setExistingUserError("User with this email already exists!");
-      return;
-    }
-
-    const newUser = { email, password };
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-
     toast.success("Successfully logged in!", {
       position: "top-right",
       autoClose: 2000,
@@ -113,7 +100,10 @@ const Login = () => {
                 />
               </div>
               {touched.email && formErrors.email && (
-                <div className="input-error-message">{formErrors.email}</div>
+                <div className="input-error-message">
+                  <span className="error-icon">!</span>
+                  {formErrors.email}
+                </div>
               )}
             </div>
 
@@ -132,8 +122,8 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   onBlur={() => setTouched({ ...touched, password: true })}
                   placeholder="Enter your password"
-                   minLength={8}
-                    maxLength={8}
+                  minLength={8}
+                  maxLength={8}
                 />
                 <button
                   type="button"
@@ -144,12 +134,18 @@ const Login = () => {
                 </button>
               </div>
               {touched.password && formErrors.password && (
-                <div className="input-error-message">{formErrors.password}</div>
+                <div className="input-error-message">
+                  <span className="error-icon">!</span>
+                  {formErrors.password}
+                </div>
               )}
             </div>
 
             {existingUserError && (
-              <div className="auth-error">{existingUserError}</div>
+              <div className="auth-error">
+                <span className="error-icon">!</span>
+                {existingUserError}
+              </div>
             )}
 
             <div className="auth-options">
@@ -174,7 +170,7 @@ const Login = () => {
           </div>
 
           <div className="auth-footer">
-            Don’t have an account?
+            Don't have an account?
             <span onClick={() => navigate("/")} className="signup-link">
               Sign Up
             </span>
