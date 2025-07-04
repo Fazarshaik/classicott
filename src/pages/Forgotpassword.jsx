@@ -199,10 +199,7 @@ const ForgotPassword = () => {
               className="social-button google"
               aria-label="Google"
               onClick={() =>
-                window.open(
-                  "https://accounts.google.com/",
-                  "noopener,noreferrer"
-                )
+                (window.location.href = "https://accounts.google.com/")
               }
             >
               <FaGoogle />
@@ -211,10 +208,7 @@ const ForgotPassword = () => {
               className="social-button facebook"
               aria-label="Facebook"
               onClick={() =>
-                window.open(
-                  "https://www.facebook.com/login/",
-                  "noopener,noreferrer"
-                )
+                (window.location.href = "https://www.facebook.com/login/")
               }
             >
               <FaFacebookF />
@@ -223,11 +217,7 @@ const ForgotPassword = () => {
               className="social-button twitter"
               aria-label="Twitter"
               onClick={() =>
-                window.open(
-                  "https://twitter.com/i/flow/login",
-                  
-                  "noopener,noreferrer"
-                )
+                (window.location.href = "https://twitter.com/i/flow/login")
               }
             >
               <FaTwitter />

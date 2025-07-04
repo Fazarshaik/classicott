@@ -97,7 +97,7 @@ const Categories = () => {
             const IconComponent = getIconComponent(category.iconType);
             return (
               <div key={category.id} className="category-card">
-                <div className="card-image-container" onClick={() => setSelectedCategoryId(category.id)}>
+                <div className="card-image-container" onClick={() => handleExplore(category)}>
                   <img
                     src={category.image}
                     alt={category.title}
