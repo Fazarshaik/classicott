@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../css/Payment.scss';
 
 const allPlans = [
@@ -10,6 +10,7 @@ const allPlans = [
 
 const PaymentPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [selectedMethod, setSelectedMethod] = useState('card');
   const [cardDetails, setCardDetails] = useState({ name: '', number: '', expiry: '', cvv: '' });
@@ -24,13 +25,11 @@ const PaymentPage = () => {
     }
   }, [location]);
 
-  // Enhanced validation functions
   const validateCardNumber = (number) => {
     if (!number) return 'Card number is required';
     if (number.length !== 16) return 'Card number must be 16 digits';
     if (!/^\d{16}$/.test(number)) return 'Card number must contain only digits';
-    
-    // Luhn algorithm for card validation
+
     let sum = 0;
     let isEven = false;
     for (let i = number.length - 1; i >= 0; i--) {
@@ -49,12 +48,12 @@ const PaymentPage = () => {
   const validateExpiry = (expiry) => {
     if (!expiry) return 'Expiry date is required';
     if (!/^\d{2}\/\d{2}$/.test(expiry)) return 'Invalid format (MM/YY)';
-    
+
     const [month, year] = expiry.split('/');
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() % 100;
     const currentMonth = currentDate.getMonth() + 1;
-    
+
     if (parseInt(month) < 1 || parseInt(month) > 12) return 'Invalid month';
     if (parseInt(year) < currentYear || (parseInt(year) === currentYear && parseInt(month) < currentMonth)) {
       return 'Card has expired';
@@ -80,12 +79,8 @@ const PaymentPage = () => {
     if (!upi.trim()) return 'UPI ID is required';
     if (upi.length < 10) return 'UPI ID must be at least 10 characters';
     if (upi.length > 50) return 'UPI ID is too long';
-    
-    // Enhanced UPI validation pattern
     const upiRegex = /^[a-z0-9._-]+@[a-z]{2,}$/;
     if (!upiRegex.test(upi)) return 'Invalid UPI format (e.g., username@bank)';
-    
-    // Check for common UPI providers
     const validProviders = ['upi', 'okicici', 'paytm', 'phonepe', 'amazonpay', 'googlepay'];
     const provider = upi.split('@')[1];
     if (!validProviders.includes(provider)) {
@@ -102,13 +97,11 @@ const PaymentPage = () => {
   const handleCardChange = (e) => {
     const { name, value } = e.target;
     let val = value;
-    
-    // Input formatting
+
     if (name === 'name') {
       val = val.replace(/[^a-zA-Z\s]/g, '').slice(0, 50);
     } else if (name === 'number') {
       val = val.replace(/\D/g, '').slice(0, 16);
-      // Add spaces for better readability
       if (val.length > 0) {
         val = val.replace(/(\d{4})(?=\d)/g, '$1 ');
       }
@@ -118,16 +111,15 @@ const PaymentPage = () => {
     } else if (name === 'cvv') {
       val = val.replace(/\D/g, '').slice(0, 3);
     }
-    
+
     setCardDetails({ ...cardDetails, [name]: val });
-    
-    // Real-time validation
+
     let error = '';
     if (name === 'name') error = validateCardholderName(val);
     else if (name === 'number') error = validateCardNumber(val.replace(/\s/g, ''));
     else if (name === 'expiry') error = validateExpiry(val);
     else if (name === 'cvv') error = validateCVV(val);
-    
+
     setValidationErrors(prev => ({
       ...prev,
       [name]: error
@@ -142,8 +134,7 @@ const PaymentPage = () => {
     }
     const formattedInput = input.toLowerCase().replace(/[^a-z0-9@._-]/g, '');
     setUpiId(formattedInput);
-    
-    // Real-time UPI validation
+
     const error = validateUPI(formattedInput);
     setValidationErrors(prev => ({
       ...prev,
@@ -153,12 +144,12 @@ const PaymentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (!selectedPlan) {
       showToast("⚠️ Please select a plan", "error");
       return;
     }
-    
+
     const plan = allPlans.find((p) => p.id === selectedPlan);
 
     if (selectedMethod === 'upi') {
@@ -167,21 +158,21 @@ const PaymentPage = () => {
         showToast(`❌ ${upiError}`, "error");
         return;
       }
-      
+
       setPaymentSummary({ method: 'UPI', plan: plan.name, detail: upiId });
       showToast(`✅ Payment initiated for ${plan.currency}${plan.price} via UPI`, "success");
+      setTimeout(() => navigate('/dashboard'), 1500);
       return;
     }
 
     if (selectedMethod === 'card') {
       const { name, number, expiry, cvv } = cardDetails;
-      
-      // Comprehensive card validation
+
       const nameError = validateCardholderName(name);
       const numberError = validateCardNumber(number.replace(/\s/g, ''));
       const expiryError = validateExpiry(expiry);
       const cvvError = validateCVV(cvv);
-      
+
       if (nameError || numberError || expiryError || cvvError) {
         const firstError = nameError || numberError || expiryError || cvvError;
         showToast(`❌ ${firstError}`, "error");
@@ -194,6 +185,7 @@ const PaymentPage = () => {
         detail: `**** **** **** ${number.replace(/\s/g, '').slice(-4)}`
       });
       showToast(`✅ Payment processed for ${plan.currency}${plan.price} via Card`, "success");
+      setTimeout(() => navigate('/dashboard'), 1500);
     }
   };
 
