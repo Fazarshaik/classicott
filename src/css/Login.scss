@@ -1,20 +1,20 @@
 .auth-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background-color: #1c140d;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
   padding: 1rem;
 }
- 
+
 .auth-modal {
   position: relative;
   max-width: 420px;
   width: 100%;
 }
- 
+
 .film-strip {
   position: absolute;
   width: 32px;
@@ -27,15 +27,15 @@
   bottom: 0;
   z-index: 1;
 }
- 
+
 .film-strip.left {
   left: -40px;
 }
- 
+
 .film-strip.right {
   right: -40px;
 }
- 
+
 .film-hole {
   width: 16px;
   height: 10px;
@@ -43,7 +43,7 @@
   border-radius: 3px;
   margin: 2px auto;
 }
- 
+
 .auth-frame,
 .auth-frame-inner {
   position: absolute;
@@ -51,46 +51,47 @@
   border-radius: 10px;
   pointer-events: none;
 }
- 
+
 .auth-frame {
   background: linear-gradient(to bottom, rgba(113, 63, 18, 0.2), #000);
   border: 2px solid rgba(202, 138, 4, 0.4);
   z-index: 2;
 }
- 
+
 .auth-frame-inner {
   inset: 8px;
   border: 1px solid rgba(250, 204, 21, 0.2);
   border-radius: 8px;
   z-index: 3;
 }
- 
+
 .auth-content {
   position: relative;
-  background: #0e0b07;
+   background: linear-gradient(to bottom, rgba(113, 63, 18, 0.2), #000);
+
   padding: 32px;
   border-radius: 10px;
   z-index: 10;
 }
- 
+
 .auth-header {
   text-align: center;
   margin-bottom: 24px;
 }
- 
+
 .auth-header-top {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
- 
+
 .film-icon {
   color: #facc15;
   width: 28px;
   height: 28px;
 }
- 
+
 .auth-title {
   color: #facc15;
   font-family: 'Georgia', serif;
@@ -98,44 +99,44 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
- 
+
 .auth-subtitle {
   color: #fefce8;
   font-family: 'Georgia', serif;
   font-size: 14px;
 }
- 
+
 .auth-divider {
   width: 60px;
   height: 1px;
   margin: 12px auto 0;
   background: linear-gradient(to right, transparent, #facc15, transparent);
 }
- 
+
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
- 
+
 .input-group {
   display: flex;
   flex-direction: column;
 }
- 
+
 .input-label {
   color: #facc15;
   font-size: 13px;
   font-family: 'Georgia', serif;
   margin-bottom: 4px;
 }
- 
+
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
- 
+
 .input-icon {
   position: absolute;
   left: 12px;
@@ -143,7 +144,7 @@
   transform: translateY(-50%);
   color: #facc15;
 }
- 
+
 .input-field {
   width: 100%;
   padding: 10px 36px 10px 38px;
@@ -155,7 +156,7 @@
   outline: none;
   text-transform: none;
 }
- 
+
 .toggle-visibility {
   position: absolute;
   right: 10px;
@@ -169,14 +170,14 @@
   top: 50%;
   transform: translateY(-50%);
 }
- 
+
 .auth-options {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
 }
- 
+
 .forgot-password-btn {
   background: #000;
   color: #facc15;
@@ -186,7 +187,7 @@
   font-family: 'Georgia', serif;
   cursor: pointer;
 }
- 
+
 .auth-button {
   width: 100%;
   padding: 12px;
@@ -200,32 +201,32 @@
   cursor: pointer;
   margin-top: 6px;
 }
- 
+
 .auth-divider-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 24px 0;
 }
- 
+
 .divider-line {
   flex: 1;
   height: 1px;
   background: linear-gradient(to right, transparent, #facc15, transparent);
 }
- 
+
 .divider-icon {
   color: #facc15;
   margin: 0 12px;
 }
- 
+
 .auth-footer {
   text-align: center;
   color: #fefce8;
   font-family: 'Georgia', serif;
   font-size: 14px;
 }
- 
+
 .signup-link {
   background: #000;
   color: #facc15;
@@ -236,10 +237,65 @@
   font-weight: bold;
   cursor: pointer;
 }
- 
+
 .auth-error {
   color: #e74c3c;
   font-size: 0.85rem;
   margin-top: 4px;
   margin-left: 2px;
+}
+.input-error-message {
+  color: #ff4d4f;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  margin-left: 6px;
+}
+
+.input-error input {
+  border: 1px solid #ff4d4f;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 1rem;
+
+  .social-text {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .social-button {
+      background: #f1f1f1;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      svg {
+        color: #555;
+        font-size: 1.2rem;
+      }
+
+      &.google svg {
+        color: #db4437;
+      }
+      &.facebook svg {
+        color: #3b5998;
+      }
+      &.twitter svg {
+        color: #1da1f2;
+      }
+
+      &:hover {
+        background: #e0e0e0;
+      }
+    }
+  }
 }

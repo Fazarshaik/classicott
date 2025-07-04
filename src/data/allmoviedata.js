@@ -2,7 +2,7 @@ const allmovies = [
   {
     id: 1,
     title: "Greed",
-    poster: "/assets/images/1920's/the General_1926.jpeg",
+    image: "/assets/images/1920's/1925 movie Greed.jpeg",
     rating: "8.0",
     year: "1926",
     duration: "4h",
@@ -10,11 +10,18 @@ const allmovies = [
     director: "Erich von Stroheim",
     description:
       "A dentist's life descends into obsession and tragedy after winning a lottery ticket in this gritty silent masterpiece.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/A7YeJMiN-wQ",
+    cast: [
+      { name: "Gibson Gowland", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Zasu Pitts", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Jean Hersholt", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 2,
     title: "The Gold Rush",
-    poster: "/assets/images/1920's/Gold Rush_1925.jpeg",
+    image: "/assets/images/1920's/Gold Rush_1925.jpeg",
     rating: "8.2",
     year: "1925",
     duration: "1h 35m",
@@ -22,6 +29,13 @@ const allmovies = [
     director: "Charlie Chaplin",
     description:
       "The Tramp ventures into the Klondike in search of gold and finds love and mischief in this iconic silent comedy.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Georgia Hale", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Mack Swain", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 3,
@@ -34,6 +48,13 @@ const allmovies = [
     director: "Fritz Lang",
     description:
       "In a futuristic dystopia, a man discovers the harsh realities faced by the working class beneath a gleaming city.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    cast: [
+      { name: "Brigitte Helm", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Alfred Abel", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Gustav Fröhlich", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 4,
@@ -46,6 +67,13 @@ const allmovies = [
     director: "Fred C. Newmeyer, Sam Taylor",
     description:
       "A small-town man tries to make it big in the city, leading to one of the most famous clock-hanging scenes in film history.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      { name: "Harold Lloyd", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Mildred Davis", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Bill Strother", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 5,
@@ -58,6 +86,13 @@ const allmovies = [
     director: "King Vidor",
     description:
       "A realistic and touching portrayal of a man's struggles within the indifferent machinery of modern urban life.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    cast: [
+      { name: "James Murray", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Eleanor Boardman", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Bert Roach", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 6,
@@ -70,6 +105,13 @@ const allmovies = [
     director: "Clyde Bruckman, Buster Keaton",
     description:
       "During the American Civil War, a train engineer goes to great lengths to rescue his stolen locomotive and love.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      { name: "Buster Keaton", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Marion Mack", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Glen Cavender", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 7,
@@ -82,6 +124,13 @@ const allmovies = [
     director: "Alan Crosland",
     description:
       "The first feature-length film with synchronized dialogue, following a young man torn between tradition and show business.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    cast: [
+      { name: "Al Jolson", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "May McAvoy", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Warner Oland", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 8,
@@ -93,7 +142,14 @@ const allmovies = [
     genre: "Silent Era",
     director: "Charlie Chaplin",
     description:
-      "The Tramp finds an abandoned child and raises him as his own in one of Chaplin’s most heartfelt films.",
+      "The Tramp finds an abandoned child and raises him as his own in one of Chaplin's most heartfelt films.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    cast: [
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Jackie Coogan", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Edna Purviance", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 9,
@@ -106,6 +162,13 @@ const allmovies = [
     director: "D.W. Griffith",
     description:
       "A young woman faces deception and social ostracism, culminating in a legendary rescue on an icy river.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "Lillian Gish", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Richard Barthelmess", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Lowell Sherman", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 10,
@@ -118,11 +181,19 @@ const allmovies = [
     director: "William A. Wellman",
     description:
       "Two World War I fighter pilots face love and tragedy in the first film to win the Academy Award for Best Picture.",
+    era: "1920s",
+    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    cast: [
+      { name: "Clara Bow", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Charles Rogers", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Richard Arlen", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 11,
     title: "Snow White and the Seven Dwarfs",
-    poster: "/assets/images/1930's/_Snow White and the Seven Dwarfs_ (1937).jpeg",
+    poster:
+      "/assets/images/1930's/_Snow White and the Seven Dwarfs_ (1937).jpeg",
     rating: "7.6",
     year: "1937",
     duration: "1h 23m",
@@ -130,6 +201,13 @@ const allmovies = [
     director: "David Hand",
     description:
       "The first full-length animated feature, this Disney classic tells the tale of a princess, her jealous stepmother, and seven lovable dwarfs.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/4N-aa9nITcs",
+    cast: [
+      { name: "Adriana Caselotti", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Harry Stockwell", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Lucille La Verne", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 12,
@@ -142,6 +220,13 @@ const allmovies = [
     director: "Lewis Milestone",
     description:
       "A powerful anti-war story seen through the eyes of a young German soldier during World War I.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/6QrKJhJqJqY",
+    cast: [
+      { name: "Lew Ayres", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Louis Wolheim", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "John Wray", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 13,
@@ -154,6 +239,13 @@ const allmovies = [
     director: "Howard Hawks",
     description:
       "A screwball comedy featuring a paleontologist and a wild heiress, with a leopard named Baby at the center of the chaos.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/7nJ_3Fcizl0",
+    cast: [
+      { name: "Katharine Hepburn", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Cary Grant", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Charles Ruggles", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 14,
@@ -165,7 +257,14 @@ const allmovies = [
     genre: "Golden Dawn",
     director: "James Whale",
     description:
-      "A scientist's creation of life leads to tragedy in this iconic horror classic based on Mary Shelley’s novel.",
+      "A scientist's creation of life leads to tragedy in this iconic horror classic based on Mary Shelley's novel.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/1qNeGSJaQ9Q",
+    cast: [
+      { name: "Boris Karloff", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Colin Clive", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Mae Clarke", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 15,
@@ -178,6 +277,13 @@ const allmovies = [
     director: "Tod Browning",
     description:
       "A controversial cult classic that tells the story of sideshow performers and betrayal within their tight-knit community.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/8j8Dg9Xp68A",
+    cast: [
+      { name: "Wallace Ford", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Leila Hyams", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Olga Baclanova", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 16,
@@ -190,6 +296,13 @@ const allmovies = [
     director: "Frank Capra",
     description:
       "A runaway heiress and a reporter find love on the road in this landmark romantic comedy that swept the Oscars.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/7nJ_3Fcizl0",
+    cast: [
+      { name: "Clark Gable", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Claudette Colbert", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Walter Connolly", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 17,
@@ -202,6 +315,13 @@ const allmovies = [
     director: "Merian C. Cooper, Ernest B. Schoedsack",
     description:
       "A giant ape brought to New York becomes a spectacle — and a tragedy — in this groundbreaking monster movie.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/1qNeGSJaQ9Q",
+    cast: [
+      { name: "Fay Wray", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Robert Armstrong", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Bruce Cabot", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 18,
@@ -213,7 +333,14 @@ const allmovies = [
     genre: "Golden Dawn",
     director: "Charlie Chaplin",
     description:
-      "Chaplin’s Tramp struggles to survive in an increasingly industrialized world in this poignant and hilarious satire.",
+      "Chaplin's Tramp struggles to survive in an increasingly industrialized world in this poignant and hilarious satire.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Paulette Goddard", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Henry Bergman", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 19,
@@ -226,6 +353,13 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A man on the run must prove his innocence while unraveling a spy conspiracy in this Hitchcock thriller.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      { name: "Robert Donat", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Madeleine Carroll", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Lucie Mannheim", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 20,
@@ -238,6 +372,13 @@ const allmovies = [
     director: "Victor Fleming",
     description:
       "Dorothy and her dog Toto are swept away to a magical land in this vibrant musical fantasy filled with heart and imagination.",
+    era: "1930s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Judy Garland", image: "/assets/images/cast/Judy Garland.jpeg" },
+      { name: "Jack Haley", image: "/assets/images/cast/Jack Haley.jpeg" },
+      { name: "Ray Bolger", image: "/assets/images/cast/Ray Bolger.jpeg" },
+    ],
   },
   {
     id: 21,
@@ -250,6 +391,13 @@ const allmovies = [
     director: "David Lean",
     description:
       "A poignant love story about two married strangers who meet by chance and form a deep emotional bond during wartime Britain.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "Celia Johnson", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Trevor Howard", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Stanley Holloway", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 22,
@@ -262,6 +410,19 @@ const allmovies = [
     director: "Michael Curtiz",
     description:
       "In Nazi-occupied Morocco, a cynical café owner faces love, loyalty, and sacrifice when his former lover walks back into his life.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    cast: [
+      {
+        name: "Humphrey Bogart",
+        image: "/assets/images/cast/Humphrey Bogart.jpeg",
+      },
+      {
+        name: "Ingrid Bergman",
+        image: "/assets/images/cast/Ingrid Bergman.jpeg",
+      },
+      { name: "Paul Henreid", image: "/assets/images/cast/Paul Henreid.jpeg" },
+    ],
   },
   {
     id: 23,
@@ -274,6 +435,16 @@ const allmovies = [
     director: "Orson Welles",
     description:
       "The rise and fall of newspaper magnate Charles Foster Kane, told through innovative storytelling and unforgettable imagery.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    cast: [
+      { name: "Orson Welles", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Joseph Cotten", image: "/assets/images/cast/Rose.jpeg" },
+      {
+        name: "Dorothy Comingore",
+        image: "/assets/images/cast/BillyZane.jpeg",
+      },
+    ],
   },
   {
     id: 24,
@@ -286,6 +457,16 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A seductive femme fatale and an insurance salesman conspire to commit murder and collect the payout in this noir landmark.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      { name: "Fred MacMurray", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Barbara Stanwyck", image: "/assets/images/cast/Rose.jpeg" },
+      {
+        name: "Edward G. Robinson",
+        image: "/assets/images/cast/BillyZane.jpeg",
+      },
+    ],
   },
   {
     id: 25,
@@ -298,6 +479,16 @@ const allmovies = [
     director: "Frank Capra",
     description:
       "A man on the brink of despair is shown the impact of his life in this uplifting holiday classic with wartime undertones.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      {
+        name: "James Stewart",
+        image: "/assets/images/cast/James Stewart.jpeg",
+      },
+      { name: "Donna Reed", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Lionel Barrymore", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 26,
@@ -310,6 +501,13 @@ const allmovies = [
     director: "Jacques Tourneur",
     description:
       "A former private eye is pulled back into a web of betrayal and danger in one of the defining films of classic noir.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    cast: [
+      { name: "Robert Mitchum", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Jane Greer", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Kirk Douglas", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 27,
@@ -322,6 +520,13 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A young girl begins to suspect that her beloved visiting uncle may be hiding a deadly secret in this slow-burn suspense thriller.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      { name: "Teresa Wright", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Joseph Cotten", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Macdonald Carey", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 28,
@@ -333,7 +538,14 @@ const allmovies = [
     genre: "War and Drama",
     director: "Charlie Chaplin",
     description:
-      "A satirical and brave stand against fascism, Chaplin’s dual performance confronts war and hate with humanity and humor.",
+      "A satirical and brave stand against fascism, Chaplin's dual performance confronts war and hate with humanity and humor.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    cast: [
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Paulette Goddard", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Jack Oakie", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 29,
@@ -346,6 +558,13 @@ const allmovies = [
     director: "Michael Powell, Emeric Pressburger",
     description:
       "A ballet dancer is torn between love and ambition in this Technicolor masterpiece of art, passion, and sacrifice.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    cast: [
+      { name: "Moira Shearer", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Anton Walbrook", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Marius Goring", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 30,
@@ -358,6 +577,13 @@ const allmovies = [
     director: "Raoul Walsh",
     description:
       "A volatile gangster struggles with loyalty, violence, and psychological torment in this intense and influential crime classic.",
+    era: "1940s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "James Cagney", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Virginia Mayo", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Edmond O'Brien", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 31,
@@ -370,6 +596,19 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A retired detective is lured into obsession and delusion in Hitchcock's haunting tale of identity and psychological unraveling.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      {
+        name: "James Stewart",
+        image: "/assets/images/cast/James Stewart.jpeg",
+      },
+      { name: "Kim Novak", image: "/assets/images/cast/Kim Novak.jpeg" },
+      {
+        name: "Barbara Bel Geddes",
+        image: "/assets/images/cast/Barbara Bel Geddes.jpeg",
+      },
+    ],
   },
   {
     id: 32,
@@ -382,6 +621,13 @@ const allmovies = [
     director: "Vincente Minnelli",
     description:
       "A musical romance where a World War II veteran-turned-painter finds love and inspiration on the streets of Paris.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Gene Kelly", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Leslie Caron", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Oscar Levant", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 33,
@@ -394,6 +640,13 @@ const allmovies = [
     director: "William Wyler",
     description:
       "An epic tale of betrayal, revenge, and redemption set during the time of Christ, highlighted by the legendary chariot race.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      { name: "Charlton Heston", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Jack Hawkins", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Stephen Boyd", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 34,
@@ -406,6 +659,13 @@ const allmovies = [
     director: "George Stevens",
     description:
       "Spanning generations, this Texas epic explores wealth, class, and racial tension, starring Elizabeth Taylor and James Dean.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    cast: [
+      { name: "Elizabeth Taylor", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Rock Hudson", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "James Dean", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 35,
@@ -417,7 +677,17 @@ const allmovies = [
     genre: "Technicolor",
     director: "Elia Kazan",
     description:
-      "A dockworker confronts corruption and conscience in this gritty, Oscar-winning drama led by Marlon Brando’s unforgettable performance.",
+      "A dockworker confronts corruption and conscience in this gritty, Oscar-winning drama led by Marlon Brando's unforgettable performance.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    cast: [
+      {
+        name: "Marlon Brando",
+        image: "/assets/images/cast/Marlon Brando.jpeg",
+      },
+      { name: "Eva Marie Saint", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Karl Malden", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 36,
@@ -430,6 +700,13 @@ const allmovies = [
     director: "Nicholas Ray",
     description:
       "A troubled teenager struggles with authority, alienation, and young love in this landmark of youth rebellion cinema.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    cast: [
+      { name: "James Dean", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Natalie Wood", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Sal Mineo", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 37,
@@ -442,6 +719,13 @@ const allmovies = [
     director: "William Wyler",
     description:
       "A runaway princess and an American journalist fall for each other in Rome, in this timeless romantic escape.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "Audrey Hepburn", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Gregory Peck", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Eddie Albert", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 38,
@@ -454,6 +738,13 @@ const allmovies = [
     director: "Gene Kelly, Stanley Donen",
     description:
       "A dazzling musical about the transition from silent films to talkies, filled with unforgettable song-and-dance numbers.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    cast: [
+      { name: "Gene Kelly", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Debbie Reynolds", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Donald O'Connor", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 39,
@@ -466,6 +757,16 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A struggling screenwriter gets entangled with a faded silent film star in this noir-infused critique of Hollywood's dark side.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    cast: [
+      { name: "William Holden", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Gloria Swanson", image: "/assets/images/cast/Rose.jpeg" },
+      {
+        name: "Erich von Stroheim",
+        image: "/assets/images/cast/BillyZane.jpeg",
+      },
+    ],
   },
   {
     id: 40,
@@ -478,6 +779,13 @@ const allmovies = [
     director: "David Lean",
     description:
       "British POWs under Japanese rule are forced to build a railway bridge in this intense war epic about duty and pride.",
+    era: "1950s",
+    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    cast: [
+      { name: "William Holden", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Alec Guinness", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Jack Hawkins", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 41,
@@ -490,6 +798,19 @@ const allmovies = [
     director: "Stanley Kubrick",
     description:
       "A visually stunning odyssey through space and time, exploring evolution, technology, and the unknown through a minimalist yet profound narrative.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    cast: [
+      { name: "Keir Dullea", image: "/assets/images/cast/Keir Dullea.jpeg" },
+      {
+        name: "Gary Lockwood",
+        image: "/assets/images/cast/Gray lockwood.jpeg",
+      },
+      {
+        name: "William Sylvester",
+        image: "/assets/images/cast/William Sylvester.jpeg",
+      },
+    ],
   },
   {
     id: 42,
@@ -502,6 +823,13 @@ const allmovies = [
     director: "Arthur Penn",
     description:
       "A stylish and violent retelling of the outlaw couple's story, breaking cinematic taboos and ushering in a new era of American filmmaking.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      { name: "Warren Beatty", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Faye Dunaway", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Gene Hackman", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 43,
@@ -514,6 +842,13 @@ const allmovies = [
     director: "Dennis Hopper",
     description:
       "Two bikers travel across America in search of freedom, capturing the spirit, rebellion, and contradictions of the 1960s counterculture.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    cast: [
+      { name: "Peter Fonda", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Dennis Hopper", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Jack Nicholson", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 44,
@@ -526,6 +861,13 @@ const allmovies = [
     director: "Robert Stevenson",
     description:
       "A magical nanny transforms the lives of a London family with joy, discipline, and unforgettable musical numbers.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      { name: "Julie Andrews", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Dick Van Dyke", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "David Tomlinson", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 45,
@@ -538,6 +880,13 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A man lends his apartment to company executives for affairs, only to fall for one of their mistresses in this sharp romantic satire.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    cast: [
+      { name: "Jack Lemmon", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Shirley MacLaine", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Fred MacMurray", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 46,
@@ -550,6 +899,13 @@ const allmovies = [
     director: "Sergio Leone",
     description:
       "Three gunslingers race to find buried gold in this iconic Spaghetti Western with sweeping visuals and an unforgettable score.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Clint Eastwood", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Lee Van Cleef", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Eli Wallach", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 47,
@@ -562,6 +918,16 @@ const allmovies = [
     director: "John Sturges",
     description:
       "Allied prisoners plan a mass escape from a German POW camp in this thrilling, true-to-life wartime epic.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    cast: [
+      { name: "Steve McQueen", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "James Garner", image: "/assets/images/cast/Rose.jpeg" },
+      {
+        name: "Richard Attenborough",
+        image: "/assets/images/cast/BillyZane.jpeg",
+      },
+    ],
   },
   {
     id: 48,
@@ -573,7 +939,14 @@ const allmovies = [
     genre: "New Wave",
     director: "Robert Wise",
     description:
-      "A musical governess brings joy and love to a widowed naval captain’s children in Austria during the rise of the Nazi regime.",
+      "A musical governess brings joy and love to a widowed naval captain's children in Austria during the rise of the Nazi regime.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "Julie Andrews", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Christopher Plummer", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Eleanor Parker", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 49,
@@ -586,6 +959,13 @@ const allmovies = [
     director: "Robert Mulligan",
     description:
       "A lawyer defends a wrongly accused Black man in the racially charged South, told through the eyes of his young daughter.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    cast: [
+      { name: "Gregory Peck", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Mary Badham", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Phillip Alford", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 50,
@@ -598,6 +978,13 @@ const allmovies = [
     director: "Robert Wise, Jerome Robbins",
     description:
       "A modern retelling of Romeo and Juliet set amid gang rivalry in New York, with groundbreaking choreography and unforgettable music.",
+    era: "1960s",
+    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    cast: [
+      { name: "Natalie Wood", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Richard Beymer", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Rita Moreno", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 51,
@@ -610,6 +997,13 @@ const allmovies = [
     director: "Ridley Scott",
     description:
       "A deep-space crew fights for survival against a terrifying extraterrestrial in this sci-fi horror masterpiece.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    cast: [
+      { name: "Sigourney Weaver", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Tom Skerritt", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "John Hurt", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 52,
@@ -622,6 +1016,13 @@ const allmovies = [
     director: "Roman Polanski",
     description:
       "A private eye uncovers layers of corruption, deceit, and tragedy in 1930s Los Angeles in this neo-noir classic.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    cast: [
+      { name: "Jack Nicholson", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Faye Dunaway", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "John Huston", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 53,
@@ -634,6 +1035,16 @@ const allmovies = [
     director: "Randal Kleiser",
     description:
       "A high school romance blossoms amid catchy tunes and 1950s nostalgia in one of the most beloved musicals ever.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    cast: [
+      { name: "John Travolta", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Olivia Newton-John", image: "/assets/images/cast/Rose.jpeg" },
+      {
+        name: "Stockard Channing",
+        image: "/assets/images/cast/BillyZane.jpeg",
+      },
+    ],
   },
   {
     id: 54,
@@ -646,6 +1057,16 @@ const allmovies = [
     director: "Steven Spielberg",
     description:
       "A seaside town faces terror from a man-eating shark in this suspenseful thriller that invented the summer blockbuster.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    cast: [
+      { name: "Roy Scheider", image: "/assets/images/cast/Roy Scheider.jpeg" },
+      { name: "Robert Shaw", image: "/assets/images/cast/Robert Shaw.jpeg" },
+      {
+        name: "Richard Dreyfuss",
+        image: "/assets/images/cast/Richard Dreyfuss.jpeg",
+      },
+    ],
   },
   {
     id: 55,
@@ -658,6 +1079,13 @@ const allmovies = [
     director: "Franklin J. Schaffner",
     description:
       "A sweeping biopic of the brilliant and controversial WWII General George S. Patton, led by an iconic George C. Scott performance.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    cast: [
+      { name: "George C. Scott", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Karl Malden", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Stephen Young", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 56,
@@ -670,6 +1098,19 @@ const allmovies = [
     director: "George Lucas",
     description:
       "A young farm boy is swept into an intergalactic rebellion in this space opera that changed cinema forever.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    cast: [
+      { name: "Mark Hamill", image: "/assets/images/cast/Mark Hamill.jpeg" },
+      {
+        name: "Harrison Ford",
+        image: "/assets/images/cast/Harrison Ford.jpeg",
+      },
+      {
+        name: "Carrie Fisher",
+        image: "/assets/images/cast/Carrie Fisher.jpeg",
+      },
+    ],
   },
   {
     id: 57,
@@ -682,6 +1123,13 @@ const allmovies = [
     director: "Martin Scorsese",
     description:
       "A mentally unstable veteran descends into isolation and violence in a gritty exploration of urban alienation.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      { name: "Robert De Niro", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Jodie Foster", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Cybill Shepherd", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 58,
@@ -694,6 +1142,13 @@ const allmovies = [
     director: "William Friedkin",
     description:
       "A young girl becomes possessed by a demonic force, prompting a harrowing battle between faith and evil.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    cast: [
+      { name: "Ellen Burstyn", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Linda Blair", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Max von Sydow", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 59,
@@ -706,6 +1161,13 @@ const allmovies = [
     director: "William Friedkin",
     description:
       "Two tough NYPD detectives track down a major heroin smuggling operation in this gritty Oscar-winning thriller.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    cast: [
+      { name: "Gene Hackman", image: "/assets/images/cast/Jack.jpeg" },
+      { name: "Roy Scheider", image: "/assets/images/cast/Rose.jpeg" },
+      { name: "Fernando Rey", image: "/assets/images/cast/BillyZane.jpeg" },
+    ],
   },
   {
     id: 60,
@@ -718,6 +1180,16 @@ const allmovies = [
     director: "Francis Ford Coppola",
     description:
       "The rise and transformation of Michael Corleone in a powerful crime saga that redefined American cinema.",
+    era: "1970s",
+    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    cast: [
+      {
+        name: "Marlon Brando",
+        image: "/assets/images/cast/Marlon Brando.jpeg",
+      },
+      { name: "Al Pacino", image: "/assets/images/cast/Al Pacino.jpeg" },
+      { name: "James Caan", image: "/assets/images/cast/James Caan.jpeg" },
+    ],
   },
 ];
 

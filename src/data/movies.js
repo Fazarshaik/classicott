@@ -1,6 +1,6 @@
 const movies = [
   {
-    id: 1,
+    id: 71,
     title: "Titanic",
     poster: "/assets/images/Titanic1.jpeg",
     rating: "7.9",
@@ -12,7 +12,7 @@ const movies = [
       "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
   },
   {
-    id: 2,
+    id: 72,
     title: "The Wizard of Oz",
     poster: "/assets/images/1930's/The Wizard of Oz_1939.jpeg",
     rating: "8.1",
@@ -24,7 +24,7 @@ const movies = [
       "Young Dorothy Gale and her dog Toto are swept away by a tornado from their Kansas farm to the magical Land of Oz.",
   },
   {
-    id: 3,
+    id: 73,
     title: "Casablanca",
     poster: "/assets/images/1940's/Casablanca_1942.jpeg",
     rating: "8.5",
@@ -36,7 +36,7 @@ const movies = [
       "In the midst of WWII, a nightclub owner in Casablanca must choose between love and virtue.",
   },
   {
-    id: 4,
+    id: 74,
     title: "Vertigo",
     poster: "/assets/images/1950's/1958 Vertigo.jpeg",
     rating: "8.3",
@@ -48,7 +48,7 @@ const movies = [
       "A former police detective juggles wrestling with his personal demons and becoming obsessed with a hauntingly beautiful woman.",
   },
   {
-    id: 5,
+    id: 75,
     title: "2001: A Space Odyssey",
     poster: "/assets/images/1960's/2001 A Space Odyssey 1968.jpeg",
     rating: "8.3",
@@ -60,7 +60,7 @@ const movies = [
       "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins.",
   },
   {
-    id: 6,
+    id: 76,
     title: "The Godfather",
     poster: "/assets/images/1970's/The Godfather 1972.jpeg",
     rating: "9.2",
@@ -72,7 +72,7 @@ const movies = [
       "The aging patriarch of an organized crime dynasty transfers control to his reluctant son.",
   },
   {
-    id: 7,
+    id: 77,
     title: "Star Wars",
     poster: "/assets/images/1970's/Star Wars 1977.jpeg",
     rating: "8.6",
@@ -84,7 +84,7 @@ const movies = [
       "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire.",
   },
   {
-    id: 8,
+    id: 78,
     title: "Jaws",
     poster: "/assets/images/1970's/Jaws 1975.jpeg",
     rating: "8.0",
