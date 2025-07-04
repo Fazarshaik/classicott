@@ -27,21 +27,17 @@ const PaymentPage = () => {
 
   const validateCardNumber = (number) => {
     if (!number) return 'Card number is required';
-    if (number.length !== 16) return 'Card number must be 16 digits';
-    if (!/^\d{16}$/.test(number)) return 'Card number must contain only digits';
-
-    let sum = 0;
-    let isEven = false;
-    for (let i = number.length - 1; i >= 0; i--) {
-      let digit = parseInt(number[i]);
-      if (isEven) {
-        digit *= 2;
-        if (digit > 9) digit -= 9;
-      }
-      sum += digit;
-      isEven = !isEven;
+    
+    // Remove spaces and check length
+    const cleanNumber = number.replace(/\s/g, '');
+    if (cleanNumber.length !== 16) {
+      return 'Card number must be exactly 16 digits';
     }
-    if (sum % 10 !== 0) return 'Invalid card number';
+    
+    if (!/^\d+$/.test(cleanNumber)) {
+      return 'Card number must contain only digits';
+    }
+    
     return '';
   };
 
@@ -63,8 +59,8 @@ const PaymentPage = () => {
 
   const validateCVV = (cvv) => {
     if (!cvv) return 'CVV is required';
-    if (cvv.length !== 3) return 'CVV must be 3 digits';
-    if (!/^\d{3}$/.test(cvv)) return 'CVV must contain only digits';
+    if (cvv.length < 3 || cvv.length > 4) return 'CVV must be 3 or 4 digits';
+    if (!/^\d+$/.test(cvv)) return 'CVV must contain only digits';
     return '';
   };
 
@@ -79,13 +75,33 @@ const PaymentPage = () => {
     if (!upi.trim()) return 'UPI ID is required';
     if (upi.length < 10) return 'UPI ID must be at least 10 characters';
     if (upi.length > 50) return 'UPI ID is too long';
-    const upiRegex = /^[a-z0-9._-]+@[a-z]{2,}$/;
-    if (!upiRegex.test(upi)) return 'Invalid UPI format (e.g., username@bank)';
-    const validProviders = ['upi', 'okicici', 'paytm', 'phonepe', 'amazonpay', 'googlepay'];
-    const provider = upi.split('@')[1];
-    if (!validProviders.includes(provider)) {
-      return 'Please use a valid UPI provider';
+    
+    // Check if it has @ symbol
+    if (!upi.includes('@')) {
+      return 'UPI ID must contain @ symbol';
     }
+    
+    // Check for hyphens
+    if (upi.includes('-')) {
+      return 'UPI ID cannot contain hyphens';
+    }
+    
+    // Split by @ and validate parts
+    const parts = upi.split('@');
+    if (parts.length !== 2) {
+      return 'Invalid UPI format';
+    }
+    
+    const [username, provider] = parts;
+    
+    if (username.length < 1) {
+      return 'Username part cannot be empty';
+    }
+    
+    if (provider.length < 1) {
+      return 'Provider part cannot be empty';
+    }
+    
     return '';
   };
 
@@ -103,43 +119,39 @@ const PaymentPage = () => {
     } else if (name === 'number') {
       val = val.replace(/\D/g, '').slice(0, 16);
       if (val.length > 0) {
+        // Add spaces every 4 digits for better readability
         val = val.replace(/(\d{4})(?=\d)/g, '$1 ');
       }
     } else if (name === 'expiry') {
       val = val.replace(/\D/g, '').slice(0, 4);
       if (val.length > 2) val = `${val.slice(0, 2)}/${val.slice(2)}`;
     } else if (name === 'cvv') {
-      val = val.replace(/\D/g, '').slice(0, 3);
+      val = val.replace(/\D/g, '').slice(0, 4);
     }
 
     setCardDetails({ ...cardDetails, [name]: val });
 
-    let error = '';
-    if (name === 'name') error = validateCardholderName(val);
-    else if (name === 'number') error = validateCardNumber(val.replace(/\s/g, ''));
-    else if (name === 'expiry') error = validateExpiry(val);
-    else if (name === 'cvv') error = validateCVV(val);
-
-    setValidationErrors(prev => ({
-      ...prev,
-      [name]: error
-    }));
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleUpiChange = (e) => {
     const input = e.target.value;
-    if (/[A-Z]/.test(input)) {
-      showToast("❌ UPI should not contain capital letters", "error");
-      return;
-    }
-    const formattedInput = input.toLowerCase().replace(/[^a-z0-9@._-]/g, '');
+    const formattedInput = input.toLowerCase().replace(/[^a-z0-9@._]/g, '');
     setUpiId(formattedInput);
 
-    const error = validateUPI(formattedInput);
-    setValidationErrors(prev => ({
-      ...prev,
-      upi: error
-    }));
+    // Clear validation error when user starts typing
+    if (validationErrors.upi) {
+      setValidationErrors(prev => ({
+        ...prev,
+        upi: ''
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -155,13 +167,18 @@ const PaymentPage = () => {
     if (selectedMethod === 'upi') {
       const upiError = validateUPI(upiId);
       if (upiError) {
+        setValidationErrors(prev => ({ ...prev, upi: upiError }));
         showToast(`❌ ${upiError}`, "error");
         return;
       }
 
       setPaymentSummary({ method: 'UPI', plan: plan.name, detail: upiId });
       showToast(`✅ Payment initiated for ${plan.currency}${plan.price} via UPI`, "success");
-      setTimeout(() => navigate('/dashboard'), 1500);
+      
+      // Navigate to dashboard after successful payment
+      setTimeout(() => {
+        navigate('/dashboard', { replace: true });
+      }, 2000);
       return;
     }
 
@@ -173,8 +190,15 @@ const PaymentPage = () => {
       const expiryError = validateExpiry(expiry);
       const cvvError = validateCVV(cvv);
 
-      if (nameError || numberError || expiryError || cvvError) {
-        const firstError = nameError || numberError || expiryError || cvvError;
+      const errors = {};
+      if (nameError) errors.name = nameError;
+      if (numberError) errors.number = numberError;
+      if (expiryError) errors.expiry = expiryError;
+      if (cvvError) errors.cvv = cvvError;
+
+      if (Object.keys(errors).length > 0) {
+        setValidationErrors(errors);
+        const firstError = Object.values(errors)[0];
         showToast(`❌ ${firstError}`, "error");
         return;
       }
@@ -185,7 +209,11 @@ const PaymentPage = () => {
         detail: `**** **** **** ${number.replace(/\s/g, '').slice(-4)}`
       });
       showToast(`✅ Payment processed for ${plan.currency}${plan.price} via Card`, "success");
-      setTimeout(() => navigate('/dashboard'), 1500);
+      
+      // Navigate to dashboard after successful payment
+      setTimeout(() => {
+        navigate('/dashboard', { replace: true });
+      }, 2000);
     }
   };
 
@@ -291,13 +319,13 @@ const PaymentPage = () => {
             <label>UPI ID</label>
             <input
               type="text"
-              placeholder="username@upi"
+              placeholder="username@provider"
               value={upiId}
               onChange={handleUpiChange}
               className={validationErrors.upi ? 'error' : ''}
             />
             {validationErrors.upi && <span className="error-message">{validationErrors.upi}</span>}
-            <small className="help-text">Format: username@provider (e.g., john@upi, paytm@paytm)</small>
+            <small className="help-text">Format: username@provider (e.g., john@upi, paytm@paytm, user@okicici)</small>
           </div>
         )}
 

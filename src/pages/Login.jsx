@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, User, Lock, Film } from "lucide-react";
+import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,6 +46,7 @@ const Login = () => {
     setExistingUserError("");
 
     if (!validateForm()) return;
+
     toast.success("Successfully logged in!", {
       position: "top-right",
       autoClose: 2000,
@@ -94,7 +96,7 @@ const Login = () => {
                   type="email"
                   className="input-field"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value.toLowerCase())}
                   onBlur={() => setTouched({ ...touched, email: true })}
                   placeholder="Enter your email"
                 />
@@ -162,6 +164,50 @@ const Login = () => {
               Login
             </button>
           </form>
+
+          {/* Social Icons */}
+          <div className="social-login">
+            <p className="social-text">Or sign in with:</p>
+            <div className="social-buttons">
+              <button
+                className="social-button google"
+                onClick={() =>
+                  window.open(
+                    "https://accounts.google.com/",
+
+                    "noopener,noreferrer"
+                  )
+                }
+                aria-label="Google"
+              >
+                <FaGoogle />
+              </button>
+              <button
+                className="social-button facebook"
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/login/",
+                    "noopener,noreferrer"
+                  )
+                }
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </button>
+              <button
+                className="social-button twitter"
+                onClick={() =>
+                  window.open(
+                    "https://twitter.com/i/flow/login",
+                    "noopener,noreferrer"
+                  )
+                }
+                aria-label="Twitter"
+              >
+                <FaTwitter />
+              </button>
+            </div>
+          </div>
 
           <div className="auth-divider-icon">
             <div className="divider-line" />
