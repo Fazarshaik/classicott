@@ -164,18 +164,20 @@ const MovieFrame = () => {
 
           {activeTab === "more" && (
             <div className="more-slider">
-              {movieData.slice(79, 82).map((movie) => (
-                <div key={movie.id} className="more-card">
-                  <img src={movie.image} alt={movie.title} />
-                  <div className="text">
-                    <h4>{movie.title}</h4>
-                    <div className="rating">
-                      <Star className="w-4 h-4" />
-                      {movie.rating}
+              {movieData
+                .filter((movie) => [79, 80, 81, 82].includes(movie.id))
+                .map((movie) => (
+                  <div key={movie.id} className="more-card">
+                    <img src={movie.image} alt={movie.title} />
+                    <div className="text">
+                      <h4>{movie.title}</h4>
+                      <div className="rating">
+                        <Star className="w-4 h-4" />
+                        {movie.rating}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           )}
         </div>
