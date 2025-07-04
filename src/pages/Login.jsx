@@ -28,7 +28,7 @@ const Login = () => {
     } else if (!emailRegex.test(email)) {
       errors.email = "Invalid email format";
     }
-
+     
     if (!password.trim()) {
       errors.password = "Password is required";
     } else if (!passwordRegex.test(password)) {
