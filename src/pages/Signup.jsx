@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -19,14 +18,24 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/;
+
   const validate = () => {
     const newErrors = {};
     const { name, email, password, confirmPassword } = formData;
 
     if (!name.trim()) newErrors.name = 'Full name is required.';
     if (!email.includes('@') || !email.includes('.')) newErrors.email = 'Enter a valid email.';
-    if (password.length !== 8) newErrors.password = 'Password must be exactly 8 characters.';
-    if (password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match.';
+
+    if (!passwordRegex.test(password)) {
+      newErrors.password =
+        'Must be exactly 8 chars with uppercase, lowercase, number & special char.';
+    }
+
+    if (password !== confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match.';
+    }
 
     return newErrors;
   };
@@ -38,7 +47,9 @@ const Signup = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      localStorage.setItem('classicUser', JSON.stringify(formData));
+      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+      existingUsers.push({ name: formData.name, email: formData.email, password: formData.password });
+      localStorage.setItem('users', JSON.stringify(existingUsers));
       toast.success('Signup successful! Redirecting to login...', {
         onClose: () => navigate('/login'),
         autoClose: 2000,
@@ -54,8 +65,8 @@ const Signup = () => {
           <h1 className="logo-text">Classic Cinema</h1>
         </div>
         <div className="reel-frame">
-          <img src="/images/casablanca.jpg" alt="Casablanca" />
-          <img src="/images/gonewithwind.jpg" alt="Gone With the Wind" />
+          <img src="/assets/images/Casablanca.jpeg" alt="Casablanca" />
+          <img src="/assets/images/Titanic1.jpeg" alt="Titanic" />
         </div>
       </div>
 
@@ -65,13 +76,11 @@ const Signup = () => {
           <div className="signup-frame-inner"></div>
 
           <div className="signup-content">
-            {/* ✅ Only this part was changed */}
             <div className="signup-header">
               <h2 className="signup-title">Signup</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="signup-form">
-              {/* Full Name */}
               <div className="form-group">
                 <label className="form-label">FULL NAME</label>
                 <input
@@ -86,7 +95,6 @@ const Signup = () => {
                 {errors.name && <p className="error-message">{errors.name}</p>}
               </div>
 
-              {/* Email */}
               <div className="form-group">
                 <label className="form-label">EMAIL ADDRESS</label>
                 <div className="form-input-wrapper">
@@ -104,7 +112,6 @@ const Signup = () => {
                 {errors.email && <p className="error-message">{errors.email}</p>}
               </div>
 
-              {/* Password */}
               <div className="form-group">
                 <label className="form-label">CREATE PASSWORD</label>
                 <div className="form-input-wrapper">
@@ -127,7 +134,6 @@ const Signup = () => {
                 {errors.password && <p className="error-message">{errors.password}</p>}
               </div>
 
-              {/* Confirm Password */}
               <div className="form-group">
                 <label className="form-label">CONFIRM PASSWORD</label>
                 <div className="form-input-wrapper">
@@ -160,7 +166,7 @@ const Signup = () => {
             </div>
 
             <div className="signup-redirect">
-              Already has login?{' '}
+              Already have login?{' '}
               <button onClick={() => navigate('/login')} className="signup-link">
                 Log In
               </button>

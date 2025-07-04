@@ -7,6 +7,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import '../css/Categories.scss'; // 
 import Home from '../components/Home';
+import Footer from './Footer'
 
 const Categories = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
@@ -126,6 +127,7 @@ const Categories = () => {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 };

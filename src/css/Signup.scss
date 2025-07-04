@@ -82,12 +82,12 @@ body {
 }
 
 .reel-frame img {
-  width: 240px;
-  height: 310px;
+  width: 280px;
+  height: 360px;
   object-fit: cover;
   border: 4px solid #704214;
   border-radius: 6px;
-  box-shadow: 0 0 10px gold;
+  box-shadow: 0 0 10px rgb(133, 127, 96);
   transition: transform 0.3s ease;
 }
 

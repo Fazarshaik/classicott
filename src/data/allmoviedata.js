@@ -10,6 +10,7 @@ const allmovies = [
     director: "Erich von Stroheim",
     description:
       "A dentist's life descends into obsession and tragedy after winning a lottery ticket in this gritty silent masterpiece.",
+    era: "1920s",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const allmovies = [
     director: "Charlie Chaplin",
     description:
       "The Tramp ventures into the Klondike in search of gold and finds love and mischief in this iconic silent comedy.",
+    era: "1920s",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const allmovies = [
     director: "Fritz Lang",
     description:
       "In a futuristic dystopia, a man discovers the harsh realities faced by the working class beneath a gleaming city.",
+    era: "1920s",
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const allmovies = [
     director: "Fred C. Newmeyer, Sam Taylor",
     description:
       "A small-town man tries to make it big in the city, leading to one of the most famous clock-hanging scenes in film history.",
+    era: "1920s",
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ const allmovies = [
     director: "King Vidor",
     description:
       "A realistic and touching portrayal of a man's struggles within the indifferent machinery of modern urban life.",
+    era: "1920s",
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ const allmovies = [
     director: "Clyde Bruckman, Buster Keaton",
     description:
       "During the American Civil War, a train engineer goes to great lengths to rescue his stolen locomotive and love.",
+    era: "1920s",
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ const allmovies = [
     director: "Alan Crosland",
     description:
       "The first feature-length film with synchronized dialogue, following a young man torn between tradition and show business.",
+    era: "1920s",
   },
   {
     id: 8,
@@ -94,6 +101,7 @@ const allmovies = [
     director: "Charlie Chaplin",
     description:
       "The Tramp finds an abandoned child and raises him as his own in one of Chaplin’s most heartfelt films.",
+    era: "1920s",
   },
   {
     id: 9,
@@ -106,6 +114,7 @@ const allmovies = [
     director: "D.W. Griffith",
     description:
       "A young woman faces deception and social ostracism, culminating in a legendary rescue on an icy river.",
+    era: "1920s",
   },
   {
     id: 10,
@@ -118,6 +127,7 @@ const allmovies = [
     director: "William A. Wellman",
     description:
       "Two World War I fighter pilots face love and tragedy in the first film to win the Academy Award for Best Picture.",
+    era: "1920s",
   },
   {
     id: 11,
@@ -130,6 +140,7 @@ const allmovies = [
     director: "David Hand",
     description:
       "The first full-length animated feature, this Disney classic tells the tale of a princess, her jealous stepmother, and seven lovable dwarfs.",
+    era: "1930s",
   },
   {
     id: 12,
@@ -142,6 +153,7 @@ const allmovies = [
     director: "Lewis Milestone",
     description:
       "A powerful anti-war story seen through the eyes of a young German soldier during World War I.",
+    era: "1930s",
   },
   {
     id: 13,
@@ -154,6 +166,7 @@ const allmovies = [
     director: "Howard Hawks",
     description:
       "A screwball comedy featuring a paleontologist and a wild heiress, with a leopard named Baby at the center of the chaos.",
+    era: "1930s",
   },
   {
     id: 14,
@@ -166,6 +179,7 @@ const allmovies = [
     director: "James Whale",
     description:
       "A scientist's creation of life leads to tragedy in this iconic horror classic based on Mary Shelley’s novel.",
+    era: "1930s",
   },
   {
     id: 15,
@@ -178,6 +192,7 @@ const allmovies = [
     director: "Tod Browning",
     description:
       "A controversial cult classic that tells the story of sideshow performers and betrayal within their tight-knit community.",
+    era: "1930s",
   },
   {
     id: 16,
@@ -190,6 +205,7 @@ const allmovies = [
     director: "Frank Capra",
     description:
       "A runaway heiress and a reporter find love on the road in this landmark romantic comedy that swept the Oscars.",
+    era: "1930s",
   },
   {
     id: 17,
@@ -202,6 +218,7 @@ const allmovies = [
     director: "Merian C. Cooper, Ernest B. Schoedsack",
     description:
       "A giant ape brought to New York becomes a spectacle — and a tragedy — in this groundbreaking monster movie.",
+    era: "1930s",
   },
   {
     id: 18,
@@ -214,6 +231,7 @@ const allmovies = [
     director: "Charlie Chaplin",
     description:
       "Chaplin’s Tramp struggles to survive in an increasingly industrialized world in this poignant and hilarious satire.",
+    era: "1930s",
   },
   {
     id: 19,
@@ -226,6 +244,7 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A man on the run must prove his innocence while unraveling a spy conspiracy in this Hitchcock thriller.",
+    era: "1930s",
   },
   {
     id: 20,
@@ -238,6 +257,7 @@ const allmovies = [
     director: "Victor Fleming",
     description:
       "Dorothy and her dog Toto are swept away to a magical land in this vibrant musical fantasy filled with heart and imagination.",
+    era: "1930s",
   },
   {
     id: 21,
@@ -250,6 +270,7 @@ const allmovies = [
     director: "David Lean",
     description:
       "A poignant love story about two married strangers who meet by chance and form a deep emotional bond during wartime Britain.",
+    era: "1940s",
   },
   {
     id: 22,
@@ -262,6 +283,7 @@ const allmovies = [
     director: "Michael Curtiz",
     description:
       "In Nazi-occupied Morocco, a cynical café owner faces love, loyalty, and sacrifice when his former lover walks back into his life.",
+    era: "1940s",
   },
   {
     id: 23,
@@ -274,6 +296,7 @@ const allmovies = [
     director: "Orson Welles",
     description:
       "The rise and fall of newspaper magnate Charles Foster Kane, told through innovative storytelling and unforgettable imagery.",
+    era: "1940s",
   },
   {
     id: 24,
@@ -286,6 +309,7 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A seductive femme fatale and an insurance salesman conspire to commit murder and collect the payout in this noir landmark.",
+    era: "1940s",
   },
   {
     id: 25,
@@ -298,6 +322,7 @@ const allmovies = [
     director: "Frank Capra",
     description:
       "A man on the brink of despair is shown the impact of his life in this uplifting holiday classic with wartime undertones.",
+    era: "1940s",
   },
   {
     id: 26,
@@ -310,6 +335,7 @@ const allmovies = [
     director: "Jacques Tourneur",
     description:
       "A former private eye is pulled back into a web of betrayal and danger in one of the defining films of classic noir.",
+    era: "1940s",
   },
   {
     id: 27,
@@ -322,6 +348,7 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A young girl begins to suspect that her beloved visiting uncle may be hiding a deadly secret in this slow-burn suspense thriller.",
+    era: "1940s",
   },
   {
     id: 28,
@@ -334,6 +361,7 @@ const allmovies = [
     director: "Charlie Chaplin",
     description:
       "A satirical and brave stand against fascism, Chaplin’s dual performance confronts war and hate with humanity and humor.",
+    era: "1940s",
   },
   {
     id: 29,
@@ -346,6 +374,7 @@ const allmovies = [
     director: "Michael Powell, Emeric Pressburger",
     description:
       "A ballet dancer is torn between love and ambition in this Technicolor masterpiece of art, passion, and sacrifice.",
+    era: "1940s",
   },
   {
     id: 30,
@@ -358,6 +387,7 @@ const allmovies = [
     director: "Raoul Walsh",
     description:
       "A volatile gangster struggles with loyalty, violence, and psychological torment in this intense and influential crime classic.",
+    era: "1940s",
   },
   {
     id: 31,
@@ -370,6 +400,7 @@ const allmovies = [
     director: "Alfred Hitchcock",
     description:
       "A retired detective is lured into obsession and delusion in Hitchcock's haunting tale of identity and psychological unraveling.",
+    era: "1950s",
   },
   {
     id: 32,
@@ -382,6 +413,7 @@ const allmovies = [
     director: "Vincente Minnelli",
     description:
       "A musical romance where a World War II veteran-turned-painter finds love and inspiration on the streets of Paris.",
+    era: "1950s",
   },
   {
     id: 33,
@@ -394,6 +426,7 @@ const allmovies = [
     director: "William Wyler",
     description:
       "An epic tale of betrayal, revenge, and redemption set during the time of Christ, highlighted by the legendary chariot race.",
+    era: "1950s",
   },
   {
     id: 34,
@@ -406,6 +439,7 @@ const allmovies = [
     director: "George Stevens",
     description:
       "Spanning generations, this Texas epic explores wealth, class, and racial tension, starring Elizabeth Taylor and James Dean.",
+    era: "1950s",
   },
   {
     id: 35,
@@ -418,6 +452,7 @@ const allmovies = [
     director: "Elia Kazan",
     description:
       "A dockworker confronts corruption and conscience in this gritty, Oscar-winning drama led by Marlon Brando’s unforgettable performance.",
+    era: "1950s",
   },
   {
     id: 36,
@@ -430,6 +465,7 @@ const allmovies = [
     director: "Nicholas Ray",
     description:
       "A troubled teenager struggles with authority, alienation, and young love in this landmark of youth rebellion cinema.",
+    era: "1950s",
   },
   {
     id: 37,
@@ -442,6 +478,7 @@ const allmovies = [
     director: "William Wyler",
     description:
       "A runaway princess and an American journalist fall for each other in Rome, in this timeless romantic escape.",
+    era: "1950s",
   },
   {
     id: 38,
@@ -454,6 +491,7 @@ const allmovies = [
     director: "Gene Kelly, Stanley Donen",
     description:
       "A dazzling musical about the transition from silent films to talkies, filled with unforgettable song-and-dance numbers.",
+    era: "1950s",
   },
   {
     id: 39,
@@ -466,6 +504,7 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A struggling screenwriter gets entangled with a faded silent film star in this noir-infused critique of Hollywood's dark side.",
+    era: "1950s",
   },
   {
     id: 40,
@@ -478,6 +517,7 @@ const allmovies = [
     director: "David Lean",
     description:
       "British POWs under Japanese rule are forced to build a railway bridge in this intense war epic about duty and pride.",
+    era: "1950s",
   },
   {
     id: 41,
@@ -490,6 +530,7 @@ const allmovies = [
     director: "Stanley Kubrick",
     description:
       "A visually stunning odyssey through space and time, exploring evolution, technology, and the unknown through a minimalist yet profound narrative.",
+    era: "1960s",
   },
   {
     id: 42,
@@ -502,6 +543,7 @@ const allmovies = [
     director: "Arthur Penn",
     description:
       "A stylish and violent retelling of the outlaw couple's story, breaking cinematic taboos and ushering in a new era of American filmmaking.",
+    era: "1960s",
   },
   {
     id: 43,
@@ -514,6 +556,7 @@ const allmovies = [
     director: "Dennis Hopper",
     description:
       "Two bikers travel across America in search of freedom, capturing the spirit, rebellion, and contradictions of the 1960s counterculture.",
+    era: "1960s",
   },
   {
     id: 44,
@@ -526,6 +569,7 @@ const allmovies = [
     director: "Robert Stevenson",
     description:
       "A magical nanny transforms the lives of a London family with joy, discipline, and unforgettable musical numbers.",
+    era: "1960s",
   },
   {
     id: 45,
@@ -538,6 +582,7 @@ const allmovies = [
     director: "Billy Wilder",
     description:
       "A man lends his apartment to company executives for affairs, only to fall for one of their mistresses in this sharp romantic satire.",
+    era: "1960s",
   },
   {
     id: 46,
@@ -550,6 +595,7 @@ const allmovies = [
     director: "Sergio Leone",
     description:
       "Three gunslingers race to find buried gold in this iconic Spaghetti Western with sweeping visuals and an unforgettable score.",
+    era: "1960s",
   },
   {
     id: 47,
@@ -562,6 +608,7 @@ const allmovies = [
     director: "John Sturges",
     description:
       "Allied prisoners plan a mass escape from a German POW camp in this thrilling, true-to-life wartime epic.",
+    era: "1960s",
   },
   {
     id: 48,
@@ -574,6 +621,7 @@ const allmovies = [
     director: "Robert Wise",
     description:
       "A musical governess brings joy and love to a widowed naval captain’s children in Austria during the rise of the Nazi regime.",
+    era: "1960s",
   },
   {
     id: 49,
@@ -586,6 +634,7 @@ const allmovies = [
     director: "Robert Mulligan",
     description:
       "A lawyer defends a wrongly accused Black man in the racially charged South, told through the eyes of his young daughter.",
+    era: "1960s",
   },
   {
     id: 50,
@@ -598,6 +647,7 @@ const allmovies = [
     director: "Robert Wise, Jerome Robbins",
     description:
       "A modern retelling of Romeo and Juliet set amid gang rivalry in New York, with groundbreaking choreography and unforgettable music.",
+    era: "1960s",
   },
   {
     id: 51,
@@ -610,6 +660,7 @@ const allmovies = [
     director: "Ridley Scott",
     description:
       "A deep-space crew fights for survival against a terrifying extraterrestrial in this sci-fi horror masterpiece.",
+    era: "1970s",
   },
   {
     id: 52,
@@ -622,6 +673,7 @@ const allmovies = [
     director: "Roman Polanski",
     description:
       "A private eye uncovers layers of corruption, deceit, and tragedy in 1930s Los Angeles in this neo-noir classic.",
+    era: "1970s",
   },
   {
     id: 53,
@@ -634,6 +686,7 @@ const allmovies = [
     director: "Randal Kleiser",
     description:
       "A high school romance blossoms amid catchy tunes and 1950s nostalgia in one of the most beloved musicals ever.",
+    era: "1970s",
   },
   {
     id: 54,
@@ -646,6 +699,7 @@ const allmovies = [
     director: "Steven Spielberg",
     description:
       "A seaside town faces terror from a man-eating shark in this suspenseful thriller that invented the summer blockbuster.",
+    era: "1970s",
   },
   {
     id: 55,
@@ -658,6 +712,7 @@ const allmovies = [
     director: "Franklin J. Schaffner",
     description:
       "A sweeping biopic of the brilliant and controversial WWII General George S. Patton, led by an iconic George C. Scott performance.",
+    era: "1970s",
   },
   {
     id: 56,
@@ -670,6 +725,7 @@ const allmovies = [
     director: "George Lucas",
     description:
       "A young farm boy is swept into an intergalactic rebellion in this space opera that changed cinema forever.",
+    era: "1970s",
   },
   {
     id: 57,
@@ -682,6 +738,7 @@ const allmovies = [
     director: "Martin Scorsese",
     description:
       "A mentally unstable veteran descends into isolation and violence in a gritty exploration of urban alienation.",
+    era: "1970s",
   },
   {
     id: 58,
@@ -694,6 +751,7 @@ const allmovies = [
     director: "William Friedkin",
     description:
       "A young girl becomes possessed by a demonic force, prompting a harrowing battle between faith and evil.",
+    era: "1970s",
   },
   {
     id: 59,
@@ -706,6 +764,7 @@ const allmovies = [
     director: "William Friedkin",
     description:
       "Two tough NYPD detectives track down a major heroin smuggling operation in this gritty Oscar-winning thriller.",
+    era: "1970s",
   },
   {
     id: 60,
@@ -718,6 +777,7 @@ const allmovies = [
     director: "Francis Ford Coppola",
     description:
       "The rise and transformation of Michael Corleone in a powerful crime saga that redefined American cinema.",
+    era: "1970s",
   },
 ];
 
