@@ -1,25 +1,19 @@
 import React, { useState, useRef } from "react";
-import {
-  Play,
-  Star,
-  Calendar,
-  Clock,
-  Award,
-  Plus,
-} from "lucide-react";
+import { Play, Star, Calendar, Clock, Award, Plus } from "lucide-react";
 import allmovies from "../data/allmoviedata";
 import Home from "../components/Home";
 import { useMyList } from "../context/MyListContex";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
+  const navigate = useNavigate();
 
-  const { addToList, myList } = useMyList(); 
+  const { addToList, myList } = useMyList();
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
@@ -38,7 +32,17 @@ const MovieCard = ({ movie }) => {
     setCurrentFrame(null);
   };
 
-  const handleAddToList = () => {
+  const handleCardClick = () => {
+    navigate(`/movieframe/${movie.id}`);
+  };
+
+  const handlePlayClick = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking play button
+    navigate(`/movieframe/${movie.id}`);
+  };
+
+  const handleAddToList = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking add to list button
     const alreadyExists = myList.some((item) => item.id === movie.id);
 
     if (alreadyExists) {
@@ -72,9 +76,10 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div
-      className="group relative w-[280px] bg-gradient-to-b from-amber-900/20 to-black rounded-lg overflow-hidden border border-amber-600/30 hover:border-amber-400/60 transition-all duration-500 transform hover:scale-105 shadow-lg"
+      className="group relative w-[280px] bg-gradient-to-b from-amber-900/20 to-black rounded-lg overflow-hidden border border-amber-600/30 hover:border-amber-400/60 transition-all duration-500 transform hover:scale-105 shadow-lg cursor-pointer"
       onMouseEnter={startPreview}
       onMouseLeave={stopPreview}
+      onClick={handleCardClick}
     >
       <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
         {[...Array(4)].map((_, i) => (
@@ -84,9 +89,10 @@ const MovieCard = ({ movie }) => {
 
       <div className="relative w-[320px] h-[320px] overflow-hidden mx-auto mt-2 rounded">
         <img
-          src={currentFrame || movie.poster}
+          src={currentFrame || movie.image || movie.poster}
           alt={movie.title}
-          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 cursor-pointer"
+          onClick={handleCardClick}
         />
 
         <div className="absolute inset-0 bg-amber-900/20 mix-blend-multiply" />
@@ -125,7 +131,9 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
 
-        <p className="text-amber-100 text-xs line-clamp-2">{movie.description}</p>
+        <p className="text-amber-100 text-xs line-clamp-2">
+          {movie.description}
+        </p>
 
         <div className="flex flex-wrap gap-1 mt-2">
           {movie.genre
@@ -142,12 +150,13 @@ const MovieCard = ({ movie }) => {
         </div>
 
         <div className="mt-3 flex justify-center gap-3">
-          <Link to={'/video'}>
-          <button className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition">
+          <button
+            onClick={handlePlayClick}
+            className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition"
+          >
             <Play className="w-4 h-4" />
-            Play
+            Play Now
           </button>
-          </Link>
 
           <button
             onClick={handleAddToList}
@@ -183,7 +192,7 @@ const Allmovies = () => {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
