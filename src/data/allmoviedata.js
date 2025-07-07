@@ -2,7 +2,7 @@ const allmovies = [
   {
     id: 1,
     title: "Greed",
-    image: "/assets/images/1920's/1925 movie Greed.jpeg",
+    poster: "/assets/images/1920's/1925 movie Greed.jpeg",
     rating: "8.0",
     year: "1926",
     duration: "4h",
@@ -13,15 +13,15 @@ const allmovies = [
     era: "1920s",
     trailer: "https://www.youtube.com/embed/A7YeJMiN-wQ",
     cast: [
-      { name: "Gibson Gowland", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Zasu Pitts", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Jean Hersholt", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Gibson Gowland", image: "/assets/images/cast/Gibson Gowland.jpeg" },
+      { name: "Zasu Pitts", image: "/assets/images/cast/Zasu Pitts.jpeg" },
+      { name: "Jean Hersholt", image: "/assets/images/cast/Jean Hersholt.jpeg" },
     ],
   },
   {
     id: 2,
     title: "The Gold Rush",
-    image: "/assets/images/1920's/Gold Rush_1925.jpeg",
+    poster: "/assets/images/1920's/Gold Rush_1925.jpeg",
     rating: "8.2",
     year: "1925",
     duration: "1h 35m",
@@ -30,11 +30,11 @@ const allmovies = [
     description:
       "The Tramp ventures into the Klondike in search of gold and finds love and mischief in this iconic silent comedy.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/kDlEvaKBkhU?si=g6fyrnzGUCyTiQ7P",
     cast: [
-      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Georgia Hale", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Mack Swain", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Charlie Chaplin.jpeg" },
+      { name: "Georgia Hale", image: "/assets/images/cast/Georgia Hale.jpeg" },
+      { name: "Mack Swain", image: "/assets/images/cast/Mack Swain.jpeg" },
     ],
   },
   {
@@ -49,11 +49,11 @@ const allmovies = [
     description:
       "In a futuristic dystopia, a man discovers the harsh realities faced by the working class beneath a gleaming city.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    trailer: "https://www.youtube.com/embed/QMGb9wyyM6Q?si=HE2dJ5aw2KPfb6E0",
     cast: [
-      { name: "Brigitte Helm", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Alfred Abel", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Gustav Fröhlich", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Brigitte Helm", image: "/assets/images/cast/Brigitte Helm.jpeg" },
+      { name: "Alfred Abel", image: "/assets/images/cast/Alfred Abel.jpeg" },
+      { name: "Gustav Fröhlich", image: "/assets/images/cast/Gustav Frohlich.jpeg" },
     ],
   },
   {
@@ -68,7 +68,7 @@ const allmovies = [
     description:
       "A small-town man tries to make it big in the city, leading to one of the most famous clock-hanging scenes in film history.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    trailer: "https://www.youtube.com/embed/rhNtSU8ubf0?si=eKtFYycs7UuMoS59",
     cast: [
       { name: "Harold Lloyd", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Mildred Davis", image: "/assets/images/cast/Rose.jpeg" },
@@ -87,7 +87,7 @@ const allmovies = [
     description:
       "A realistic and touching portrayal of a man's struggles within the indifferent machinery of modern urban life.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    trailer: "https://www.youtube.com/embed/Er7kOfPGbmQ?si=yiHQsl6ZJo_dxEJX",
     cast: [
       { name: "James Murray", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Eleanor Boardman", image: "/assets/images/cast/Rose.jpeg" },
@@ -106,7 +106,7 @@ const allmovies = [
     description:
       "During the American Civil War, a train engineer goes to great lengths to rescue his stolen locomotive and love.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    trailer: "https://www.youtube.com/embed/7EcZPcFfjqY?si=3qHpQlyjYGP7xWTF",
     cast: [
       { name: "Buster Keaton", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Marion Mack", image: "/assets/images/cast/Rose.jpeg" },
@@ -125,7 +125,7 @@ const allmovies = [
     description:
       "The first feature-length film with synchronized dialogue, following a young man torn between tradition and show business.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    trailer: "https://www.youtube.com/embed/22NQuPrwbHA?si=tILvpgmg7aQlGADK",
     cast: [
       { name: "Al Jolson", image: "/assets/images/cast/Jack.jpeg" },
       { name: "May McAvoy", image: "/assets/images/cast/Rose.jpeg" },
@@ -144,7 +144,7 @@ const allmovies = [
     description:
       "The Tramp finds an abandoned child and raises him as his own in one of Chaplin's most heartfelt films.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    trailer: "https://www.youtube.com/embed/FgtP1zZiX28?si=cSU7qE8rKfbRpK8f",
     cast: [
       { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Jackie Coogan", image: "/assets/images/cast/Rose.jpeg" },
@@ -163,7 +163,7 @@ const allmovies = [
     description:
       "A young woman faces deception and social ostracism, culminating in a legendary rescue on an icy river.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/12WdOsJJSM8?si=aCqZjRI2dyiw1QaZ",
     cast: [
       { name: "Lillian Gish", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Richard Barthelmess", image: "/assets/images/cast/Rose.jpeg" },
@@ -182,7 +182,7 @@ const allmovies = [
     description:
       "Two World War I fighter pilots face love and tragedy in the first film to win the Academy Award for Best Picture.",
     era: "1920s",
-    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    trailer: "https://www.youtube.com/embed/CKB5Myy4N00?si=H-vxz5bmphoNx1YL",
     cast: [
       { name: "Clara Bow", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Charles Rogers", image: "/assets/images/cast/Rose.jpeg" },
@@ -202,7 +202,7 @@ const allmovies = [
     description:
       "The first full-length animated feature, this Disney classic tells the tale of a princess, her jealous stepmother, and seven lovable dwarfs.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/4N-aa9nITcs",
+    trailer: "https://www.youtube.com/embed/5fzZFQBXSLM?si=IoaKIqJcae7meH_G",
     cast: [
       { name: "Adriana Caselotti", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Harry Stockwell", image: "/assets/images/cast/Rose.jpeg" },
@@ -221,7 +221,7 @@ const allmovies = [
     description:
       "A powerful anti-war story seen through the eyes of a young German soldier during World War I.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/6QrKJhJqJqY",
+    trailer: "https://www.youtube.com/embed/grapXipP3fM?si=6lX12k12KbmOABtC",
     cast: [
       { name: "Lew Ayres", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Louis Wolheim", image: "/assets/images/cast/Rose.jpeg" },
@@ -240,7 +240,7 @@ const allmovies = [
     description:
       "A screwball comedy featuring a paleontologist and a wild heiress, with a leopard named Baby at the center of the chaos.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/7nJ_3Fcizl0",
+    trailer: "https://www.youtube.com/embed/F25nzu6hh0Q?si=KLy3bhZakJnd5ysj",
     cast: [
       { name: "Katharine Hepburn", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Cary Grant", image: "/assets/images/cast/Rose.jpeg" },
@@ -278,7 +278,7 @@ const allmovies = [
     description:
       "A controversial cult classic that tells the story of sideshow performers and betrayal within their tight-knit community.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/8j8Dg9Xp68A",
+    trailer: "https://www.youtube.com/embed/yo_wZFlXKkQ?si=6kl8RH2qOegqxffn",
     cast: [
       { name: "Wallace Ford", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Leila Hyams", image: "/assets/images/cast/Rose.jpeg" },
@@ -297,7 +297,7 @@ const allmovies = [
     description:
       "A runaway heiress and a reporter find love on the road in this landmark romantic comedy that swept the Oscars.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/7nJ_3Fcizl0",
+    trailer: "https://www.youtube.com/embed/Kd509cLN-9U?si=gFZLPjLgzy4Nc4_m",
     cast: [
       { name: "Clark Gable", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Claudette Colbert", image: "/assets/images/cast/Rose.jpeg" },
@@ -316,7 +316,7 @@ const allmovies = [
     description:
       "A giant ape brought to New York becomes a spectacle — and a tragedy — in this groundbreaking monster movie.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/1qNeGSJaQ9Q",
+    trailer: "https://www.youtube.com/embed/PbrikL8IjXM?si=8nTnd0SkK98iV0Zt",
     cast: [
       { name: "Fay Wray", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Robert Armstrong", image: "/assets/images/cast/Rose.jpeg" },
@@ -335,7 +335,7 @@ const allmovies = [
     description:
       "Chaplin's Tramp struggles to survive in an increasingly industrialized world in this poignant and hilarious satire.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/NNznUyDmSFc?si=BA3uVhMVYyerhrFm",
     cast: [
       { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Paulette Goddard", image: "/assets/images/cast/Rose.jpeg" },
@@ -354,7 +354,7 @@ const allmovies = [
     description:
       "A man on the run must prove his innocence while unraveling a spy conspiracy in this Hitchcock thriller.",
     era: "1930s",
-    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    trailer: "https://www.youtube.com/embed/hUIL0Z1c9bc?si=IaCYSJu-AQdvotNb",
     cast: [
       { name: "Robert Donat", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Madeleine Carroll", image: "/assets/images/cast/Rose.jpeg" },
@@ -392,7 +392,7 @@ const allmovies = [
     description:
       "A poignant love story about two married strangers who meet by chance and form a deep emotional bond during wartime Britain.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/Z9t-P-61S1o?si=keOy1_xRHin3pNXR",
     cast: [
       { name: "Celia Johnson", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Trevor Howard", image: "/assets/images/cast/Rose.jpeg" },
@@ -436,7 +436,7 @@ const allmovies = [
     description:
       "The rise and fall of newspaper magnate Charles Foster Kane, told through innovative storytelling and unforgettable imagery.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    trailer: "https://www.youtube.com/embed/2HY35DNYt8g?si=jBsNIUZrVRkbFchO",
     cast: [
       { name: "Orson Welles", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Joseph Cotten", image: "/assets/images/cast/Rose.jpeg" },
@@ -458,7 +458,7 @@ const allmovies = [
     description:
       "A seductive femme fatale and an insurance salesman conspire to commit murder and collect the payout in this noir landmark.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    trailer: "https://www.youtube.com/embed/S3wjJcuGsVE?si=PjEcehsXRt9h455",
     cast: [
       { name: "Fred MacMurray", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Barbara Stanwyck", image: "/assets/images/cast/Rose.jpeg" },
@@ -480,7 +480,7 @@ const allmovies = [
     description:
       "A man on the brink of despair is shown the impact of his life in this uplifting holiday classic with wartime undertones.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/iLR3gZrU2Xo?si=FOOZP9sfLgg8aWBV",
     cast: [
       {
         name: "James Stewart",
@@ -502,7 +502,7 @@ const allmovies = [
     description:
       "A former private eye is pulled back into a web of betrayal and danger in one of the defining films of classic noir.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    trailer: "https://www.youtube.com/embed/bMgGuCIZnsM?si=XffU7AbBbDX0CJAL",
     cast: [
       { name: "Robert Mitchum", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Jane Greer", image: "/assets/images/cast/Rose.jpeg" },
@@ -521,7 +521,7 @@ const allmovies = [
     description:
       "A young girl begins to suspect that her beloved visiting uncle may be hiding a deadly secret in this slow-burn suspense thriller.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    trailer: "https://www.youtube.com/embed/HHEu5vXUusc?si=Sunb2XG4J0vL-xx6",
     cast: [
       { name: "Teresa Wright", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Joseph Cotten", image: "/assets/images/cast/Rose.jpeg" },
@@ -540,7 +540,7 @@ const allmovies = [
     description:
       "A satirical and brave stand against fascism, Chaplin's dual performance confronts war and hate with humanity and humor.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    trailer: "https://www.youtube.com/embed/yAAGh97sVz0?si=q4kKkz3h4Ipoifhw",
     cast: [
       { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Paulette Goddard", image: "/assets/images/cast/Rose.jpeg" },
@@ -559,7 +559,7 @@ const allmovies = [
     description:
       "A ballet dancer is torn between love and ambition in this Technicolor masterpiece of art, passion, and sacrifice.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    trailer: "https://www.youtube.com/embed/_mHgGU4AbOA?si=vAlIUU0RipXaLHYa",
     cast: [
       { name: "Moira Shearer", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Anton Walbrook", image: "/assets/images/cast/Rose.jpeg" },
@@ -578,7 +578,7 @@ const allmovies = [
     description:
       "A volatile gangster struggles with loyalty, violence, and psychological torment in this intense and influential crime classic.",
     era: "1940s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/ZmMK25__xLE?si=lDvoQYjRKgW03fhU",
     cast: [
       { name: "James Cagney", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Virginia Mayo", image: "/assets/images/cast/Rose.jpeg" },
@@ -622,7 +622,7 @@ const allmovies = [
     description:
       "A musical romance where a World War II veteran-turned-painter finds love and inspiration on the streets of Paris.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/o2WAMZRCbpU?si=Pr2KtFHIsVnPrS7T",
     cast: [
       { name: "Gene Kelly", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Leslie Caron", image: "/assets/images/cast/Rose.jpeg" },
@@ -641,7 +641,7 @@ const allmovies = [
     description:
       "An epic tale of betrayal, revenge, and redemption set during the time of Christ, highlighted by the legendary chariot race.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    trailer: "https://www.youtube.com/embed/NR1ZHKw09n8?si=Ojj8ttD6b2tqvaTH",
     cast: [
       { name: "Charlton Heston", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Jack Hawkins", image: "/assets/images/cast/Rose.jpeg" },
@@ -660,7 +660,7 @@ const allmovies = [
     description:
       "Spanning generations, this Texas epic explores wealth, class, and racial tension, starring Elizabeth Taylor and James Dean.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/oR_e9y-bka0",
+    trailer: "https://www.youtube.com/embed/kMG_ipol-MI?si=nM8xqk0aEB-5uxD2",
     cast: [
       { name: "Elizabeth Taylor", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Rock Hudson", image: "/assets/images/cast/Rose.jpeg" },
@@ -679,7 +679,7 @@ const allmovies = [
     description:
       "A dockworker confronts corruption and conscience in this gritty, Oscar-winning drama led by Marlon Brando's unforgettable performance.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    trailer: "https://www.youtube.com/embed/boekTHsOIY8?si=AwHEoZNKglIfj_r8",
     cast: [
       {
         name: "Marlon Brando",
@@ -701,7 +701,7 @@ const allmovies = [
     description:
       "A troubled teenager struggles with authority, alienation, and young love in this landmark of youth rebellion cinema.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    trailer: "https://www.youtube.com/embed/HWHH5TwEwtI?si=X6Vc1DkG8vxnTy33",
     cast: [
       { name: "James Dean", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Natalie Wood", image: "/assets/images/cast/Rose.jpeg" },
@@ -720,7 +720,7 @@ const allmovies = [
     description:
       "A runaway princess and an American journalist fall for each other in Rome, in this timeless romantic escape.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/2vm2FdHg7Io?si=1m_gZnD56Qv8UDqA",
     cast: [
       { name: "Audrey Hepburn", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Gregory Peck", image: "/assets/images/cast/Rose.jpeg" },
@@ -739,7 +739,7 @@ const allmovies = [
     description:
       "A dazzling musical about the transition from silent films to talkies, filled with unforgettable song-and-dance numbers.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    trailer: "https://www.youtube.com/embed/lSE8sl2-PZg?si=SihCJTzeVw2HFN5Q",
     cast: [
       { name: "Gene Kelly", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Debbie Reynolds", image: "/assets/images/cast/Rose.jpeg" },
@@ -758,7 +758,7 @@ const allmovies = [
     description:
       "A struggling screenwriter gets entangled with a faded silent film star in this noir-infused critique of Hollywood's dark side.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    trailer: "https://www.youtube.com/embed/ZQWqIA1-kvA?si=fPpnkNk7fleVdFdP",
     cast: [
       { name: "William Holden", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Gloria Swanson", image: "/assets/images/cast/Rose.jpeg" },
@@ -780,7 +780,7 @@ const allmovies = [
     description:
       "British POWs under Japanese rule are forced to build a railway bridge in this intense war epic about duty and pride.",
     era: "1950s",
-    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    trailer: "https://www.youtube.com/embed/4QP1LKy-BOk?si=OxZIBguD8vQA08Ca",
     cast: [
       { name: "William Holden", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Alec Guinness", image: "/assets/images/cast/Rose.jpeg" },
@@ -824,7 +824,7 @@ const allmovies = [
     description:
       "A stylish and violent retelling of the outlaw couple's story, breaking cinematic taboos and ushering in a new era of American filmmaking.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    trailer: "https://www.youtube.com/embed/t3CcKhXWceo?si=CJ6FP5W7VgvAJLu5",
     cast: [
       { name: "Warren Beatty", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Faye Dunaway", image: "/assets/images/cast/Rose.jpeg" },
@@ -843,7 +843,7 @@ const allmovies = [
     description:
       "Two bikers travel across America in search of freedom, capturing the spirit, rebellion, and contradictions of the 1960s counterculture.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/vZ734NWnAHA",
+    trailer: "https://www.youtube.com/embed/iLdTZaKMQ9c?si=z7VaewgiKC61azP7",
     cast: [
       { name: "Peter Fonda", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Dennis Hopper", image: "/assets/images/cast/Rose.jpeg" },
@@ -862,7 +862,7 @@ const allmovies = [
     description:
       "A magical nanny transforms the lives of a London family with joy, discipline, and unforgettable musical numbers.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    trailer: "https://www.youtube.com/embed/YfkEQDPlb8g?si=bcIlQtXe-fTsm_vW",
     cast: [
       { name: "Julie Andrews", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Dick Van Dyke", image: "/assets/images/cast/Rose.jpeg" },
@@ -881,7 +881,7 @@ const allmovies = [
     description:
       "A man lends his apartment to company executives for affairs, only to fall for one of their mistresses in this sharp romantic satire.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    trailer: "https://www.youtube.com/embed/isjfwA0B5xQ?si=O9aNWars65ek8Neh",
     cast: [
       { name: "Jack Lemmon", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Shirley MacLaine", image: "/assets/images/cast/Rose.jpeg" },
@@ -900,7 +900,7 @@ const allmovies = [
     description:
       "Three gunslingers race to find buried gold in this iconic Spaghetti Western with sweeping visuals and an unforgettable score.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/EOzLVw0AtQY?si=yvaJIw8HP96iw-hI",
     cast: [
       { name: "Clint Eastwood", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Lee Van Cleef", image: "/assets/images/cast/Rose.jpeg" },
@@ -919,7 +919,7 @@ const allmovies = [
     description:
       "Allied prisoners plan a mass escape from a German POW camp in this thrilling, true-to-life wartime epic.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    trailer: "https://www.youtube.com/embed/I9jSKTSY5Bs?si=uru3nWntSh_0Ztaf",
     cast: [
       { name: "Steve McQueen", image: "/assets/images/cast/Jack.jpeg" },
       { name: "James Garner", image: "/assets/images/cast/Rose.jpeg" },
@@ -941,7 +941,7 @@ const allmovies = [
     description:
       "A musical governess brings joy and love to a widowed naval captain's children in Austria during the rise of the Nazi regime.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/ygyK0HStjwg?si=F8aTknEqWDhfeNEe",
     cast: [
       { name: "Julie Andrews", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Christopher Plummer", image: "/assets/images/cast/Rose.jpeg" },
@@ -960,7 +960,7 @@ const allmovies = [
     description:
       "A lawyer defends a wrongly accused Black man in the racially charged South, told through the eyes of his young daughter.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/U1fu_sA7XhE",
+    trailer: "https://www.youtube.com/embed/rySEml7a6Uc?si=7QcZxUumNUYJFdGC",
     cast: [
       { name: "Gregory Peck", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Mary Badham", image: "/assets/images/cast/Rose.jpeg" },
@@ -979,7 +979,7 @@ const allmovies = [
     description:
       "A modern retelling of Romeo and Juliet set amid gang rivalry in New York, with groundbreaking choreography and unforgettable music.",
     era: "1960s",
-    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    trailer: "https://www.youtube.com/embed/IakulTGwc0U?si=qgMFn7HI6VD7JvGD",
     cast: [
       { name: "Natalie Wood", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Richard Beymer", image: "/assets/images/cast/Rose.jpeg" },
@@ -998,7 +998,7 @@ const allmovies = [
     description:
       "A deep-space crew fights for survival against a terrifying extraterrestrial in this sci-fi horror masterpiece.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/UcTlJxN3Q20",
+    trailer: "https://www.youtube.com/embed/jQ5lPt9edzQ?si=b1TxlOJp4kZGmyRX",
     cast: [
       { name: "Sigourney Weaver", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Tom Skerritt", image: "/assets/images/cast/Rose.jpeg" },
@@ -1017,7 +1017,7 @@ const allmovies = [
     description:
       "A private eye uncovers layers of corruption, deceit, and tragedy in 1930s Los Angeles in this neo-noir classic.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/zyv19bg0scg",
+    trailer: "https://www.youtube.com/embed/Z70axRwP74Q?si=aVpCngAIu19kQwgJ",
     cast: [
       { name: "Jack Nicholson", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Faye Dunaway", image: "/assets/images/cast/Rose.jpeg" },
@@ -1036,7 +1036,7 @@ const allmovies = [
     description:
       "A high school romance blossoms amid catchy tunes and 1950s nostalgia in one of the most beloved musicals ever.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/D1ZYhVpdXbQ",
+    trailer: "https://www.youtube.com/embed/THd96gHV7Tg?si=bgm1JSxbSOUb2Cx-",
     cast: [
       { name: "John Travolta", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Olivia Newton-John", image: "/assets/images/cast/Rose.jpeg" },
@@ -1080,7 +1080,7 @@ const allmovies = [
     description:
       "A sweeping biopic of the brilliant and controversial WWII General George S. Patton, led by an iconic George C. Scott performance.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/0dTsfsr6-X8",
+    trailer: "https://www.youtube.com/embed/bLXzqSmxGaM?si=U38eOAusTpaTQs5d",
     cast: [
       { name: "George C. Scott", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Karl Malden", image: "/assets/images/cast/Rose.jpeg" },
@@ -1124,7 +1124,7 @@ const allmovies = [
     description:
       "A mentally unstable veteran descends into isolation and violence in a gritty exploration of urban alienation.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/sY1S34973zA",
+    trailer: "https://www.youtube.com/embed/zdqCqDSTVNI?si=qLyk3tDV27cJhhXf",
     cast: [
       { name: "Robert De Niro", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Jodie Foster", image: "/assets/images/cast/Rose.jpeg" },
@@ -1143,7 +1143,7 @@ const allmovies = [
     description:
       "A young girl becomes possessed by a demonic force, prompting a harrowing battle between faith and evil.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/BkL9l7qovsE",
+    trailer: "https://www.youtube.com/embed/BU2eYAO31Cc?si=tFRmkqb3lWwG24Sm",
     cast: [
       { name: "Ellen Burstyn", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Linda Blair", image: "/assets/images/cast/Rose.jpeg" },
@@ -1162,7 +1162,7 @@ const allmovies = [
     description:
       "Two tough NYPD detectives track down a major heroin smuggling operation in this gritty Oscar-winning thriller.",
     era: "1970s",
-    trailer: "https://www.youtube.com/embed/vQLNS3HWfCM",
+    trailer: "https://www.youtube.com/embed/ib7koBFypTI?si=1u6b3Wh1Lt8e20iU",
     cast: [
       { name: "Gene Hackman", image: "/assets/images/cast/Jack.jpeg" },
       { name: "Roy Scheider", image: "/assets/images/cast/Rose.jpeg" },
