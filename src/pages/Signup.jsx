@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, Star } from 'lucide-react';
+import { FaGoogle, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import '../css/Signup.scss';
 import { toast } from 'react-toastify';
@@ -163,6 +164,31 @@ const Signup = () => {
               <div className="divider-line"></div>
               <Star className="divider-icon" />
               <div className="divider-line"></div>
+            </div>
+
+            {/* Added Social Login Section */}
+            <div className="social-login-section">
+              <p className="social-text">Or sign up with:</p>
+              <div className="social-icons">
+                <button 
+                  className="social-icon google"
+                  onClick={() => window.location.href = "https://accounts.google.com/"}
+                >
+                  <FaGoogle />
+                </button>
+                <button 
+                  className="social-icon facebook"
+                  onClick={() => window.location.href = "https://www.facebook.com/"}
+                >
+                  <FaFacebookF />
+                </button>
+                <button 
+                  className="social-icon twitter"
+                  onClick={() => window.location.href = "https://twitter.com/"}
+                >
+                  <FaTwitter />
+                </button>
+              </div>
             </div>
 
             <div className="signup-redirect">

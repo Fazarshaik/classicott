@@ -8,7 +8,7 @@ import Footer from '../pages/Footer';
 const decades = [
   { value: '1920s', label: '1920s', period: 'Silent Era' },
   { value: '1930s', label: '1930s', period: 'Golden Dawn' },
-  { value: '1940s', label: '1940s', period: 'War & Drama' },
+  { value: '1940s', label: '1940s', period: 'War and Drama' },
   { value: '1950s', label: '1950s', period: 'Technicolor' },
   { value: '1960s', label: '1960s', period: 'New Wave' },
   { value: '1970s', label: '1970s', period: 'Auteur Era' },

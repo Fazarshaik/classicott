@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, User, Lock, Film } from "lucide-react";
+import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,7 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [existingUserError, setExistingUserError] = useState("");
-  const [touched, setTouched] = useState({ email: false, password: false });
 
   const navigate = useNavigate();
 
@@ -20,20 +20,34 @@ const Login = () => {
   const validateForm = () => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/;
-
+    
+    // Email validation
     if (!email.trim()) {
       errors.email = "Email is required";
     } else if (!emailRegex.test(email)) {
       errors.email = "Invalid email format";
     }
-     
+
+    // Password validation
     if (!password.trim()) {
       errors.password = "Password is required";
-    } else if (!passwordRegex.test(password)) {
-      errors.password =
-        "Password must be exactly 8 characters with at least one uppercase letter, one lowercase letter, one number, and one special character";
+    } else if (password.length !== 8) {
+      errors.password = "Password must be exactly 8 characters";
+    } else {
+      const hasLower = /[a-z]/.test(password);
+      const hasUpper = /[A-Z]/.test(password);
+      const hasNumber = /\d/.test(password);
+      const hasSpecial = /[@$!%*?&]/.test(password);
+      
+      let missingRequirements = [];
+      if (!hasLower) missingRequirements.push("lowercase letter");
+      if (!hasUpper) missingRequirements.push("uppercase letter");
+      if (!hasNumber) missingRequirements.push("number");
+      if (!hasSpecial) missingRequirements.push("special character (@$!%*?&)");
+      
+      if (missingRequirements.length > 0) {
+        errors.password = `Password must contain: ${missingRequirements.join(", ")}`;
+      }
     }
 
     setFormErrors(errors);
@@ -45,6 +59,7 @@ const Login = () => {
     setExistingUserError("");
 
     if (!validateForm()) return;
+
     toast.success("Successfully logged in!", {
       position: "top-right",
       autoClose: 2000,
@@ -81,25 +96,20 @@ const Login = () => {
             <div className="auth-divider" />
           </div>
 
-          <form className="auth-form" onSubmit={handleLogin}>
+          <form className="auth-form" onSubmit={handleLogin} noValidate>
             <div className="input-group">
               <label className="input-label">Email</label>
-              <div
-                className={`input-wrapper ${
-                  formErrors.email && touched.email ? "input-error" : ""
-                }`}
-              >
+              <div className={`input-wrapper ${formErrors.email ? "input-error" : ""}`}>
                 <User className="input-icon" />
                 <input
                   type="email"
                   className="input-field"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => setTouched({ ...touched, email: true })}
+                  onChange={(e) => setEmail(e.target.value.toLowerCase())}
                   placeholder="Enter your email"
                 />
               </div>
-              {touched.email && formErrors.email && (
+              {formErrors.email && (
                 <div className="input-error-message">
                   <span className="error-icon">!</span>
                   {formErrors.email}
@@ -109,21 +119,18 @@ const Login = () => {
 
             <div className="input-group">
               <label className="input-label">Password</label>
-              <div
-                className={`input-wrapper ${
-                  formErrors.password && touched.password ? "input-error" : ""
-                }`}
-              >
+              <div className={`input-wrapper ${formErrors.password ? "input-error" : ""}`}>
                 <Lock className="input-icon" />
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input-field"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onBlur={() => setTouched({ ...touched, password: true })}
-                  placeholder="Enter your password"
-                  minLength={8}
-                  maxLength={8}
+                  onChange={(e) => {
+                    if (e.target.value.length <= 8) {
+                      setPassword(e.target.value);
+                    }
+                  }}
+                  placeholder="Enter your password (8 characters)"
                 />
                 <button
                   type="button"
@@ -133,7 +140,7 @@ const Login = () => {
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
-              {touched.password && formErrors.password && (
+              {formErrors.password && (
                 <div className="input-error-message">
                   <span className="error-icon">!</span>
                   {formErrors.password}
@@ -162,6 +169,39 @@ const Login = () => {
               Login
             </button>
           </form>
+
+          <div className="social-login">
+            <p className="social-text">Or sign in with:</p>
+            <div className="social-buttons">
+              <button
+                className="social-button google"
+                onClick={() =>
+                  (window.location.href = "https://accounts.google.com/")
+                }
+                aria-label="Google"
+              >
+                <FaGoogle />
+              </button>
+              <button
+                className="social-button facebook"
+                onClick={() =>
+                  (window.location.href = "https://www.facebook.com/login/")
+                }
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </button>
+              <button
+                className="social-button twitter"
+                onClick={() =>
+                  (window.location.href = "https://twitter.com/i/flow/login")
+                }
+                aria-label="Twitter"
+              >
+                <FaTwitter />
+              </button>
+            </div>
+          </div>
 
           <div className="auth-divider-icon">
             <div className="divider-line" />

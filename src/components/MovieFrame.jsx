@@ -5,32 +5,71 @@ import Home from "./Home";
 import "../css/MovieFrame.scss";
 import movieData from "../data/movieData";
 import movies from "../data/movies";
+import allmovies from "../data/allmoviedata";
 
 const MovieFrame = () => {
   const [activeTab, setActiveTab] = useState("trailer");
   const { movieId } = useParams();
   const navigate = useNavigate();
 
-  // Find the selected movie by ID from movies.js, or default to the first movie
+  // Find the movie from all three data sources
+  const movieIdInt = parseInt(movieId);
   const selectedMovieFromMovies = movieId
-    ? movies.find((movie) => movie.id === parseInt(movieId)) || movies[0]
+    ? movies.find((movie) => movie.id === movieIdInt)
     : movies[0];
 
-  // Find corresponding movie data from movieData.js for trailer and cast
-  const selectedMovieData =
-    movieData.find((movie) => movie.id === selectedMovieFromMovies.id) ||
-    movieData[0];
+  const selectedMovieFromAllMovies = movieId
+    ? allmovies.find((movie) => movie.id === movieIdInt)
+    : null;
 
-  // Combine the data - use movies.js for basic info and movieData.js for trailer/cast
+  const selectedMovieFromMovieData = movieId
+    ? movieData.find((movie) => movie.id === movieIdInt)
+    : movieData[0];
+
+  // Merge cast, trailer, and other fields with fallback priorities
+  const trailer =
+    selectedMovieFromAllMovies?.trailer ||
+    selectedMovieFromMovieData?.trailer ||
+    "https://www.youtube.com/embed/dQw4w9WgXcQ"; // Default trailer fallback
+
+  const cast = selectedMovieFromAllMovies?.cast ||
+    selectedMovieFromMovieData?.cast ||
+    selectedMovieFromMovies?.cast || [
+      {
+        name: "Cast information unavailable",
+        image: "/assets/images/cast/placeholder.jpeg",
+      },
+    ];
+
   const selectedMovie = {
-    ...selectedMovieFromMovies,
-    image: selectedMovieData.image,
-    trailer: selectedMovieData.trailer,
-    cast: selectedMovieData.cast,
+    id: selectedMovieFromAllMovies?.id || selectedMovieFromMovies?.id,
+    title:
+      selectedMovieFromAllMovies?.title ||
+      selectedMovieFromMovieData?.title ||
+      selectedMovieFromMovies?.title ||
+      "Unknown Title",
+    description:
+      selectedMovieFromAllMovies?.description ||
+      selectedMovieFromMovieData?.description ||
+      selectedMovieFromMovies?.description ||
+      "No description available.",
+    rating:
+      selectedMovieFromAllMovies?.rating ||
+      selectedMovieFromMovieData?.rating ||
+      selectedMovieFromMovies?.rating ||
+      "N/A",
+    image:
+      selectedMovieFromAllMovies?.poster ||
+      selectedMovieFromAllMovies?.image ||
+      selectedMovieFromMovieData?.image ||
+      selectedMovieFromMovies?.image ||
+      "/assets/images/placeholder.png",
+    trailer,
+    cast,
   };
 
   const handleStartWatching = () => {
-    // Add videoSources to the movie data for the Video component
+    // Add videoSources before navigating
     const movieWithVideoSources = {
       ...selectedMovie,
       videoSources: {
@@ -73,6 +112,7 @@ const MovieFrame = () => {
           </div>
         </div>
       </div>
+
       <div className="tabs-container">
         <div className="tabs">
           <div
@@ -121,20 +161,23 @@ const MovieFrame = () => {
               </div>
             </div>
           )}
+
           {activeTab === "more" && (
             <div className="more-slider">
-              {movieData.slice(8, 12).map((movie) => (
-                <div key={movie.id} className="more-card">
-                  <img src={movie.image} alt={movie.title} />
-                  <div className="text">
-                    <h4>{movie.title}</h4>
-                    <div className="rating">
-                      <Star className="w-4 h-4" />
-                      {movie.rating}
+              {movieData
+                .filter((movie) => [79, 80, 81, 82].includes(movie.id))
+                .map((movie) => (
+                  <div key={movie.id} className="more-card">
+                    <img src={movie.image} alt={movie.title} />
+                    <div className="text">
+                      <h4>{movie.title}</h4>
+                      <div className="rating">
+                        <Star className="w-4 h-4" />
+                        {movie.rating}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           )}
         </div>
@@ -143,8 +186,4 @@ const MovieFrame = () => {
   );
 };
 
-
-
-
 export default MovieFrame;
-
