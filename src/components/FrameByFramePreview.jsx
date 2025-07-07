@@ -23,7 +23,8 @@ const FrameByFramePreview = ({
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
-  const { myList, addToList } = useMyList();
+  const { myList, addToList, removeFromList } = useMyList();
+  const isInList = myList.some((m) => m.id === id);
 
   const startPreview = () => {
     if (frameImages.length === 0) return;
@@ -47,7 +48,7 @@ const FrameByFramePreview = ({
     }
   };
 
-  // Prepare the movie object for wishlist
+  // Prepare movie object for wishlist
   const movieForWishlist = {
     id,
     poster,
@@ -58,29 +59,6 @@ const FrameByFramePreview = ({
     duration,
     genre,
   };
-
- const handleAddToWishlist = () => {
-  const alreadyExists = myList.some((item) => item.id === id);
-  if (alreadyExists) {
-    toast.error(`"${title}" is already in your Wishlist!`, {
-      position: "top-center",
-      style: {
-        background: "#1c140d",
-        color: "#ffc107",
-      },
-    });
-  } else {
-    addToList(movieForWishlist);
-    toast.success(`Added "${title}" to Wishlist!`, {
-      position: "top-center",
-      style: {
-        background: "#1c140d",
-        color: "#00e676",
-      },
-    });
-  }
-};
-
 
   return (
     <>
@@ -125,14 +103,29 @@ const FrameByFramePreview = ({
             {description}
           </p>
 
-          {/* Play Button */}
+          {/* Buttons */}
           <div className="flex items-center justify-center gap-3 pt-2">
-            <button
-              onClick={handleAddToWishlist}
-              className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-            >
-              <span>♡</span> Add to Wishlist
-            </button>
+            {isInList ? (
+              <button
+                onClick={() => {
+                  removeFromList(id);
+                  toast.error(`Removed "${title}" from your list`);
+                }}
+                className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
+              >
+                <span>✗</span> Remove
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  addToList(movieForWishlist);
+                  toast.success(`Added "${title}" to your list`);
+                }}
+                className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              >
+                <span>♡</span> Add to Wishlist
+              </button>
+            )}
             <button
               onClick={handlePlay}
               className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-amber-500 text-black rounded-full shadow hover:brightness-110 transition text-sm font-semibold"
@@ -140,6 +133,7 @@ const FrameByFramePreview = ({
               <Play size={18} /> Play
             </button>
           </div>
+
           {/* Bottom Accent Bar */}
           <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
             {[...Array(4)].map((_, i) => (
@@ -148,7 +142,9 @@ const FrameByFramePreview = ({
           </div>
         </div>
       </div>
-      <ToastContainer />
+
+      {/* Toast Container */}
+      <ToastContainer position="top-center" />
     </>
   );
 };

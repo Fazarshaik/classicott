@@ -11,7 +11,8 @@ const MovieCard = ({ movie }) => {
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
-  const { addToList } = useMyList();
+  const { myList, addToList, removeFromList } = useMyList();
+  const isInList = myList.some((m) => m.id === movie.id);
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
@@ -122,25 +123,31 @@ const MovieCard = ({ movie }) => {
               ))}
           </div>
 
-          <div className="flex justify-center items-center gap-3 mt-4">
-            <button
-              className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-              onClick={(e) => {
-                e.stopPropagation();
-                addToList(movie);
-                toast.success(`${movie.title} added to your Wishlist!`, {
-                  position: "top-center",
-                  autoClose: 2000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  theme: "dark",
-                });
-              }}
-            >
-              <span>♡</span> Add to Wishlist
-            </button>
+          {/* Add to Wishlist Button */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            {isInList ? (
+              <button
+                className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeFromList(movie.id);
+                  toast.error(`Removed "${movie.title}" from your list`);
+                }}
+              >
+                <span>✗</span> Remove
+              </button>
+            ) : (
+              <button
+                className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToList(movie);
+                  toast.success(`Added "${movie.title}" to your list`);
+                }}
+              >
+                <span>♡</span> Add to Wishlist
+              </button>
+            )}
             <button
               className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               onClick={(e) => {

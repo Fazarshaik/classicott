@@ -3,19 +3,19 @@ import FrameByFramePreview from "./FrameByFramePreview";
 
 const movieFrameData = {
   godfather: [
-    "https://image.tmdb.org/t/p/original/d4KNaTrltq6bpkFS01pYtyXa09m.jpg", 
-    "https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg", 
+    "https://image.tmdb.org/t/p/original/d4KNaTrltq6bpkFS01pYtyXa09m.jpg",
+    "https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
     "https://image.tmdb.org/t/p/original/tmU7GeKVybMWFButWEGl2M4GeiP.jpg",
-    "https://image.tmdb.org/t/p/original/jdHsptJbtalEuVhCV5i7kSC3g0x.jpg", 
-    "https://image.tmdb.org/t/p/original/ra8AmdbM29msIPQjToOT60LR63R.jpg", 
+    "https://image.tmdb.org/t/p/original/jdHsptJbtalEuVhCV5i7kSC3g0x.jpg",
+    "https://image.tmdb.org/t/p/original/ra8AmdbM29msIPQjToOT60LR63R.jpg",
   ],
   romanHoliday: [
-    'https://image.tmdb.org/t/p/original/6f50k0bAekjxDvVvGC1SupJSzf4.jpg', 
-    'https://image.tmdb.org/t/p/original/4psf8OdNFLVGz185HG2Z5vOYXmu.jpg', 
-    'https://image.tmdb.org/t/p/original/2H9B5SGxgFoXWzMBcXYEI8WCUBB.jpg', 
-    'https://image.tmdb.org/t/p/original/9p2oLEbktIrmwaZWRJkUtuQiSH8.jpg',
-    'https://image.tmdb.org/t/p/original/zA6YXJ6DndyQyk16WinpgSy5CK8.jpg', 
-    'https://image.tmdb.org/t/p/original/aIQFhF4mH3mbInmf2C1Hgd0fokI.jpg', 
+    "https://image.tmdb.org/t/p/original/6f50k0bAekjxDvVvGC1SupJSzf4.jpg",
+    "https://image.tmdb.org/t/p/original/4psf8OdNFLVGz185HG2Z5vOYXmu.jpg",
+    "https://image.tmdb.org/t/p/original/2H9B5SGxgFoXWzMBcXYEI8WCUBB.jpg",
+    "https://image.tmdb.org/t/p/original/9p2oLEbktIrmwaZWRJkUtuQiSH8.jpg",
+    "https://image.tmdb.org/t/p/original/zA6YXJ6DndyQyk16WinpgSy5CK8.jpg",
+    "https://image.tmdb.org/t/p/original/aIQFhF4mH3mbInmf2C1Hgd0fokI.jpg",
   ],
   psycho: [
     "https://image.tmdb.org/t/p/original/rRwD4MoBlkBXWQ6PDnbKRSU5dDu.jpg",
@@ -49,7 +49,8 @@ const classicMovies = [
     title: "Roman Holiday",
     image: "/assets/images/romanholiday.jpg",
     rating: 8.0,
-    description: "A princess escapes her royal duties and explores Rome with a journalist in this charming romantic classic.",
+    description:
+      "A princess escapes her royal duties and explores Rome with a journalist in this charming romantic classic.",
     frameImages: movieFrameData.romanHoliday,
   },
   {
@@ -99,12 +100,16 @@ const Frame = () => {
         {classicMovies.map((movie) => (
           <FrameByFramePreview
             key={movie.id}
+            id={movie.id}
             poster={movie.image}
             frameImages={movie.frameImages}
             title={movie.title}
             rating={movie.rating}
             description={movie.description}
-            videoUrl={`/video`} // ✅ Navigates to the video
+            videoUrl={"/video"}
+            year={movie.year || ""}
+            duration={movie.duration || ""}
+            genre={movie.genre || ""}
           />
         ))}
       </div>
