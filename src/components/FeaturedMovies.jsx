@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Play, Star, Calendar, Clock, Award } from "lucide-react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import movies from "../data/movies";
 import { useMyList } from "../context/MyListContex";
 
@@ -47,7 +49,6 @@ const MovieCard = ({ movie }) => {
           ))}
         </div>
 
-        {/* Poster or Preview */}
         <div className="relative w-[320px] h-[320px] overflow-hidden mx-auto mt-2 rounded">
           <img
             src={currentFrame || movie.poster}
@@ -75,13 +76,11 @@ const MovieCard = ({ movie }) => {
             </div>
           </div>
 
-          {/* Star Rating */}
           <div className="absolute top-2 right-2 bg-black/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center space-x-1 border border-amber-600/30 text-xs">
             <Star className="w-3 h-3 text-amber-400 fill-current" />
             <span className="text-white font-bold">{movie.rating}</span>
           </div>
 
-          {/* Award Badge */}
           {parseFloat(movie.rating) >= 8.5 && (
             <div className="absolute top-2 left-2 bg-gradient-to-r from-amber-600 to-amber-500 rounded-full p-1">
               <Award className="w-3 h-3 text-white" />
@@ -89,7 +88,6 @@ const MovieCard = ({ movie }) => {
           )}
         </div>
 
-        {/* Movie Info */}
         <div className="px-3 py-2">
           <h3 className="text-white text-sm font-semibold mb-1 line-clamp-2">
             {movie.title}
@@ -124,13 +122,21 @@ const MovieCard = ({ movie }) => {
               ))}
           </div>
 
-          {/* Add to Wishlist Button */}
           <div className="flex justify-center items-center gap-3 mt-4">
             <button
               className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               onClick={(e) => {
                 e.stopPropagation();
                 addToList(movie);
+                toast.success(`${movie.title} added to your Wishlist!`, {
+                  position: "top-center",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  theme: "dark",
+                });
               }}
             >
               <span>♡</span> Add to Wishlist
@@ -144,11 +150,9 @@ const MovieCard = ({ movie }) => {
             >
               <Play className="w-4 h-4" /> Play
             </button>
-            {/* Add more buttons here as needed */}
           </div>
         </div>
 
-        {/* Film Strip Bottom */}
         <div className="h-2 bg-gradient-to-r from-amber-600/60 to-amber-400/60 flex items-center justify-center space-x-1">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="w-1 h-1 bg-black/40 rounded-full"></div>
