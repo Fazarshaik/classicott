@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Play, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useMyList } from "../context/MyListContex";
+import toast from "react-hot-toast";
 
 const FrameByFramePreview = ({
   frameImages = [],
@@ -21,7 +22,8 @@ const FrameByFramePreview = ({
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
-  const { addToList } = useMyList();
+  const { myList, addToList, removeFromList } = useMyList();
+  const isInList = myList.some((m) => m.id === id);
 
   const startPreview = () => {
     if (frameImages.length === 0) return;
@@ -101,12 +103,27 @@ const FrameByFramePreview = ({
 
         {/* Play Button */}
         <div className="flex items-center justify-center gap-3 pt-2">
-          <button
-            onClick={() => addToList(movieForWishlist)}
-            className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-          >
-            <span>♡</span> Add to Wishlist
-          </button>
+          {isInList ? (
+            <button
+              onClick={() => {
+                removeFromList(id);
+                toast.error(`Removed "${title}" from your list`);
+              }}
+              className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
+            >
+              <span>✗</span> Remove
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                addToList(movieForWishlist);
+                toast.success(`Added "${title}" to your list`);
+              }}
+              className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            >
+              <span>♡</span> Add to Wishlist
+            </button>
+          )}
           <button
             onClick={handlePlay}
             className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-amber-500 text-black rounded-full shadow hover:brightness-110 transition text-sm font-semibold"

@@ -3,7 +3,8 @@ import "../css/Forgotpassword.scss";
 import { Mail, Lock, ShieldCheck, Eye, EyeOff } from "lucide-react";
 import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -24,12 +25,22 @@ const ForgotPassword = () => {
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
-
     const validationErrors = {};
-    if (!email.trim()) {
+    const emailToCheck = email.trim().toLowerCase();
+
+    if (!emailToCheck) {
       validationErrors.email = "Email is required";
-    } else if (!emailRegex.test(email)) {
+    } else if (!emailRegex.test(emailToCheck)) {
       validationErrors.email = "Invalid email format";
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userFound = users.find(
+      (user) => user.email.toLowerCase() === emailToCheck
+    );
+
+    if (!userFound) {
+      validationErrors.email = "This email is not registered";
     }
 
     if (Object.keys(validationErrors).length > 0) {
@@ -40,20 +51,20 @@ const ForgotPassword = () => {
     setErrors({});
     const otpCode = Math.floor(1000 + Math.random() * 9000).toString();
     setGeneratedOtp(otpCode);
+
     toast.info(`Your OTP is: ${otpCode}`, {
       position: "top-center",
       autoClose: false,
       closeOnClick: false,
       draggable: false,
-      closeButton: true,
       toastId: "otp-toast",
     });
+
     setStep(2);
   };
 
   const handleOtpSubmit = (e) => {
     e.preventDefault();
-
     if (!otp) {
       toast.error("Please enter the OTP");
       return;
@@ -70,14 +81,13 @@ const ForgotPassword = () => {
 
   const handlePasswordReset = (e) => {
     e.preventDefault();
-
     const validationErrors = {};
 
     if (!newPassword.trim()) {
       validationErrors.newPassword = "Password is required";
     } else if (!passwordRegex.test(newPassword)) {
       validationErrors.newPassword =
-        "Password must be exactly 8 characters with at least one uppercase letter, one lowercase letter, one number, and one special character";
+        "Password must be exactly 8 characters with uppercase, lowercase, number, and special character";
     }
 
     if (!confirmPassword.trim()) {
@@ -91,9 +101,17 @@ const ForgotPassword = () => {
       return;
     }
 
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const updatedUsers = users.map((user) =>
+      user.email.toLowerCase() === email.toLowerCase()
+        ? { ...user, password: newPassword }
+        : user
+    );
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+
     setErrors({});
-    toast.success("Password reset successfully!");
-    navigate("/login");
+    toast.success("Password reset successfully!", { autoClose: 2000 });
+    setTimeout(() => navigate("/login"), 2500);
   };
 
   return (
@@ -108,9 +126,9 @@ const ForgotPassword = () => {
               <Mail className="icon" />
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your registered email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             {errors.email && <p className="error-text">{errors.email}</p>}
@@ -191,7 +209,6 @@ const ForgotPassword = () => {
           </form>
         )}
 
-        {/* Social Icons */}
         <div className="social-icons">
           <p className="social-text">Or sign in with:</p>
           <div className="icons">
@@ -225,6 +242,8 @@ const ForgotPassword = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };
