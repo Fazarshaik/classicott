@@ -96,8 +96,7 @@ const MovieCard = ({ movie }) => {
         <p className="movie-description">{movie.description}</p>
 
         <div className="genre-tags">
-          {movie.genre
-            .split(",")
+          {(movie.genre ? movie.genre.split(",") : [])
             .slice(0, 2)
             .map((genre, i) => (
               <span key={i} className="genre-tag">
