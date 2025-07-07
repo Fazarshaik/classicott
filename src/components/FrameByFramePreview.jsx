@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
-import { Play, Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import { Play, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useMyList } from "../context/MyListContex";
 
 const FrameByFramePreview = ({
   frameImages = [],
@@ -9,13 +10,18 @@ const FrameByFramePreview = ({
   rating,
   description,
   videoUrl,
-  width = '280px',
-  height = '380px',
+  width = "280px",
+  height = "380px",
+  id,
+  year,
+  duration,
+  genre,
 }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
+  const { addToList } = useMyList();
 
   const startPreview = () => {
     if (frameImages.length === 0) return;
@@ -23,8 +29,7 @@ const FrameByFramePreview = ({
     setCurrentFrame(frameImages[0]);
 
     intervalRef.current = setInterval(() => {
-      frameIndexRef.current =
-        (frameIndexRef.current + 1) % frameImages.length;
+      frameIndexRef.current = (frameIndexRef.current + 1) % frameImages.length;
       setCurrentFrame(frameImages[frameIndexRef.current]);
     }, 150);
   };
@@ -40,9 +45,21 @@ const FrameByFramePreview = ({
     }
   };
 
+  // Prepare the movie object for wishlist
+  const movieForWishlist = {
+    id,
+    poster,
+    title,
+    rating,
+    description,
+    year,
+    duration,
+    genre,
+  };
+
   return (
     <div
-      style={{ width, margin: '10px' }}
+      style={{ width, margin: "10px" }}
       className="rounded-xl border border-amber-400 shadow-lg overflow-hidden bg-[#1e1e1e] text-white transition-transform hover:-translate-y-1 duration-300"
     >
       {/* Image Card */}
@@ -64,8 +81,6 @@ const FrameByFramePreview = ({
           alt="Movie Preview"
           className="w-full h-full object-cover filter sepia-[0.8] transition duration-300"
         />
-
-        
       </div>
 
       {/* Info Below Card */}
@@ -80,16 +95,23 @@ const FrameByFramePreview = ({
         </div>
 
         {/* Description */}
-        <p className="text-sm text-gray-300 line-clamp-2 leading-tight">{description}</p>
+        <p className="text-sm text-gray-300 line-clamp-2 leading-tight">
+          {description}
+        </p>
 
         {/* Play Button */}
-        <div className="pt-2">
+        <div className="flex items-center justify-center gap-3 pt-2">
+          <button
+            onClick={() => addToList(movieForWishlist)}
+            className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+          >
+            <span>♡</span> Add to Wishlist
+          </button>
           <button
             onClick={handlePlay}
-            className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-amber-500 text-black rounded-full shadow hover:brightness-110 transition"
+            className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-amber-500 text-black rounded-full shadow hover:brightness-110 transition text-sm font-semibold"
           >
-            <Play size={18} />
-            <span className="text-sm font-semibold">Play</span>
+            <Play size={18} /> Play
           </button>
         </div>
         {/* Bottom Accent Bar */}

@@ -2,12 +2,14 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Play, Star, Calendar, Clock, Award } from "lucide-react";
 import movies from "../data/movies";
+import { useMyList } from "../context/MyListContex";
 
 const MovieCard = ({ movie }) => {
   const [currentFrame, setCurrentFrame] = useState(null);
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
+  const { addToList } = useMyList();
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
@@ -120,6 +122,29 @@ const MovieCard = ({ movie }) => {
                   {genre.trim()}
                 </span>
               ))}
+          </div>
+
+          {/* Add to Wishlist Button */}
+          <div className="flex justify-center items-center gap-3 mt-4">
+            <button
+              className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              onClick={(e) => {
+                e.stopPropagation();
+                addToList(movie);
+              }}
+            >
+              <span>♡</span> Add to Wishlist
+            </button>
+            <button
+              className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("/video", { state: { movie } });
+              }}
+            >
+              <Play className="w-4 h-4" /> Play
+            </button>
+            {/* Add more buttons here as needed */}
           </div>
         </div>
 
