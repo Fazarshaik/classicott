@@ -2,7 +2,7 @@ const allmovies = [
   {
     id: 1,
     title: "Greed",
-    image: "/assets/images/1920's/1925 movie Greed.jpeg",
+    poster: "/assets/images/1920's/1925 movie Greed.jpeg",
     rating: "8.0",
     year: "1926",
     duration: "4h",
@@ -21,7 +21,7 @@ const allmovies = [
   {
     id: 2,
     title: "The Gold Rush",
-    image: "/assets/images/1920's/Gold Rush_1925.jpeg",
+    poster: "/assets/images/1920's/Gold Rush_1925.jpeg",
     rating: "8.2",
     year: "1925",
     duration: "1h 35m",
