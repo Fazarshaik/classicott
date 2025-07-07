@@ -48,6 +48,8 @@ const MovieCard = ({ movie }) => {
       className="movie-card"
       onMouseEnter={startPreview}
       onMouseLeave={stopPreview}
+      onClick={() => navigate(`/movieframe/${movie.id}`)}
+      style={{ cursor: "pointer" }}
     >
       <div className="film-strip">
         {[...Array(4)].map((_, i) => (
@@ -105,18 +107,36 @@ const MovieCard = ({ movie }) => {
         </div>
 
         <div className="action-buttons">
-          <button onClick={handlePlay} className="play-button">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePlay();
+            }}
+            className="play-button"
+          >
             <Play className="play-icon" />
             Play
           </button>
 
           {isInList ? (
-            <button onClick={handleRemoveFromList} className="add-button bg-red-600 hover:bg-red-700">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleRemoveFromList();
+              }}
+              className="add-button bg-red-600 hover:bg-red-700"
+            >
               <X className="add-icon" />
               Remove
             </button>
           ) : (
-            <button onClick={handleAddToList} className="add-button">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAddToList();
+              }}
+              className="add-button"
+            >
               <Plus className="add-icon" />
               Add to My List
             </button>
