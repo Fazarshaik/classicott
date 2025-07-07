@@ -47,13 +47,27 @@ const Signup = () => {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const emailExists = users.some(
+      (user) => user.email.toLowerCase() === formData.email.toLowerCase()
+    );
+
+    if (emailExists) {
+      toast.error('Email already registered!', { autoClose: 2000 });
     } else {
-      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-      existingUsers.push({ name: formData.name, email: formData.email, password: formData.password });
-      localStorage.setItem('users', JSON.stringify(existingUsers));
+      const newUser = {
+        name: formData.name,
+        email: formData.email.toLowerCase(),
+        password: formData.password,
+      };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
       toast.success('Signup successful! Redirecting to login...', {
-        onClose: () => navigate('/login'),
         autoClose: 2000,
+        onClose: () => navigate('/login'),
       });
     }
   };
@@ -154,7 +168,9 @@ const Signup = () => {
                     {showConfirm ? <EyeOff /> : <Eye />}
                   </span>
                 </div>
-                {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
+                {errors.confirmPassword && (
+                  <p className="error-message">{errors.confirmPassword}</p>
+                )}
               </div>
 
               <button type="submit" className="signup-button">Signup</button>
@@ -166,23 +182,22 @@ const Signup = () => {
               <div className="divider-line"></div>
             </div>
 
-            {/* Added Social Login Section */}
             <div className="social-login-section">
               <p className="social-text">Or sign up with:</p>
               <div className="social-icons">
-                <button 
+                <button
                   className="social-icon google"
                   onClick={() => window.location.href = "https://accounts.google.com/"}
                 >
                   <FaGoogle />
                 </button>
-                <button 
+                <button
                   className="social-icon facebook"
                   onClick={() => window.location.href = "https://www.facebook.com/"}
                 >
                   <FaFacebookF />
                 </button>
-                <button 
+                <button
                   className="social-icon twitter"
                   onClick={() => window.location.href = "https://twitter.com/"}
                 >
