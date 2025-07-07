@@ -20,15 +20,13 @@ const Login = () => {
   const validateForm = () => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    // Email validation
+
     if (!email.trim()) {
       errors.email = "Email is required";
     } else if (!emailRegex.test(email)) {
       errors.email = "Invalid email format";
     }
 
-    // Password validation
     if (!password.trim()) {
       errors.password = "Password is required";
     } else if (password.length !== 8) {
@@ -38,13 +36,13 @@ const Login = () => {
       const hasUpper = /[A-Z]/.test(password);
       const hasNumber = /\d/.test(password);
       const hasSpecial = /[@$!%*?&]/.test(password);
-      
+
       let missingRequirements = [];
       if (!hasLower) missingRequirements.push("lowercase letter");
       if (!hasUpper) missingRequirements.push("uppercase letter");
       if (!hasNumber) missingRequirements.push("number");
       if (!hasSpecial) missingRequirements.push("special character (@$!%*?&)");
-      
+
       if (missingRequirements.length > 0) {
         errors.password = `Password must contain: ${missingRequirements.join(", ")}`;
       }
@@ -60,13 +58,25 @@ const Login = () => {
 
     if (!validateForm()) return;
 
-    toast.success("Successfully logged in!", {
-      position: "top-right",
-      autoClose: 2000,
-      theme: "dark",
-    });
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const existingUser = storedUsers.find(
+      (user) =>
+        user.email === email.toLowerCase() && user.password === password
+    );
 
-    setTimeout(() => navigate("/dashboard"), 2500);
+    if (existingUser) {
+      localStorage.setItem("loggedInUser", email.toLowerCase());
+      toast.success("Successfully logged in!", {
+        position: "top-right",
+        autoClose: 2000,
+        theme: "dark",
+      });
+
+      setTimeout(() => navigate("/dashboard"), 2000);
+    } else {
+      setExistingUserError("Email or password is incorrect.");
+      toast.error("Invalid credentials. Please try again.");
+    }
   };
 
   return (
