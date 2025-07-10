@@ -50,26 +50,10 @@ const Signup = () => {
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const emailExists = users.some(
-      (user) => user.email.toLowerCase() === formData.email.toLowerCase()
-    );
-
-    if (emailExists) {
-      toast.error('Email already registered!', { autoClose: 2000 });
-    } else {
-      const newUser = {
-        name: formData.name,
-        email: formData.email.toLowerCase(),
-        password: formData.password,
-      };
-      users.push(newUser);
-      localStorage.setItem('users', JSON.stringify(users));
-      toast.success('Signup successful! Redirecting to login...', {
-        autoClose: 2000,
-        onClose: () => navigate('/login'),
-      });
-    }
+    toast.success('Signup successful! Redirecting to login...', {
+      autoClose: 2000,
+      onClose: () => navigate('/login'),
+    });
   };
 
   return (
