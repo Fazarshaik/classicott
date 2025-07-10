@@ -13,9 +13,9 @@ const allmovies = [
     era: "1920s",
     trailer: "https://www.youtube.com/embed/A7YeJMiN-wQ",
     cast: [
-      { name: "Gibson Gowland", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Zasu Pitts", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Jean Hersholt", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Gibson Gowland", image: "/assets/images/cast/Gibson Gowland.jpeg" },
+      { name: "Zasu Pitts", image: "/assets/images/cast/Zasu Pitts.jpeg" },
+      { name: "Jean Hersholt", image: "/assets/images/cast/Jean Hersholt.jpeg" },
     ],
   },
   {
@@ -32,9 +32,9 @@ const allmovies = [
     era: "1920s",
     trailer: "https://www.youtube.com/embed/kDlEvaKBkhU?si=g6fyrnzGUCyTiQ7P",
     cast: [
-      { name: "Charlie Chaplin", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Georgia Hale", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Mack Swain", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Charlie Chaplin", image: "/assets/images/cast/Charlie Chaplin.jpeg" },
+      { name: "Georgia Hale", image: "/assets/images/cast/Georgia Hale.jpeg" },
+      { name: "Mack Swain", image: "/assets/images/cast/Mack Swain.jpeg" },
     ],
   },
   {
@@ -51,9 +51,9 @@ const allmovies = [
     era: "1920s",
     trailer: "https://www.youtube.com/embed/QMGb9wyyM6Q?si=HE2dJ5aw2KPfb6E0",
     cast: [
-      { name: "Brigitte Helm", image: "/assets/images/cast/Jack.jpeg" },
-      { name: "Alfred Abel", image: "/assets/images/cast/Rose.jpeg" },
-      { name: "Gustav Fröhlich", image: "/assets/images/cast/BillyZane.jpeg" },
+      { name: "Brigitte Helm", image: "/assets/images/cast/Brigitte Helm.jpeg" },
+      { name: "Alfred Abel", image: "/assets/images/cast/Alfred Abel.jpeg" },
+      { name: "Gustav Fröhlich", image: "/assets/images/cast/Gustav Frohlich.jpeg" },
     ],
   },
   {

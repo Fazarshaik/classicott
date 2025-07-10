@@ -26,21 +26,11 @@ const ForgotPassword = () => {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     const validationErrors = {};
-    const emailToCheck = email.trim().toLowerCase();
 
-    if (!emailToCheck) {
+    if (!email.trim()) {
       validationErrors.email = "Email is required";
-    } else if (!emailRegex.test(emailToCheck)) {
+    } else if (!emailRegex.test(email.trim())) {
       validationErrors.email = "Invalid email format";
-    }
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const userFound = users.find(
-      (user) => user.email.toLowerCase() === emailToCheck
-    );
-
-    if (!userFound) {
-      validationErrors.email = "This email is not registered";
     }
 
     if (Object.keys(validationErrors).length > 0) {
@@ -101,14 +91,6 @@ const ForgotPassword = () => {
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const updatedUsers = users.map((user) =>
-      user.email.toLowerCase() === email.toLowerCase()
-        ? { ...user, password: newPassword }
-        : user
-    );
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-
     setErrors({});
     toast.success("Password reset successfully!", { autoClose: 2000 });
     setTimeout(() => navigate("/login"), 2500);
@@ -126,7 +108,7 @@ const ForgotPassword = () => {
               <Mail className="icon" />
               <input
                 type="email"
-                placeholder="Enter your registered email"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

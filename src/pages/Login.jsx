@@ -11,7 +11,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const [existingUserError, setExistingUserError] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,29 +53,16 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setExistingUserError("");
 
     if (!validateForm()) return;
 
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const existingUser = storedUsers.find(
-      (user) =>
-        user.email === email.toLowerCase() && user.password === password
-    );
+    toast.success("Successfully logged in!", {
+      position: "top-right",
+      autoClose: 2000,
+      theme: "dark",
+    });
 
-    if (existingUser) {
-      localStorage.setItem("loggedInUser", email.toLowerCase());
-      toast.success("Successfully logged in!", {
-        position: "top-right",
-        autoClose: 2000,
-        theme: "dark",
-      });
-
-      setTimeout(() => navigate("/dashboard"), 2000);
-    } else {
-      setExistingUserError("Email or password is incorrect.");
-      toast.error("Invalid credentials. Please try again.");
-    }
+    setTimeout(() => navigate("/dashboard"), 2000);
   };
 
   return (
@@ -157,13 +143,6 @@ const Login = () => {
                 </div>
               )}
             </div>
-
-            {existingUserError && (
-              <div className="auth-error">
-                <span className="error-icon">!</span>
-                {existingUserError}
-              </div>
-            )}
 
             <div className="auth-options">
               <button
