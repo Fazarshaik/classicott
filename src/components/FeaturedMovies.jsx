@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Play, Star, Calendar, Clock, Award } from "lucide-react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Play, Star, Calendar, Clock, Award, Plus } from "lucide-react";
+import toast from "react-hot-toast";
 import movies from "../data/movies";
 import { useMyList } from "../context/MyListContex";
 
@@ -11,8 +10,7 @@ const MovieCard = ({ movie }) => {
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
-  const { myList, addToList, removeFromList } = useMyList();
-  const isInList = myList.some((m) => m.id === movie.id);
+  const { addToList, myList } = useMyList();
 
   const startPreview = () => {
     if (!movie.frameImages?.length) return;
@@ -34,6 +32,44 @@ const MovieCard = ({ movie }) => {
 
   const handleCardClick = () => {
     navigate(`/movieframe/${movie.id}`);
+  };
+
+  const handleAddToList = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking add to list button
+    const toastId = "my-list-toast";
+    toast.dismiss(toastId); // Dismiss any existing toast with this id
+
+    const alreadyExists = myList.some((item) => item.id === movie.id);
+
+    if (alreadyExists) {
+      toast.error(` "${movie.title}" is already in your list.`, {
+        id: toastId,
+        style: {
+          background: "#1c140d",
+          color: "white",
+          border: "1px solid #ef4444",
+        },
+        iconTheme: {
+          primary: "#f87171",
+          secondary: "#1c140d",
+        },
+      });
+      return;
+    }
+
+    addToList(movie);
+    toast.success(` "${movie.title}" added to My List!`, {
+      id: toastId,
+      style: {
+        background: "#1c140d",
+        color: "white",
+        border: "1px solid #d97706",
+      },
+      iconTheme: {
+        primary: "#f59e0b",
+        secondary: "#1c140d",
+      },
+    });
   };
 
   return (
@@ -123,39 +159,24 @@ const MovieCard = ({ movie }) => {
               ))}
           </div>
 
-          {/* Add to Wishlist Button */}
-          <div className="flex items-center justify-center gap-3 mt-4">
-            {isInList ? (
-              <button
-                className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  removeFromList(movie.id);
-                  toast.error(`Removed "${movie.title}" from your list`);
-                }}
-              >
-                <span>✗</span> Remove
-              </button>
-            ) : (
-              <button
-                className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  addToList(movie);
-                  toast.success(`Added "${movie.title}" to your list`);
-                }}
-              >
-                <span>♡</span> Add to Wishlist
-              </button>
-            )}
+          <div className="mt-3 flex justify-center gap-3">
             <button
-              className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
               onClick={(e) => {
                 e.stopPropagation();
                 navigate("/video", { state: { movie } });
               }}
+              className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition"
             >
-              <Play className="w-4 h-4" /> Play
+              <Play className="w-4 h-4" />
+              Play Now
+            </button>
+
+            <button
+              onClick={handleAddToList}
+              className="flex items-center gap-1 border border-amber-500 text-amber-400 text-xs px-3 py-1 rounded-full hover:bg-amber-600/10 transition"
+            >
+              <Plus className="w-4 h-4" />
+              Add to My List
             </button>
           </div>
         </div>
