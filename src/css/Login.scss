@@ -15,6 +15,10 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
 
 /* Modal Container */
 .auth-modal {

@@ -337,6 +337,10 @@ input::placeholder {
   justify-content: flex-start;
   padding-right: 8px;
 }
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
 .social-login-section {
   text-align: center;
   margin: 20px 0;
