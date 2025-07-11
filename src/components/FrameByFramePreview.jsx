@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
-import { Play, Star } from "lucide-react";
+import { Play, Star, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useMyList } from "../context/MyListContex";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from "react-hot-toast";
 
 const FrameByFramePreview = ({
   frameImages = [],
@@ -23,8 +22,7 @@ const FrameByFramePreview = ({
   const intervalRef = useRef(null);
   const frameIndexRef = useRef(0);
   const navigate = useNavigate();
-  const { myList, addToList, removeFromList } = useMyList();
-  const isInList = myList.some((m) => m.id === id);
+  const { addToList, myList } = useMyList();
 
   const startPreview = () => {
     if (frameImages.length === 0) return;
@@ -48,16 +46,53 @@ const FrameByFramePreview = ({
     }
   };
 
-  // Prepare movie object for wishlist
-  const movieForWishlist = {
-    id,
-    poster,
-    title,
-    rating,
-    description,
-    year,
-    duration,
-    genre,
+  const handleAddToList = (e) => {
+    e.stopPropagation(); // Prevent card click when clicking add to list button
+    const toastId = "my-list-toast";
+    toast.dismiss(toastId); // Dismiss any existing toast with this id
+
+    const alreadyExists = myList.some((item) => item.id === id);
+
+    if (alreadyExists) {
+      toast.error(` "${title}" is already in your list.`, {
+        id: toastId,
+        style: {
+          background: "#1c140d",
+          color: "white",
+          border: "1px solid #ef4444",
+        },
+        iconTheme: {
+          primary: "#f87171",
+          secondary: "#1c140d",
+        },
+      });
+      return;
+    }
+
+    const movieForWishlist = {
+      id,
+      poster,
+      title,
+      rating,
+      description,
+      year,
+      duration,
+      genre,
+    };
+
+    addToList(movieForWishlist);
+    toast.success(` "${title}" added to My List!`, {
+      id: toastId,
+      style: {
+        background: "#1c140d",
+        color: "white",
+        border: "1px solid #d97706",
+      },
+      iconTheme: {
+        primary: "#f59e0b",
+        secondary: "#1c140d",
+      },
+    });
   };
 
   return (
@@ -105,32 +140,20 @@ const FrameByFramePreview = ({
 
           {/* Buttons */}
           <div className="flex items-center justify-center gap-3 pt-2">
-            {isInList ? (
-              <button
-                onClick={() => {
-                  removeFromList(id);
-                  toast.error(`Removed "${title}" from your list`);
-                }}
-                className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400"
-              >
-                <span>✗</span> Remove
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  addToList(movieForWishlist);
-                  toast.success(`Added "${title}" to your list`);
-                }}
-                className="flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
-              >
-                <span>♡</span> Add to Wishlist
-              </button>
-            )}
             <button
               onClick={handlePlay}
-              className="flex items-center justify-center gap-2 px-4 py-1.5 bg-gradient-to-r from-yellow-500 to-amber-500 text-black rounded-full shadow hover:brightness-110 transition text-sm font-semibold"
+              className="flex items-center gap-1 bg-amber-600 hover:bg-amber-500 text-white text-xs px-3 py-1 rounded-full shadow transition"
             >
-              <Play size={18} /> Play
+              <Play className="w-4 h-4" />
+              Play Now
+            </button>
+
+            <button
+              onClick={handleAddToList}
+              className="flex items-center gap-1 border border-amber-500 text-amber-400 text-xs px-3 py-1 rounded-full hover:bg-amber-600/10 transition"
+            >
+              <Plus className="w-4 h-4" />
+              Add to My List
             </button>
           </div>
 
@@ -142,9 +165,6 @@ const FrameByFramePreview = ({
           </div>
         </div>
       </div>
-
-      {/* Toast Container */}
-      <ToastContainer position="top-center" />
     </>
   );
 };
